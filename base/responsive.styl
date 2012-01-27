@@ -1,0 +1,201 @@
+/*
+ * ESN Frontend Toolkit
+ */
+
+// RESPONSIVE CLASSES
+// ------------------
+
+// Hide from screenreaders and browsers
+// Credit: HTML5BP
+.hidden
+  display: none
+  visibility: hidden
+
+// UP TO LANDSCAPE PHONE
+// ---------------------
+
+@media (max-width: 480px)
+
+  // Make the nav work for small devices
+  .navbar .nav
+    position: absolute
+    top: 0
+    left: 0
+    width: 180px
+    padding-top: 40px
+    list-style: none
+    border-radius: 0 0 $base-border-radius 0
+  
+    > li
+      float: none
+      display: none
+
+      &:last-child a
+        border-radius: 0 0 $base-border-radius 0
+
+      > a
+        float: none
+        background-color: #222
+
+    > .active 
+      display: block
+      position: absolute
+      top: 0
+      left: 0
+  
+      > a
+        background-color: transparent
+
+        &:hover
+          background-color: #333
+
+        &:after 
+          display: inline-block
+          width: 0
+          height: 0
+          margin-top: 8px
+          margin-left: 6px
+          text-indent: -99999px
+          vertical-align: top
+          border-left: 4px solid transparent
+          border-right: 4px solid transparent
+          border-top: 4px solid #fff
+          opacity: 1
+          content: "&darr;"
+
+    &:hover > li
+      display: block
+
+      > a:hover
+        background-color: #333
+
+  // Remove the horizontal form styles
+  .form-horizontal
+    .control-group > label
+      float: none
+      width: auto
+      padding-top: 0
+      text-align: left
+
+    // Move over all input controls and content
+    .controls
+      margin-left: 0
+    
+    // Move the options list down to align with labels
+    .control-list
+      padding-top: 0 // has to be padding because margin collaspes
+
+    // Move over buttons in .form-actions to align with .controls
+    .form-actions
+      padding-left: 0
+  
+
+  // Modals
+  .modal
+    position: absolute
+    top: 20px
+    left: 20px
+    right: 20px
+    width: auto
+    margin: 0
+    &.fade.in
+      top: auto
+      
+  .modal-header .close
+    padding: 10px
+
+// LANDSCAPE PHONE TO SMALL DESKTOP & PORTRAIT TABLET
+// --------------------------------------------------
+
+@media (max-width: 768px)
+  
+  // Unfix the navbar
+  body.navbar-fixed
+    .navbar
+      position: absolute
+    .nav
+      float: none
+
+  // Remove width from containers
+  .container
+    width: auto
+    padding: 0 20px
+
+  // Undo negative margin on rows
+  .row
+    margin-left: 0
+
+  // Make all columns even
+  .row > [class*="span"]
+    float: none
+    display: block
+    width: auto
+    margin: 0
+
+// PORTRAIT TABLET TO DEFAULT DESKTOP
+// ----------------------------------
+
+@media (min-width: 768px) and (max-width: 940px)
+
+  // Reset grid variables
+  $grid-columns = 16
+  $grid-column-width = 44px
+  $grid-gutter-width = 20px
+  $site-width = 748px
+
+  // Bring grid mixins to recalculate widths
+  columns($col = 1)
+    width: ($grid-column-width * $col) + ($grid-gutter-width * ($col - 1))
+    
+  offset($col = 1)
+    margin-left: ($grid-column-width * $col) + ($grid-gutter-width * ($col - 1)) + ($grid-gutter-width * 2)
+
+  // 16cols at 30px wide with 16px gutters
+  .container
+    width: $site-width
+
+  // Default columns
+  for $col in 1..$grid-columns
+    .span{$col}
+      columns($col);
+  
+  // Offset column options
+  for $col in 1...$grid-columns
+    .offset{$col}
+      offset($col);
+
+// LARGE DESKTOP & UP
+// ------------------
+@media (min-width: 1210px)
+
+  // Reset grid variables
+  $grid-columns = 12
+  $grid-column-width = 70px
+  $grid-gutter-width = 30px
+  $site-width = 1170px
+
+  // Bring grid mixins to recalculate widths
+  columns($col = 1)
+    width: ($grid-column-width * $col) + ($grid-gutter-width * ($col - 1))
+    
+  offset($col = 1)
+    margin-left: ($grid-column-width * $col) + ($grid-gutter-width * ($col - 1)) + ($grid-gutter-width * 2)
+
+  .container
+    width: $site-width
+    
+  .row
+    margin-left: ($grid-gutter-width * -1)
+
+  [class*="span"]
+    margin-left: $grid-gutter-width
+
+  // Default columns
+  for $col in 1..$grid-columns
+    .span{$col}
+      columns($col)
+  
+  // Offset column options
+  for $col in 1...$grid-columns
+    .offset{$col}
+      offset($col)

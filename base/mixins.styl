@@ -1,0 +1,103 @@
+/*
+ * ESN Frontend Toolkit
+ */
+
+/*
+ * Extendable clearfix class
+ */
+.clearfix
+  clearfix()
+ 
+/*
+ * Grid system
+ */
+fixed-container()
+  width: $site-width
+  margin-left: auto
+  margin-right: auto
+  
+fluid-container()
+  position: relative
+  min-width: $site-width
+  padding-left: $container-padding
+  padding-right: $container-padding
+
+columns($columns = 1)
+  width: ($grid-column-width * $columns) + ($grid-gutter-width * ($columns - 1))
+
+offset($columns = 1)
+  margin-left: ($grid-column-width * $columns) + ($grid-gutter-width * ($columns - 1)) + ($grid-gutter-width * 2)
+
+// Necessary grid styles for every column to make them appear next to each other horizontally
+grid-column()
+  float: left
+  margin-left: $grid-gutter-width
+
+// makeColumn can be used to mark any element (e.g., .content-primary) as a column without changing markup to .span something
+make-column($column-span = 1)
+  grid-column()
+  columns($column-span)
+  
+/*
+ * Popover arrows
+ */
+popover-arrow-top($arrow-width = 5px)
+  bottom: 0
+  left: 50%
+  margin-left: -($arrow-width)
+  border-left: $arrow-width solid transparent
+  border-right: $arrow-width solid transparent
+  border-top: $arrow-width solid black
+
+popover-arrow-left($arrow-width = 5px)
+  top: 50%
+  right: 0
+  margin-top: -($arrow-width)
+  border-top: $arrow-width solid transparent
+  border-bottom: $arrow-width solid transparent
+  border-left: $arrow-width solid black
+  
+popover-arrow-bottom($arrow-width = 5px)
+  top: 0
+  left: 50%
+  margin-left: -($arrow-width)
+  border-left: $arrow-width solid transparent
+  border-right: $arrow-width solid transparent
+  border-bottom: $arrow-width solid black
+
+popover-arrow-right($arrow-width = 5px)
+  top: 50%
+  left: 0
+  margin-top: -($arrow-width)
+  border-top: $arrow-width solid transparent
+  border-bottom: $arrow-width solid transparent
+  border-right: $arrow-width solid black
+  
+/*
+ * Fonts
+ */
+font-family-serif()
+  font-family: Georgia, "Times New Roman", Times, serif
+  
+font-family-sans-serif()
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+  
+font-family-monospace()
+  font-family: Menlo, Monaco, "Courier New", monospace
+  
+font-shorthand($size = $base-font-size, $weight = normal, $line-height = $base-line-height)
+  font-size: $size
+  font-weight: $height
+  line-height: $line-height
+  
+font-serif($size = $base-font-size, $weight = normal, $line-height = $base-line-height)
+    font-family-serif()
+    font-shorthand($size, $weight, $line-height)
+
+font-sans-serif($size = $base-font-size, $weight = normal, $line-height = $base-line-height)
+    font-family-sans-serif()
+    font-shorthand($size, $weight, $line-height)
+
+font-monospace($size = $base-font-size, $weight = normal, $line-height = $base-line-height)
+    font-family-monospace()
+    font-shorthand($size, $weight, $line-height)

@@ -1,0 +1,131 @@
+.btn
+  color: #000
+  //background: #FCD053 linear-gradient-image(36px, #FCD053 0%, #F5A803 100%)
+  background: linear-gradient(top, 0% #FCD053, 100% #F5A803)
+  
+  border: 1px solid #F69D0D
+  border-top-color: #FCC42E
+  border-bottom-color: #C07001
+  border-radius: $button-border-radius
+  
+  font-family: BebasNeueRegular, Arial
+  font-weight: normal
+  font-size: 18px
+  padding-top: 8px
+  line-height: 15px
+  min-width: .5em
+  text-align: center
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 1px 1px rgba(0,0,0,.15)
+  text-shadow: 0 1px 0 rgba(255,255,255,.6)
+  
+  // Transitions
+  transition: 30ms linear all
+  
+  &:hover
+    color: lighten(@color, 20%)
+    text-decoration: none
+    border-color: #F9B729
+    border-top-color: #FCD34C
+    border-bottom-color: #C17909
+    //background: #FCD053 linear-gradient-image(36px, #FCDC81 0%, #F6B116 100%)
+    background: linear-gradient(top, #FCDC81, #F6B116)
+    background-position: 0
+  
+  &.active,
+  &:active
+    border-color: #CB7B10
+    border-top-color: #AB7519
+    border-bottom-color: #D46F01
+    //background: #DDAB39 linear-gradient-image(36px, #DDAB39 0%, #D89002 100%)
+    background: linear-gradient(top, #DDAB39, #D89002)
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.2), 0 1px 1px rgba(0,0,0,.03)
+    text-shadow: 0 1px 0 rgba(255,255,255,.2)
+    //transform: scale(.99,.99)
+    //color: rgba(0,0,0,.7)
+  
+  &.disabled,
+  &.disabled:hover,
+  &.disabled:active
+    cursor: default
+    background-image: none
+    opacity: .8
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.5), 0 1px 1px rgba(0,0,0,.1)
+    z-index: 3
+    color: #999
+    border-width: 1px
+    border-color: #E1E1E1
+    border-top-color: #E4E4E4
+    border-bottom-color: #BBB
+    //background: #E9E9E9 linear-gradient-image(36px, #E9E9E9 0%, #DEDEDE 100%)
+    background: linear-gradient(top, #E9E9E9, #DEDEDE)
+  
+  &[disabled]
+    // disabled pseudo can't be included with .disabled
+    // def because IE8 and below will drop it _
+    cursor: default
+    background-image: none
+  
+  // Button Sizes
+  &.large
+    padding: .5em 14px
+    font-size: 1.7em
+    line-height: 1.2em
+  
+  &.small
+    padding: 7px 9px 7px
+    font-size: .9em
+  
+  // Dropdown toggle
+  &.dropdown-toggle
+    .caret
+      opacity: 1
+      
+  /*
+   * Button dropdown menu
+   */
+  &.open
+    .dropdown-menu
+      display: block
+      top: 30px
+      border-radius: $button-border-radius
+    
+  // Primary button
+  &.primary
+    color: #000
+    text-shadow: 0 1px 0 rgba(255,255,255,.6)
+    
+    background-color: #DBDBDB
+    border-color: #A4A4A4
+    border-top-color: #CBCBCB
+    border-bottom-color: #A0A0A0
+    
+    //background: #ccc linear-gradient-image(36px, rgba(255,255,255,.1) 0%, rgba(0,0,0,.15) 100%)
+    background: linear-gradient(top, rgba(255,255,255,.1), rgba(0,0,0,.15))
+    
+    &:hover
+      color: #333
+      background-position: 0
+      //background: #aaa linear-gradient-image(36px, rgba(255,255,255,.1) 0%, rgba(0,0,0,.1) 100%)
+      background: linear-gradient(top, rgba(255,255,255,.25), rgba(0,0,0,.1))
+    
+    &:active,
+    &.active
+      color: #333
+      border-color: #A4A4A4
+      border-top-color: #999
+      text-shadow: 0 1px 0 rgba(255,255,255,.3)
+      
+      //background: #eee linear-gradient-image(36px, rgba(255,255,255,0) 0%,rgba(0,0,0,.1) 100%)
+      background: linear-gradient(top, rgba(255,255,255,0), rgba(0,0,0,.1))
+      background-color: #BBB
+      
+      box-shadow: inset 0 1px 2px rgba(0,0,0,.2), 0 1px 1px rgba(0,0,0,.08)
+
+    .caret
+      border-top-color: black
+ 
+.btn-group
+  &.open .dropdown-toggle
+    @extend .btn:active
+  &.open .primary.dropdown-toggle
+    @extend .btn.primary:active

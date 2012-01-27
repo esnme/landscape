@@ -1,0 +1,131 @@
+/*
+ * ESN Frontend Toolkit
+ */
+ 
+/*
+ * Buttons
+ */
+.btn
+  user-select: none
+  display: inline-block
+  
+  // Padding
+  if $button-padding is a 'function'
+    $button-padding()
+  else
+    padding: 5px 10px 6px
+
+  // Border
+  if $button-border is a 'function'
+    $button-border()
+  else if $button-border is a 'string'
+    border: $button-border
+  
+  // Border radius
+  if $button-border-radius is a 'unit'
+    border-radius: $button-border-radius
+    
+  // Font
+  if $button-font is a 'function'
+    $button-font()
+  
+  // Box shadow
+  if $button-box-shadow is a 'string'
+    box-shadow: $button-box-shadow
+    
+  // Background
+  if $button-background is a 'function'
+    $button-background()
+  
+  // Transition
+  if $button-transition is a 'function'
+    $button-transition()
+  
+  // Hover
+  if $button-hover is a 'function'
+    &:hover
+      $button-hover()
+      
+  // Active
+  if $button-active
+    &.active,
+    &:active
+      $button-active()
+      
+  + .btn
+    margin-left: 6px
+
+  /*
+   * Caret inside button
+   */
+  .caret
+    // Reposition dropdown caret
+    margin-top: ($button-border-radius*1.5)
+    margin-left: 0
+    
+  // Different caret color for different buttons
+  &.primary,
+  &.danger,
+  &.info,
+  &.success
+    .caret
+      border-top-color: #fff
+      opacity: 75
+      
+/*
+ * Button groups
+ */
+.btn-group
+  @extend .clearfix
+  position: relative
+  
+  // Space out series of button groups
+  + .btn-group
+    margin-left: 5px
+    
+  // Float them, remove border radius, then 
+  .btn
+    position: relative
+    float: left
+    margin-left: -1px
+    border-radius: 0
+  
+    // Re-add left border-radius to first elements
+    &:first-child
+      margin-left: 0
+      border-top-left-radius: $button-border-radius
+      border-bottom-left-radius: $button-border-radius
+    
+    // Re-add right border-radius to last elements and dropdown toggle
+    &.dropdown-toggle,
+    &:last-child
+      border-top-right-radius: $button-border-radius
+      border-bottom-right-radius: $button-border-radius
+    
+    // On hover/focus/active, bring the proper btn to front
+    &:hover,
+    &:focus,
+    &:active
+      z-index: 2
+      
+    /*
+     * Split button dropdowns
+     */
+    // Give the line between buttons some depth
+    &.dropdown-toggle
+      padding-left: 8px
+      padding-right: 8px
+  
+  /*
+   * Button dropdown menu
+   */
+  &.open
+    .dropdown-menu
+      display: block
+      top: 30px
+      border-radius: $button-border-radius
+
+// Optional: Group multiple button groups together for a toolbar
+.btn-toolbar
+  .btn-group
+    display: inline-block

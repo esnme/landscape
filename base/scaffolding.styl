@@ -1,0 +1,58 @@
+/*
+ * ESN Frontend Toolkit
+ */
+
+/*
+ * Base structural layout
+ */
+body
+  font-family: $base-font-family
+  font-size: $base-font-size
+  color: $base-font-color
+  
+a
+  color: $anchor-color
+  if $anchor-underline
+    text-decoration: underline
+  else
+    text-decoration: none
+  &:hover
+    if $anchor-underline-hover
+      text-decoration: underline
+    color: $anchor-color-hover
+
+/*
+ * Containers
+ */
+.container
+  @extend .clearfix
+  fixed-container()
+	
+/*
+ * Fluid layouts (left aligned, with sidebar, min- & max-width content)
+ */
+if layout-fluid
+  .fluid-container
+    @extend .clearfix
+    fluid-container()
+	
+/*
+ * Grid system
+ */
+.row
+  @extend .clearfix
+  margin-left: -($grid-gutter-width)
+  
+[class*="span"]
+  grid-column()
+
+// Generate column classes
+for $col in 1..$grid-columns
+  .span{$col}
+    @extend .grid-column
+    columns($col)
+
+// Generate offset classes
+for $col in 1...$grid-columns
+  .offset{$col}
+    offset($col)
