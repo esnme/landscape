@@ -12,7 +12,7 @@ body
   background-repeat: repeat-x
 
 // Tweak navbar brand link to be super sleek
-body.navbar-fixed .brand
+.navbar-fixed .brand
   padding-right: 0
   padding-left: 0
   margin-left: 20px
@@ -99,7 +99,15 @@ section
       
     li:first-child a
       border-left: 0
+      padding-left: 12px
       border-radius: $base-border-radius 0 0 $base-border-radius
+
+    .active a 
+      background-color: #E9E9E9
+      border-right-color: #DDD
+      border-left: 0
+      padding-left: 13px
+      box-shadow: inset 0 3px 5px rgba(0,0,0,.05)
 
 // Benefits list in masthead 
 .benefits

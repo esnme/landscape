@@ -1,19 +1,16 @@
 /*
- * ESN Frontend Toolkit
+ * ESN Landscape
  */
  
 $navbar-height = 40px
 $navbar-bg-start = #333
 $navbar-bg-end = #222
 $navbar-link-color = #999
-
-.navbar
-  overflow: visible
   
 // gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
 .navbar-inner
-  background-color: $navbar-bg-end
-  background: linear-gradient(top, $navbar-bg-start, $navbar-bg-end)
+  background-color: #333
+  background: linear-gradient(top, #333, #222)
   box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1)
   
 // Text and links
@@ -64,7 +61,7 @@ $navbar-link-color = #999
 
 // Static navbar
 .navbar-static
-  margin-bottom: $baseLineHeight
+  margin-bottom: $base-line-height
 
 .navbar-static .navbar-inner
   padding-left: 20px
@@ -72,10 +69,12 @@ $navbar-link-color = #999
   border-radius: 4px
 
 // Fixed navbar
-.navbar-fixed
-  fixed: top left
-  right: 0
-  z-index: $zindex-navbar-fixed
+body.navbar-fixed
+  padding-top: $navbar-height+20
+  .navbar
+    fixed: top left
+    right: 0
+    z-index: $zindex-navbar-fixed
 
 /*
  * Navigation
@@ -96,7 +95,7 @@ $navbar-link-color = #999
       float: none
       padding: 10px 10px 11px
       line-height: 19px
-      color: $navbar-link-color
+      color: #999
       text-decoration: none
       text-shadow: 0 -1px 0 rgba(0,0,0,.25)
       

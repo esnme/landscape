@@ -1,9 +1,10 @@
 /*
- * ESN Frontend Toolkit
+ * ESN Landscape
  */
  
 $theme = "battlelog"
 
+// Set vendor-prefixes to be used in nib
 vendor-prefixes = webkit moz official o ms
 
 /*
@@ -52,7 +53,8 @@ vendor-prefixes = webkit moz official o ms
 @import "components/thumbnails"
 
 // Base: Responsive
-@import "base/responsive"
+if $layout-responsive
+  @import "base/responsive"
 
 // Theme: Styles
 @import "themes/"+$theme+"/theme"
