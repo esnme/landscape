@@ -1,29 +1,27 @@
-/*
- * ESN Frontend Toolkit
- */
+// ESN Landscape
+
+// Bootstrap theme
+
+// Fluid layout
+$fluid = true
+
+// Responsive design
+$responsive = true
  
-/*
- * Layout
- */
-$layout-fluid = false
-$layout-responsive = false
- 
-/*
- * Grid system
- */
+// Grid system
 $grid-columns = 12
 $grid-column-width = 60px
 $grid-gutter-width = 20px
 $container-padding = 20px
 $site-width = ($grid-columns * $grid-column-width) + ($grid-gutter-width * ($grid-columns - 1))
 
-/*
- * Base
- */
- 
+// Fluid grid
+$fluid-grid-column-width = 6.382978723%
+$fluid-grid-gutter-width = 2.127659574%
+
 // Borders
-$base-border-width = 1px
-$base-border-radius = 3px
+$base-border-width  = 1px
+$base-border-radius = 4px
 
 // Typography
 $base-font-family = "Helvetica Neue", Helvetica, Arial, sans-serif
@@ -31,35 +29,50 @@ $base-font-size   = 13px
 $base-line-height = 18px
 $base-font-color  = #353535
 
-// Headers
-$header-fonts()
-  h1
-    color: black
-    font-family: BebasNeueRegular
-    font-weight: normal
-	small
-	  margin-left: .5em
+// Colors
+$color-light    = #fff
+$color-dark     = #000
+$color-muted    = #999
 
-// Customer-specific fonts
-@font-face
-  font-family: BebasNeueRegular
-  font-weight: normal
-  font-style: normal
-  src: url("http://battlelog.battlefield.com/public/base/fonts/BebasNeue-webfont.eot"), url("http://battlelog.battlefield.com/public/base/fonts/BebasNeue-webfont.woff") format("woff"), url("http://battlelog.battlefield.com/public/base/fonts/BebasNeue-webfont.ttf") format("truetype"), url("http://battlelog.battlefield.com/public/base/fonts/BebasNeue-webfont.svg#webfontE057xtoO") format("svg")
+$color-default  = #333
+$color-primary  = #666
+$color-warning  = #f89406
+$color-danger   = #666
+$color-success  = #666
 
 // Anchors
-$anchor-color = #308DBF
-$anchor-color-hover = darken($anchor-color, 20%)
-$anchor-color-active = lighten($anchor-color, 10%)
-$anchor-underline = false
-$anchor-underline-hover = true
-  
-/*
- * Z-indices
- */
-$zindex-dropdown =        1000;
-$zindex-popover =         1010;
-$zindex-tooltip =         1020;
-$zindex-navbar-fixed =    1030;
-$zindex-modal-backdrop =  1040;
-$zindex-modal =           1050;
+$anchor-color           = #08c
+$anchor-color-hover     = darken($anchor-color, 15%)
+$anchor-color-active    = lighten($anchor-color, 10%)
+
+// Buttons
+$button-color-default       = $color-default
+$button-color-primary       = $color-primary
+$button-color-warning       = $color-warning
+$button-color-danger        = $color-danger
+$button-color-success       = $color-success
+
+$button-primary-background  = $anchor-color
+
+$button-hover-color-default = #333
+$button-hover-color-primary = $button-hover-color-default
+
+$button-border-color        = #ccc
+$button-border-color-bottom = #bbb
+$button-border-radius       = $base-border-radius
+
+// Navbar
+$navbar-height					= 40px
+$navbar-background              = #333
+$navbar-background-highlight    = #222
+$navbar-color					= darken($color-light, 40%)
+$navbar-anchor-color            = $navbar-color
+$navbar-anchor-color-hover      = $color-light
+
+// Z-indices
+$zindex-dropdown        = 1000
+$zindex-popover         = 1010
+$zindex-tooltip         = 1020
+$zindex-navbar-fixed    = 1030
+$zindex-modal-backdrop  = 1040
+$zindex-modal           = 1050

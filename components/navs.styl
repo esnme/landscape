@@ -1,10 +1,6 @@
-/*
- * ESN Frontend Toolkit
- */
+// ESN Landscape
 
-// BASE CLASS
-// ----------
-
+// Base classes
 .nav
   margin-left: 0
   margin-bottom: $base-line-height
@@ -16,10 +12,9 @@
 
 .nav > li > a:hover
   text-decoration: none
-  background-color: #aaa
+  background-color: darken($color-light, 8%)
 
-// NAV LIST
-// --------
+// Nav list
 .nav.list
   padding-left: 14px
   padding-right: 14px
@@ -44,160 +39,144 @@
   margin-top: 9px
 
 .nav.list .active > a
-  color: #fff
+  color: $color-light
   text-shadow: 0 -1px 0 rgba(0,0,0,.2)
   background-color: $anchor-color
 
-// TABS AND PILLS
-// -------------
+// Tabs and pills
 
 // Common styles
-.tabs,
-.pills
+.nav-tabs,
+.nav-pills
   @extend .clearfix
+  > li
+    float: left
+    > a
+      padding-right: 12px
+      padding-left: 12px
+      margin-right: 2px
+      line-height: 14px // keeps the overall height an even number
 
-.tabs > li,
-.pills > li
-  float: left
-
-.tabs > li > a,
-.pills > li > a
-  padding-right: 12px
-  padding-left: 12px
-  margin-right: 2px
-  line-height: 14px // keeps the overall height an even number
-
-// TABS
-// ----
+// Tabs
 
 // Give the tabs something to sit on
-.tabs
+.nav-tabs
   border-bottom: 1px solid #ddd
 
-// Make the list-items overlay the bottom border
-.tabs > li
-  margin-bottom: -1px
+  // Make the list-items overlay the bottom border
+  > li
+    margin-bottom: -1px
 
-// Actual tabs (as links)
-.tabs > li > a
-  padding-top: 9px
-  padding-bottom: 9px
-  border: 1px solid transparent
-  .border-radius(4px 4px 0 0)
-  &:hover
-    border-color: #aaa #aaa #ddd
+  // Actual tabs (as links)
+  > li > a
+    padding-top: 9px
+    padding-bottom: 9px
+    border: 1px solid transparent
+    border-radius: 4px 4px 0 0
+    &:hover
+      border-color: #aaa #aaa #ddd
   
-// Active state, and it's :hover to override normal :hover
-.tabs > .active > a,
-.tabs > .active > a:hover
-  color: @gray
-  background-color: #fff
-  border: 1px solid #ddd
-  border-bottom-color: transparent
-  cursor: default
+  // Active state, and it's :hover to override normal :hover
+  > .active
+    > a,
+    > a:hover
+      color: darken($color-light, 50%)
+      background-color: $color-light
+      border: 1px solid darken($color-light, 10%)
+      border-bottom-color: transparent
+      cursor: default
 
 
-// PILLS
-// -----
+// Pills
 
 // Links rendered as pills
-.pills > li > a
-  padding-top: 8px
-  padding-bottom: 8px
-  margin-top: 2px
-  margin-bottom: 2px
-  border-radius: $base-border-radius
+.nav-pills
+  > li > a
+    padding-top: 8px
+    padding-bottom: 8px
+    margin-top: 2px
+    margin-bottom: 2px
+    border-radius: $base-border-radius
 
-// Active state
-.pills .active > a,
-.pills .active > a:hover
-  color: #fff
-  background-color: $anchor-color
+  // Active state
+  .active > a,
+  .active > a:hover
+    color: #fff
+    background-color: $anchor-color
 
-// STACKED NAV
-// -----------
+// Stacked nav
 
 // Stacked tabs and pills
 .nav.stacked > li
   float: none
-
-.nav.stacked > li > a
-  margin-right: 0 // no need for the gap between nav items
-
+  > a
+    margin-right: 0 // no need for the gap between nav items
 
 // Tabs
-.tabs.stacked
+.nav-tabs.stacked
   border-bottom: 0
 
-.tabs.stacked > li > a
-  border: 1px solid #ddd
-  border-radius: 0
+  > li > a
+    border: 1px solid #ddd
+    border-radius: 0
 
-.tabs.stacked > li:first-child > a
-  border-radius: $base-border-radius $base-border-radius 0 0
+  > li:first-child > a
+    border-radius: $base-border-radius $base-border-radius 0 0
 
-.tabs.stacked > li:last-child > a
-  border-radius: 0 0 $base-border-radius $base-border-radius
+  > li:last-child > a
+    border-radius: 0 0 $base-border-radius $base-border-radius
 
-.tabs.stacked > li > a:hover
-  border-color: #ddd
-  z-index: 2
-
+  > li > a:hover
+    border-color: #ddd
+    z-index: 2
 
 // Pills
-.pills.stacked > li > a
-  margin-bottom: 3px
+.nav-pills.stacked
+  > li > a
+    margin-bottom: 3px
 
-.pills.stacked > li:last-child > a
-  margin-bottom: 1px // decrease margin to match sizing of stacked tabs
+  > li:last-child > a
+    margin-bottom: 1px // decrease margin to match sizing of stacked tabs
 
-
-
-
-// DROPDOWNS
-// ---------
+// Dropdowns
 
 // Position the menu
-.pills .dropdown-menu,
-.tabs .dropdown-menu
+.nav-pills .dropdown-menu,
+.nav-tabs .dropdown-menu
   margin-top: 1px
   border-width: 1px
 
-.pills .dropdown-menu
+.nav-pills .dropdown-menu
   border-radius: $base-border-radius
 
 
 // Default dropdown links
-// -------------------------
 // Make carets use linkColor to start
-.tabs .dropdown-toggle .caret,
-.pills .dropdown-toggle .caret
+.nav-tabs .dropdown-toggle .caret,
+.nav-pills .dropdown-toggle .caret
   border-top-color: $anchor-color
   margin-top: 6px
+  margin-left: 3px
 
-.tabs .dropdown-toggle:hover .caret,
-.pills .dropdown-toggle:hover .caret
+.nav-tabs .dropdown-toggle:hover .caret,
+.nav-pills .dropdown-toggle:hover .caret
   border-top-color: $anchor-colorHover
 
 
 // Active dropdown links
-// -------------------------
-.tabs .active .dropdown-toggle .caret,
-.pills .active .dropdown-toggle .caret
+.nav-tabs .active .dropdown-toggle .caret,
+.nav-pills .active .dropdown-toggle .caret
   border-top-color: #333
 
 
 // Active:hover dropdown links
-// -------------------------
 .nav > .dropdown.active > a:hover
   color: @black
   cursor: pointer
 
-
 // Open dropdowns
-// -------------------------
-.tabs .open .dropdown-toggle,
-.pills .open .dropdown-toggle,
+.nav-tabs .open .dropdown-toggle,
+.nav-pills .open .dropdown-toggle,
 .nav > .open.active > a:hover
   color: #fff
   background-color: #ccc
@@ -210,26 +189,24 @@
   opacity: 1
 
 // Dropdowns in stacked tabs
-.tabs.stacked .open > a:hover
+.nav-tabs.stacked .open > a:hover
   border-color: #ccc
 
 
-// TABBABLE
-// --------
+// Tabbable
 
-
-// COMMON STYLES
-// -------------
+// Common styles
 
 // Clear any floats
 .tabbable
   @extend .clearfix
 
 // Remove border on bottom, left, right
-.tabs-below .tabs,
-.tabs-right .tabs,
-.tabs-left .tabs
-  border-bottom: 0
+.nav-tabs-below,
+.nav-tabs-right,
+.nav-tabs-left
+  .nav-tabs
+    border-bottom: 0
 
 // Show/hide tabbable areas
 .tab-content > .tab-pane,
@@ -243,8 +220,8 @@
 // BOTTOM
 // ------
 
-.tabs-below 
-  .tabs
+.nav-tabs-below 
+  .nav-tabs
     border-top: 1px solid #ddd
 
     > li
@@ -262,51 +239,50 @@
       border-color: transparent #ddd #ddd #ddd
 
 
-// LEFT & RIGHT
-// ------------
+// Left & right
 
 // Common styles
-.tabs-left .tabs > li,
-.tabs-right .tabs > li
+.nav-tabs-left .nav-tabs > li,
+.nav-tabs-right .nav-tabs > li
   float: none
 
-.tabs-left .tabs > li > a,
-.tabs-right .tabs > li > a
+.nav-tabs-left .nav-tabs > li > a,
+.nav-tabs-right .nav-tabs > li > a
   min-width: 74px
   margin-right: 0
   margin-bottom: 3px
 
 // Tabs on the left
-.tabs-left .tabs
+.nav-tabs-left .nav-tabs
   float: left
   margin-right: 19px
   border-right: 1px solid #ddd
 
-.tabs-left .tabs > li > a
+.nav-tabs-left .nav-tabs > li > a
   margin-right: -1px
   border-radius: $base-border-radius 0 0 $base-border-radius
 
-.tabs-left .tabs > li > a:hover
+.nav-tabs-left .nav-tabs > li > a:hover
   border-color: #aaa #ddd #aaa #aaa
 
-.tabs-left .tabs .active > a,
-.tabs-left .tabs .active > a:hover
+.nav-tabs-left .nav-tabs .active > a,
+.nav-tabs-left .nav-tabs .active > a:hover
   border-color: #ddd transparent #ddd #ddd
 
 // Tabs on the right
-.tabs-right .tabs
+.nav-tabs-right .nav-tabs
   float: right
   margin-left: 19px
   border-left: 1px solid #ddd
 
-.tabs-right .tabs > li > a
+.nav-tabs-right .nav-tabs > li > a
   margin-left: -1px
   border-radius: 0 4px 4px 0
 
-.tabs-right .tabs > li > a:hover
+.nav-tabs-right .nav-tabs > li > a:hover
   border-color: #aaa #aaa #aaa #ddd
 
-.tabs-right .tabs .active > a,
-.tabs-right .tabs .active > a:hover
+.nav-tabs-right .nav-tabs .active > a,
+.nav-tabs-right .nav-tabs .active > a:hover
   border-color: #ddd #ddd #ddd transparent
   

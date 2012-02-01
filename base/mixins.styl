@@ -1,46 +1,90 @@
-/*
- * ESN Frontend Toolkit
- */
+// ESN Landscape
 
-/*
- * Extendable clearfix class
- */
+// Extendable clearfix class
 .clearfix
   clearfix()
+
+// Tab focus
+tab-focus()
+  // Default
+  outline: thin dotted
+  // Webkit
+  outline: 5px auto -webkit-focus-ring-color
+  outline-offset: -2px
+
+// Extendable tab-focus class
+.tab-focus
+  tab-focus()
+
+// Center-align a block level element
+center-block()
+  display: block
+  margin-left: auto
+  margin-right: auto
+
+// IE7 inline block hack
+ie7-inline-block()
+  *display: inline /* IE7 inline-block hack */
+  *zoom: 1
+
+// IE7 likes to collapse whitespace on either side of the inline-block elements.
+// Ems because we're attempting to match the width of a space character. Left
+// version is for form buttons, which typically come after other elements, and
+// right version is for icons, which come before. Applying both is ok, but it will
+// mean that space between those elements will be .6em (~2 space characters) in IE7,
+// instead of the 1 space in other browsers.
+ie7-restore-left-whitespace()
+  *margin-left: .3em
+  &:first-child
+    *margin-left: 0
+
+ie7-restore-right-whitespace()
+  *margin-right: .3em
+  &:last-child
+    *margin-left: 0
+
+// IE reset filter
+reset-filter()
+  filter: "progid:DXImageTransform.Microsoft.gradient(enabled = false)"
  
-/*
- * Grid system
- */
-fixed-container()
+// Layout containers
+container-fixed()
   width: $site-width
   margin-left: auto
   margin-right: auto
   
-fluid-container()
+container-fluid()
   position: relative
   min-width: $site-width
   padding-left: $container-padding
   padding-right: $container-padding
 
-columns($columns = 1)
-  width: ($grid-column-width * $columns) + ($grid-gutter-width * ($columns - 1))
+// Grid system
+columns($col = 1, $col-width = $grid-column-width, $gutter-width = $grid-gutter-width)
+  width: ($col-width * $col) + ($gutter-width * ($col - 1))
 
-offset($columns = 1)
-  margin-left: ($grid-column-width * $columns) + ($grid-gutter-width * ($columns - 1)) + ($grid-gutter-width * 2)
+fluid-columns($col = 1, $col-width = $fluid-grid-column-width, $gutter-width = $fluid-grid-gutter-width)
+  width: 1% * ($col-width * $col) + ($gutter-width * ($col - 1))
+
+offset($col = 1, $col-width = $grid-column-width, $gutter-width = $grid-gutter-width)
+  margin-left: ($col-width * $col) + ($gutter-width * ($col - 1)) + ($gutter-width * 2)
 
 // Necessary grid styles for every column to make them appear next to each other horizontally
 grid-column()
   float: left
   margin-left: $grid-gutter-width
 
-// makeColumn can be used to mark any element (e.g., .content-primary) as a column without changing markup to .span something
-make-column($column-span = 1)
+fluid-grid-column()
+  float: left
+  margin-left: $fluid-grid-gutter-width
+
+// this can be used to mark any element (e.g., .content-primary) as a 
+// column without changing markup to .span something
+make-column($col = 1)
   grid-column()
-  columns($column-span)
+  columns($col)
   
-/*
- * Popover arrows
- */
+// Popover arrows
 popover-arrow-top($arrow-width = 5px)
   bottom: 0
   left: 50%
@@ -73,31 +117,56 @@ popover-arrow-right($arrow-width = 5px)
   border-bottom: $arrow-width solid transparent
   border-right: $arrow-width solid black
   
-/*
- * Fonts
- */
+// Fonts
 font-family-serif()
   font-family: Georgia, "Times New Roman", Times, serif
-  
+
 font-family-sans-serif()
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
-  
+
 font-family-monospace()
   font-family: Menlo, Monaco, "Courier New", monospace
-  
+
 font-shorthand($size = $base-font-size, $weight = normal, $line-height = $base-line-height)
   font-size: $size
   font-weight: $height
   line-height: $line-height
-  
-font-serif($size = $base-font-size, $weight = normal, $line-height = $base-line-height)
-    font-family-serif()
-    font-shorthand($size, $weight, $line-height)
 
+font-serif($size = $base-font-size, $weight = normal, $line-height = $base-line-height)
+  font-family-serif()
+  font-shorthand($size, $weight, $line-height)
+  
 font-sans-serif($size = $base-font-size, $weight = normal, $line-height = $base-line-height)
-    font-family-sans-serif()
-    font-shorthand($size, $weight, $line-height)
+  font-family-sans-serif()
+  font-shorthand($size, $weight, $line-height)
 
 font-monospace($size = $base-font-size, $weight = normal, $line-height = $base-line-height)
-    font-family-monospace()
-    font-shorthand($size, $weight, $line-height)
+  font-family-monospace()
+  font-shorthand($size, $weight, $line-height)
+
+
+// Gradients
+
+// Gradient bar colors for buttons and alerts
+gradient-bar($primary, $secondary)
+  background: linear-gradient(top, $primary, $secondary)
+  background-repeat: repeat-x
+  border-color: $primary $secondary darken($secondary, 15%)
+  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%)
+
+// Buttons
+
+// Mixin for generating button backgrounds
+button-background($start, $end)
+  // gradient-bar will set the background to a pleasing blend of these, to support IE<=9
+  gradient-bar($start, $end)
+  reset-filter()
+
+  // in these cases the gradient won't cover the background, so we override
+  &:hover, &:active, &.active, &.disabled, &[disabled]
+    background-color: $end
+
+  // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
+  &:active,
+  &.active
+    background-color: darken($end, 10%) \\9

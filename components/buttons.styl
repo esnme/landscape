@@ -1,80 +1,40 @@
-/*
- * ESN Frontend Toolkit
- */
+// ESN Landscape
  
-/*
- * Buttons
- */
+// Buttons
 .btn
   user-select: none
   display: inline-block
-  
-  // Padding
-  if $button-padding is a 'function'
-    $button-padding()
-  else
-    padding: 5px 10px 6px
+  cursor: pointer
 
-  // Border
-  if $button-border is a 'function'
-    $button-border()
-  else if $button-border is a 'string'
-    border: $button-border
-  
-  // Border radius
-  if $button-border-radius is a 'unit'
-    border-radius: $button-border-radius
-    
-  // Font
-  if $button-font is a 'function'
-    $button-font()
-  
-  // Box shadow
-  if $button-box-shadow is a 'string'
-    box-shadow: $button-box-shadow
-    
-  // Background
-  if $button-background is a 'function'
-    $button-background()
-  
-  // Transition
-  if $button-transition is a 'function'
-    $button-transition()
-  
-  // Hover
-  if $button-hover is a 'function'
-    &:hover
-      $button-hover()
-      
-  // Active
-  if $button-active
-    &.active,
-    &:active
-      $button-active()
-      
   + .btn
     margin-left: 6px
 
-  /*
-   * Caret inside button
-   */
+  // Caret inside button
   .caret
     // Reposition dropdown caret
     margin-top: ($button-border-radius*1.5)
     margin-left: 0
+
+  // Active state
+  &.active,
+  &:active
+    outline: 0
+
+  // Disabled state
+  &.disabled,
+  &[disabled]
+    cursor: default
     
   // Different caret color for different buttons
-  &.primary,
-  &.danger,
-  &.info,
-  &.success
+  &.btn-primary,
+  &.btn-danger,
+  &.btn-info,
+  &.btn-success
     .caret
       border-top-color: #fff
-      opacity: 75
+      opacity: .75
       
-/*
- * Button groups
- */
+// Button groups
 .btn-group
   @extend .clearfix
   position: relative
@@ -108,17 +68,13 @@
     &:active
       z-index: 2
       
-    /*
-     * Split button dropdowns
-     */
+    // Split button dropdowns
     // Give the line between buttons some depth
     &.dropdown-toggle
       padding-left: 8px
       padding-right: 8px
   
-  /*
-   * Button dropdown menu
-   */
+  // Button dropdown menu
   &.open
     .dropdown-menu
       display: block
@@ -127,5 +83,7 @@
 
 // Optional: Group multiple button groups together for a toolbar
 .btn-toolbar
+  margin-top: 9px
+  margin-bottom: 9px
   .btn-group
     display: inline-block

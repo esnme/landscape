@@ -1,48 +1,37 @@
-/*
- * ESN Frontend Toolkit
- */
+// ESN Landscape
  
-/*
- * Paragraphs
- */
+// Paragrpahs
 p
   margin: 0
   margin-bottom: ($base-line-height / 2)
   font-family: $base-font-family
   font-size: $base-font-size
   line-height: $base-line-height
-  color: #333
   small
-    font-size: ($base-font-size - 2)
-    color: lighten(@color, 30%)
+    font-size: ($base-font-size * 0.8)
 
-/*
- * Headings
- */
-
+// Headings
 h1, h2, h3, h4, h5, h6
   margin: 0
-  font-weight: bold
-  color: #111
   // Fix the character spacing for headings
   text-rendering: optimizelegibility
   small
-    color: lighten(@color, 30%)
+    margin-left: .5em
 
 h1
   font-size: 30px
-  line-height: $base-line-height * 2
+  line-height: ($base-line-height * 2)
   small
     font-size: 18px
 
 h2
   font-size: 24px
-  line-height: $base-line-height * 2
+  line-height: ($base-line-height * 2)
   small
     font-size: 18px
 
 h3
-  line-height: $base-line-height * 1.5
+  line-height: ($base-line-height * 1.5)
   font-size: 18px
   small
     font-size: 14px
@@ -62,24 +51,16 @@ h6
   font-size: 11px
   color: #ccc
   text-transform: uppercase
- 
-if $header-fonts is a 'function'
-  $header-fonts()
 
-/*
- * Lists
- */
+// Lists
 
 // Unordered and Ordered lists
 ul, ol
   padding: 0
   margin: 0 0 ($base-line-height / 2) 25px
 
-ul ul,
-ul ol,
-ol ol,
-ol ul
-  margin-bottom: 0
+  ul, ol
+    margin-bottom: 0
 
 ul
   list-style: disc
@@ -109,10 +90,8 @@ dd
   margin-left: ($base-line-height / 2)
 
 
-/*
- * Misc
- */
- 
+// Misc
+
 // Horizontal rules
 hr
   margin: $base-line-height 0
@@ -130,8 +109,9 @@ em
   font-weight: inherit
   line-height: inherit
 
-.muted
-  color: #ccc
+if $color-muted
+  .muted
+    color: $color-muted
 
 // Abbreviations and acronyms
 abbr
@@ -173,42 +153,7 @@ address
   margin-bottom: $base-line-height
   line-height: $base-line-height
 
-// Inline and block code styles
-code,
-pre
-  padding: 0 3px 2px
-  font-family-monospace()
-  font-size: 12px
-  color: #333
-  border-radius: $base-border-radius
-
-code
-  padding: 1px 3px
-  background-color: #fee9cc
-
-pre
-  display: block
-  padding: ($base-line-height - 1 / 2)
-  margin: 0 0 ($base-line-height / 2)
-  font-size: 12px
-  line-height: $base-line-height
-  background-color: #f5f5f5
-  border: 1px solid #ccc
-  border: 1px solid rgba(0,0,0,.15)
-  border-radius: $base-border-radius
-  white-space: pre
-  white-space: pre-wrap
-  word-break: break-all
-
-  // Make prettyprint styles more spaced out for readability
-  &.prettyprint
-    margin-bottom: $base-line-height
-
-  // Account for some code outputs that place code tags in pre tags
-  code
-    padding: 0
-    background-color: transparent
-
+// Images
 img
   width: 100%
   min-width: 100%

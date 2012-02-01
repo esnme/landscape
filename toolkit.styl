@@ -1,17 +1,13 @@
-/*
- * ESN Landscape
- */
+// ESN Landscape
  
-$theme = "battlelog"
+$theme = "bootstrap"
 
 // Set vendor-prefixes to be used in nib
 vendor-prefixes = webkit moz official o ms
 
-/*
- * Nib
- * Stylus mixins, utilities, components, and gradient image generation.
- * https://github.com/visionmedia/nib
- */
+// Nib
+// Stylus mixins, utilities, components, and gradient image generation.
+// https://github.com/visionmedia/nib
 @import "nib"
 
 // Base: Normalize
@@ -29,11 +25,15 @@ vendor-prefixes = webkit moz official o ms
 
 // Base: CSS
 @import "base/typography"
+@import "base/code"
 @import "base/forms"
 @import "base/tables"
 
+// Components: Buttons & Alerts
+@import "components/buttons"
+
 // Components: Common
-@import "components/dropdown"
+@import "components/dropdowns"
 @import "components/wells"
 @import "components/close"
 
@@ -42,19 +42,15 @@ vendor-prefixes = webkit moz official o ms
 @import "components/navs"
 
 // Components: Popovers
-@import "components/modal"
-@import "components/popover"
+@import "components/modals"
+@import "components/popovers"
 @import "components/tooltip"
-
-// Components: Buttons & Alerts
-@import "components/buttons"
 
 // Components: Misc
 @import "components/thumbnails"
 
-// Base: Responsive
-if $layout-responsive
-  @import "base/responsive"
+// Base: Responsive design
+@import "base/responsive"
 
 // Theme: Styles
 @import "themes/"+$theme+"/theme"

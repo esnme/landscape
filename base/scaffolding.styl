@@ -1,10 +1,6 @@
-/*
- * ESN Frontend Toolkit
- */
+// ESN Landscape
 
-/*
- * Base structural layout
- */
+// Base structural layout
 body
   font-family: $base-font-family
   font-size: $base-font-size
@@ -12,33 +8,24 @@ body
   
 a
   color: $anchor-color
-  if $anchor-underline
-    text-decoration: underline
-  else
-    text-decoration: none
   &:hover
-    if $anchor-underline-hover
-      text-decoration: underline
     color: $anchor-color-hover
 
-/*
- * Containers
- */
+// Layouts
+// Fixed-width and fluid (with sidebar) layouts
+
+// Container (centered, fixed-width layouts)
 .container
   @extend .clearfix
-  fixed-container()
+  container-fixed()
 	
-/*
- * Fluid layouts (left aligned, with sidebar, min- & max-width content)
- */
-if layout-fluid
-  .fluid-container
+// Fluid layouts (left aligned, with sidebar, min- & max-width content)
+if fluid is true
+  .container-fluid
     @extend .clearfix
-    fluid-container()
-	
-/*
- * Grid system
- */
+    container-fluid()
+
+// Grid system
 .row
   @extend .clearfix
   margin-left: -($grid-gutter-width)
@@ -56,3 +43,21 @@ for $col in 1..$grid-columns
 for $col in 1...$grid-columns
   .offset{$col}
     offset($col)
+
+// Row surrounds the columns
+if fluid is true
+  .row-fluid
+    @extend .clearfix
+    width: 100%
+
+    // Find all .span# classes within .row and give them the necessary 
+    // properties for grid columns (supported by all browsers back to IE7, thanks @dhg)
+    > [class*="span"]
+      fluid-grid-column()
+      &:first-child
+        margin-left: 0
+
+    // Default columns
+    for $col in 1..$grid-columns
+      .span{$col}
+        fluid-columns($col)
