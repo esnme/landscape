@@ -12,7 +12,7 @@
 
 .nav > li > a:hover
   text-decoration: none
-  background-color: darken($color-light, 8%)
+  background-color: darken($color-light, 7%)
 
 // Nav list
 .nav.list
@@ -73,16 +73,14 @@
     padding-bottom: 9px
     border: 1px solid transparent
     border-radius: 4px 4px 0 0
-    &:hover
-      border-color: #aaa #aaa #ddd
   
   // Active state, and it's :hover to override normal :hover
   > .active
     > a,
     > a:hover
-      color: darken($color-light, 50%)
+      color: darken($color-light, 70%)
       background-color: $color-light
-      border: 1px solid darken($color-light, 10%)
+      border: 1px solid darken($color-light, 15%)
       border-bottom-color: transparent
       cursor: default
 
@@ -107,13 +105,13 @@
 // Stacked nav
 
 // Stacked tabs and pills
-.nav.stacked > li
+.nav.nav-stacked > li
   float: none
   > a
     margin-right: 0 // no need for the gap between nav items
 
 // Tabs
-.nav-tabs.stacked
+.nav-tabs.nav-stacked
   border-bottom: 0
 
   > li > a
@@ -131,7 +129,7 @@
     z-index: 2
 
 // Pills
-.nav-pills.stacked
+.nav-pills.nav-stacked
   > li > a
     margin-bottom: 3px
 
@@ -143,12 +141,11 @@
 // Position the menu
 .nav-pills .dropdown-menu,
 .nav-tabs .dropdown-menu
-  margin-top: 1px
+  //margin-top: 1px
   border-width: 1px
 
 .nav-pills .dropdown-menu
   border-radius: $base-border-radius
-
 
 // Default dropdown links
 // Make carets use linkColor to start
@@ -160,7 +157,7 @@
 
 .nav-tabs .dropdown-toggle:hover .caret,
 .nav-pills .dropdown-toggle:hover .caret
-  border-top-color: $anchor-colorHover
+  border-top-color: $anchor-color-hover
 
 
 // Active dropdown links
@@ -171,27 +168,26 @@
 
 // Active:hover dropdown links
 .nav > .dropdown.active > a:hover
-  color: @black
+  color: $color-dark
   cursor: pointer
 
 // Open dropdowns
 .nav-tabs .open .dropdown-toggle,
 .nav-pills .open .dropdown-toggle,
 .nav > .open.active > a:hover
-  color: #fff
-  background-color: #ccc
-  border-color: #ccc
+  color: $color-light
+  background-color: darken($color-light, 40%)
+  border-color: darken($color-light, 40%)
 
 .nav .open .caret,
 .nav .open.active .caret,
 .nav .open a:hover .caret
-  border-top-color: #fff
+  border-top-color: $color-light
   opacity: 1
 
 // Dropdowns in stacked tabs
-.nav-tabs.stacked .open > a:hover
+.nav-tabs.nav-stacked .open > a:hover
   border-color: #ccc
-
 
 // Tabbable
 
