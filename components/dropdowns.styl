@@ -47,25 +47,14 @@
 // The dropdown menu (ul)
 .dropdown-menu
   position: absolute
-  top: 40px
+  top: 100%
   z-index: $zindex-dropdown
   float: left
   display: none // none by default, but block on "open" of the menu
-  min-width: 160px
-  max-width: 220px
-  _width: 160px
   padding: 4px 0
   margin: 0 // override default ul
   list-style: none
-  background-color: white
-  border-color: #ccc
-  border-color: rgba(0,0,0,.2)
-  border-style: solid
-  border-width: 1px
-  border-radius: 0 0 5px 5px
-  box-shadow: 0 5px 10px rgba(0,0,0,.2)
-  -webkit-background-clip: padding-box
-  -moz-background-clip: padding
+  border-radius: 0 0 $dropdown-border-radius $dropdown-border-radius
   background-clip: padding-box
   zoom: 1 // do we need this?
   *border-right-width: 2px
@@ -76,8 +65,6 @@
     height: 1px
     margin: 5px 1px
     overflow: hidden
-    background-color: #e5e5e5
-    border-bottom: 1px solid white
     
   // Links within the dropdown menu
   a

@@ -48,7 +48,7 @@
     color: rgba(0,0,0,.5)
 
     .caret
-      opacity: .65 !important
+      opacity: .4 !important
 
   // Disabled state
   &.disabled,
@@ -98,12 +98,14 @@
   color: $color-light
 
 // Provide *some* extra contrast for those who can get it
-.btn-primary.active,
-.btn-warning.active,
-.btn-danger.active,
-.btn-success.active,
-.btn-info.active
-  color: rgba(255,255,255,.75)
+.btn-primary,
+.btn-warning,
+.btn-danger,
+.btn-success,
+.btn-info
+  &.active,
+  &:active
+    color: rgba(255,255,255,.6)
 
 // Set the backgrounds
 // -------------------------
