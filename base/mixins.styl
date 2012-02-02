@@ -160,14 +160,14 @@ font-monospace($size = $base-font-size, $weight = normal, $line-height = $base-l
   font-shorthand($size, $weight, $line-height)
 
 
-// Gradients
-
 // Gradient bar colors for buttons and alerts
 gradient-bar($primary, $secondary)
-  background: linear-gradient(top, $primary, $secondary)
+  background: linear-gradient(50px top, $primary, $secondary)
+  background-color: (($primary/2)+($secondary/2))
   background-repeat: repeat-x
-  border-color: $primary $secondary darken($secondary, 15%)
-  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fadein(rgba(0,0,0,.1), 15%)
+  //filter: unquote("progid:DXImageTransform.Microsoft.gradient(startColorstr='"+rgb($primary)+"', endColorstr='"+rgb($secondary)+"', GradientType=0)")
+  border-color: $secondary $secondary darken($secondary, 38%)
+  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fade-in(rgba(0,0,0,.1), .15)
 
 // Buttons
 
@@ -175,7 +175,7 @@ gradient-bar($primary, $secondary)
 button-background($start, $end)
   // gradient-bar will set the background to a pleasing blend of these, to support IE<=9
   gradient-bar($start, $end)
-  reset-filter()
+  //reset-filter()
 
   // in these cases the gradient won't cover the background, so we override
   &:hover, &:active, &.active, &.disabled, &[disabled]
