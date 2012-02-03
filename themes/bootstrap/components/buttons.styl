@@ -27,10 +27,9 @@
     text-decoration: none
     background-color: #e6e6e6
     background-position: 0 -15px
-
     // transition is only when going to hover, otherwise the background
     // behind the gradient (there for IE<=9 fallback) gets mismatched
-    transition: background-position .25s linear
+    transition: background-position .2s linear, border .2s linear, color .2s linear, opacity.2s linear
 
     .caret
       opacity: 1
@@ -47,7 +46,7 @@
     background-color: darken($color-light, 15%) \\9
     color: rgba(0,0,0,.5)
 
-    transition: all .25s ease
+    transition: all .15s ease
 
     .caret
       opacity: .4 !important

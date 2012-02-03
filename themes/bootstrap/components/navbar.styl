@@ -5,14 +5,14 @@
   
 // gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
 .navbar-inner
-  background-color: $navbar-background
-  background: linear-gradient(top, $navbar-background, $navbar-background-highlight)
+  background: linear-gradient(60px top, $navbar-background, $navbar-background-highlight)
+  border-radius: $navbar-border-radius
   box-shadow: 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1)
-
+  
 // Navbar button for toggling navbar items in responsive layouts
 .btn-navbar
   padding: 7px 10px
-  button-background($navbar-background-highlight, $navbar-background)
+  button-background($navbar-background, $navbar-background-highlight)
   box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.075)
 
 .btn-navbar .icon-bar

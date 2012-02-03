@@ -1,5 +1,22 @@
 // ESN Landscape
 
+// Mix two colors by any given amount
+mix(colorA, colorB, amount)
+  if colorB is a 'unit' and amount is a 'color'
+    return mix(colorA, amount, colorB)
+  require-color colorA
+  require-color colorB
+  if unit(amount) is '%'
+    amount = (amount / 100)
+  reverse = 1 - amount
+  alphaA = alpha(colorA)
+  alphaB = alpha(colorB)
+  rgbA = rgb(colorA)
+  rgbB = rgb(colorB)
+  mixedColor = (rgbA * reverse) + (rgbB * amount)
+  mixedAlpha = ((alphaA * 100 * reverse) + (alphaB * 100 * amount)) / 100
+  return rgba(red(mixedColor), green(mixedColor), blue(mixedColor), mixedAlpha)
+
 // Extendable clearfix class
 .clearfix
   clearfix()
@@ -45,7 +62,7 @@ ie7-restore-right-whitespace()
 
 // IE reset filter
 reset-filter()
-  filter: "progid:DXImageTransform.Microsoft.gradient(enabled = false)"
+  filter: unquote("progid:DXImageTransform.Microsoft.gradient(enabled = false)")
 
 // Sizing shortcuts
 size($height = 5px, $width = 5px)
@@ -162,9 +179,8 @@ font-monospace($size = $base-font-size, $weight = normal, $line-height = $base-l
 // Gradient bar colors for buttons and alerts
 gradient-bar($primary, $secondary)
   background: linear-gradient(50px top, $primary, $secondary)
-  background-color: (($primary/2)+($secondary/2))
+  background-color: mix($primary, $secondary, 60%)
   background-repeat: repeat-x
-  //filter: unquote("progid:DXImageTransform.Microsoft.gradient(startColorstr='"+rgb($primary)+"', endColorstr='"+rgb($secondary)+"', GradientType=0)")
   border-color: $secondary $secondary darken($secondary, 38%)
   border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fade-in(rgba(0,0,0,.1), .15)
 

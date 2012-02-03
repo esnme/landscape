@@ -9,11 +9,11 @@ $fluid = true
 $responsive = true
  
 // Grid system
-$grid-columns = 12
-$grid-column-width = 60px
-$grid-gutter-width = 20px
-$container-padding = 20px
-$site-width = ($grid-columns * $grid-column-width) + ($grid-gutter-width * ($grid-columns - 1))
+$grid-columns       = 12
+$grid-column-width  = 60px
+$grid-gutter-width  = 20px
+$container-padding  = 20px
+$site-width         = ($grid-columns * $grid-column-width) + ($grid-gutter-width * ($grid-columns - 1))
 
 // Fluid grid
 $fluid-grid-column-width = 6.382978723%
@@ -24,27 +24,27 @@ $base-border-width  = 1px
 $base-border-radius = 4px
 
 // Typography
-$base-font-family = "Helvetica Neue", Helvetica, Arial, sans-serif
-$base-font-size   = 13px
-$base-line-height = 18px
-$base-font-color  = #353535
+$base-font-family   = "Helvetica Neue", Helvetica, Arial, sans-serif
+$base-font-size     = 13px
+$base-line-height   = 18px
+$base-font-color    = #353535
 
 // Colors
-$color-light    = #fff
-$color-dark     = #000
-$color-muted    = #999
+$color-light        = #fff
+$color-dark         = #000
+$color-muted        = #999
 
-$color-default  = #333
-$color-primary  = #666
-$color-warning  = #f89406
-$color-danger   = #b94a48
-$color-success  = #468847
-$color-info		= #3a87aD
+$color-default      = #333
+$color-primary      = #666
+$color-warning      = #f89406
+$color-danger       = #b94a48
+$color-success      = #468847
+$color-info         = #3a87aD
 
 // Anchors
-$anchor-color           = #08c
-$anchor-color-hover     = darken($anchor-color, 40%)
-$anchor-color-active    = lighten($anchor-color, 10%)
+$anchor-color               = #08c
+$anchor-color-hover         = darken($anchor-color, 40%)
+$anchor-color-active        = lighten($anchor-color, 10%)
 
 // Buttons
 $button-color-default       = $color-default
@@ -52,33 +52,55 @@ $button-color-primary       = $color-primary
 $button-color-warning       = $color-warning
 $button-color-danger        = $color-danger
 $button-color-success       = $color-success
-$button-color-info      	= $color-info
+$button-color-info          = $color-info
 
-$button-primary-background  = $anchor-color
+// Button backgrounds
+$button-default-background = #ccc
+$button-primary-background = $anchor-color
 
-$button-hover-color-default = #333
-$button-hover-color-primary = $button-hover-color-default
+$button-hover-color-default     = #333
+$button-hover-color-primary     = $button-hover-color-default
 
-$button-border-color        = #ccc
-$button-border-color-bottom = #bbb
-$button-border-radius       = $base-border-radius
+// Button borders
+$button-border-color            = #ccc
+$button-border-color-bottom     = #bbb
+$button-border-radius           = $base-border-radius
 
 // Navbar
-$navbar-height					= 40px
+$navbar-height                  = 40px
 $navbar-background              = #333
 $navbar-background-highlight    = #222
-$navbar-color					= darken($color-light, 40%)
+$navbar-color                   = darken($color-light, 40%)
 $navbar-anchor-color            = $navbar-color
 $navbar-anchor-color-hover      = $color-light
+$navbar-border-radius           = $base-border-radius
+$navbar-box-shadow              = 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1)
+$navbar-padding                 = 20px
+
+// Form states and alerts
+$warning-color          = #c09853
+$warning-background     = #fcf8e3
+$warning-border         = darken(spin($warning-background, -10), 3%)
+
+$error-color            = #b94a48
+$error-background       = #f2dede
+$error-border           = darken(spin($error-background, -10), 3%)
+
+$success-color          = #468847
+$success-background     = #dff0d8
+$success-border         = darken(spin($success-background, -10), 5%)
+
+$info-color             = #3a87ad
+$info-background        = #d9edf7
+$info-border            = darken(spin($info-background, -10), 7%)
 
 // Dropdowns
-$dropdown-border-radius			= $base-border-radius
-
+$dropdown-border-radius         = $base-border-radius
 
 // Z-indices
-$zindex-dropdown        = 1000
-$zindex-popover         = 1010
-$zindex-tooltip         = 1020
-$zindex-navbar-fixed    = 1030
-$zindex-modal-backdrop  = 1040
-$zindex-modal           = 1050
+$zindex-dropdown                = 1000
+$zindex-popover                 = 1010
+$zindex-tooltip                 = 1020
+$zindex-navbar-fixed            = 1030
+$zindex-modal-backdrop          = 1040
+$zindex-modal                   = 1050

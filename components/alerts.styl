@@ -1,0 +1,106 @@
+// ESN Landscape
+
+// Base alert styles
+.alert
+  if $alert-padding is a 'list'
+    padding: $alert-padding
+  else
+    padding: 8px 35px 8px 14px
+
+  margin-bottom: $base-line-height
+  text-shadow: 0 1px 0 rgba(255,255,255,.5)
+
+  if $warning-background is a 'function'
+    $warning-background()
+  else if $warning-background is a 'color'
+    background-color: $warning-background
+  else if $warning-background
+    background: $warning-background
+
+  if $warning-border is a 'function'
+    $warning-border()
+  else if $warning-border is a 'color'
+    border: 1px solid $warning-border
+  else if $warning-border
+    border: $warning-border
+
+  border-radius: $base-border-radius
+
+if $warning-color is a 'color'
+  .alert,
+  .alert-heading
+    color: $warning-color
+
+// Adjust close link position
+.alert .close
+  position: relative
+  top: -2px
+  right: -21px
+  line-height: 18px
+
+// Alternate styles
+.alert-success
+
+  if $success-background is a 'function'
+    $success-background()
+  else if $success-background is a 'color'
+    background-color: $success-background
+  else if $success-background
+    background: $success-background
+
+  if $success-border is a 'function'
+    $success-border()
+  else if $success-border is a 'color'
+    border-color: $success-border
+  else if $success-border
+    border: $success-border
+
+if $success-color is a 'color'
+  .alert-success,
+  .alert-success .alert-heading
+    color: $success-text
+
+.alert-danger,
+.alert-error
+  if $error-background is a 'function'
+    $error-background()
+  else if $error-background is a 'color'
+    background-color: $error-background
+  else if $error-background
+    background: $error-background
+
+  if $error-border is a 'function'
+    $error-border()
+  else if $error-border is a 'color'
+    border-color: $error-border
+  else if $error-border
+    border: $error-border
+
+/*
+if $error-color is a 'color'
+  .alert-danger,
+  .alert-error,
+  .alert-danger .alert-heading,
+  .alert-error .alert-heading 
+    color: $error-color
+
+.alert-info 
+  background-color: @infoBackground
+  border-color: @infoBorder
+
+.alert-info,
+.alert-info .alert-heading 
+  color: @infoText
+
+// Block alerts
+.alert-block 
+  padding-top: 14px
+  padding-bottom: 14px
+
+.alert-block > p,
+.alert-block > ul 
+  margin-bottom: 0
+
+.alert-block p + p 
+  margin-top: 5px
+*/
