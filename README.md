@@ -3,26 +3,30 @@ LANDSCAPE
 
 A [Stylus](https://github.com/learnboost/stylus)-powered frontend toolkit based on [Bootstrap](https://github.com/twitter/bootstrap/).
 
-## Requirements
+### Requirements
 - [nodejs](http://nodejs.org/)
 - [stylus](http://learnboost.github.com/stylus/)
 - [nib](http://visionmedia.github.com/nib/)
 
-## How to get the test running?
+### How to get the test running?
 
 Clone the bootstrap submodule
 
-    $ git submodule update
+```bash
+$ git submodule update
+```
 
 Install all npm packages
 
-    $ cd test
-    $ test/ npm update
-    $ test/ node app.js
+```bash
+$ cd test
+$ test/ npm update
+$ test/ node app.js
+```
 
 *Note: If you're running Windows you will have to uncomment the canvas package in `package.json`.*
 
-## Copyright and license
+### Copyright and license
 Copyright 2012 ESN Social Software AB
 Copyright 2012 Twitter, Inc.
 
