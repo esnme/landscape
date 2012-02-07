@@ -1,9 +1,4 @@
-/*
- * ESN Frontend Toolkit
- */
-
-// UTILITY CLASSES
-// ---------------
+// ESN Landscape
 
 // Quick floats
 .pull-right
@@ -24,17 +19,30 @@
   visibility: hidden
 
 // Fade
-
 .fade
-  transition: opacity 0.15s linear
-  opacity: 0
+  // Transition
+  if $fade-transition is a 'function'
+    $fade-transition()
+  else if $fade-transition
+    transition: $fade-transition
+  else
+    transition: opacity .15s linear
 
-.fade.in
-  opacity: 1
+  // Opacity
+  opacity: 0
+  &.in
+    opacity: 1
 
 // Collapse
 .collapse
-  transition: height 0.35s ease
+  // Transition
+  if $collapse-transition is a 'function'
+    $collapse-transition()
+  else if $collapse-transition
+    transition: $collapse-transition
+  else
+    transition: height .35s ease
+
   position: relative
   overflow: hidden
   height: 0

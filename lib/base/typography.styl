@@ -1,75 +1,165 @@
 // ESN Landscape
- 
-// Paragrpahs
-p
-  margin: 0
-  margin-bottom: ($base-line-height / 2)
-  font-family: $base-font-family
-  font-size: $base-font-size
-  line-height: $base-line-height
-  small
-    font-size: ($base-font-size * 0.8)
 
+body
+  font-family: $base-font-family
+  color: $base-color
+  line-height: $base-line-height
+ 
 // Headings
 h1, h2, h3, h4, h5, h6
+  // Remove margin
   margin: 0
+
   // Fix the character spacing for headings
   text-rendering: optimizelegibility
+
+  // Line height
+  if $header-line-height is a 'unit'
+    line-height: $header-line-height
+  
+  // Color
+  if $header-color is a 'color'
+    color: $header-color
+  else
+    color: $base-color
+
+  // Small inside header
   small
-    margin-left: .5em
+    if $header-small is a 'function'
+      $header-small()
+    else
+      font-size: .7em
+      font-weight: normal
+      margin-left: .5em
+      color: lighten(@color, 50%)
+
+// Sadly we can't iterate the headers since stylus fails when
+// looking up variable names that contains variables.
+// I.e. if $h{n}-font-size is a 'unit'
 
 h1
-  font-size: 30px
-  line-height: ($base-line-height * 2)
-  small
-    font-size: 18px
+  if $h1 is a 'function'
+    $h1()
+  // Size
+  if $h1-font-size is a 'unit'
+    font-size: $h1-font-size
+  // Color
+  if $h1-color is a 'color'
+    color: $h1-color
 
 h2
-  font-size: 24px
-  line-height: ($base-line-height * 2)
-  small
-    font-size: 18px
+  if $h2 is a 'function'
+    $h2()
+  // Size
+  if $h2-font-size is a 'unit'
+    font-size: $h2-font-size
+  // Color
+  if $h2-color is a 'color'
+    color: $h2-color
 
 h3
-  line-height: ($base-line-height * 1.5)
-  font-size: 18px
-  small
-    font-size: 14px
-
-h4, h5, h6
-  line-height: $base-line-height
+  if $h3 is a 'function'
+    $h3()
+  // Size
+  if $h3-font-size is a 'unit'
+    font-size: $h3-font-size
+  // Color
+  if $h3-color is a 'color'
+    color: $h3-color
 
 h4
-  font-size: 14px
-  small
-    font-size: 12px
+  if $h4 is a 'function'
+    $h4()
+  // Size
+  if $h4-font-size is a 'unit'
+    font-size: $h4-font-size
+  // Color
+  if $h4-color is a 'color'
+    color: $h4-color
 
 h5
-  font-size: 12px
+  if $h5 is a 'function'
+    $h5()
+  // Size
+  if $h5-font-size is a 'unit'
+    font-size: $h5-font-size
+  // Color
+  if $h5-color is a 'color'
+    color: $h5-color
 
 h6
-  font-size: 11px
-  color: #ccc
-  text-transform: uppercase
+  if $h6 is a 'function'
+    $h6()
+  // Size
+  if $h6-font-size is a 'unit'
+    font-size: $h6-font-size
+  // Color
+  if $h6-color is a 'color'
+    color: $h6-color
+
+.page-header
+  padding-bottom: 17px
+  margin: 18px 0
+  border-bottom: 1px solid #eee
+  > h1
+    margin-bottom: 0
+
+.lead
+  margin-bottom: .8em
+  font-size: 1.5em
+  font-weight: 200
+  line-height: 1.5em
+
+// Paragrapahs
+p
+  // Remove margin
+  //margin: 0
+  //margin-bottom: ($base-line-height / 2)
+
+  // Font family
+  if $paragraph-font-family
+    font-family: $paragraph-font-family
+
+  // Font size
+  if $paragraph-font-size is a 'unit'
+    font-size: $paragraph-font-size
+  else
+    font-size: $base-font-size
+
+  // Line height
+  if $paragraph-line-height is a 'unit'
+    line-height: $paragraph-line-height
+  else
+    line-height: $base-line-height
+
+  // Small element inside paragraph
+  small
+    font-size: .8em
 
 // Lists
 
 // Unordered and Ordered lists
 ul, ol
+  // Remove padding
   padding: 0
-  margin: 0 0 ($base-line-height / 2) 25px
 
+  // Margin
+  if $list-margin is a 'unit'
+    margin: $list-margin
+
+  // Lists in lists
   ul, ol
+    // Remove margin
     margin-bottom: 0
 
 ul
-  list-style: disc
+  list-style: disc unless $ul-list-style
 
-ol 
-  list-style: decimal
+ol
+  list-style: decimal unless $ol-list-style
 
-li 
-  line-height: $base-line-height
+li
+  line-height: $base-line-height unless $li-line-height
 
 ul.unstyled 
   margin-left: 0
@@ -134,7 +224,7 @@ blockquote
     line-height: $base-line-height
     color: #ccc
     &:before
-      content: '\2014 \00A0';
+      content: '\2014 \00A0'
 
   // Float right with text-align: right
   &.pull-right
@@ -158,3 +248,40 @@ img
   width: 100%
   min-width: 100%
   height: auto
+
+blockquote
+  padding: 0 0 0 15px
+  margin: 0 0 18px
+  border-left: 5px solid #eee
+
+// Anchor
+a
+  // Remove decoration
+  text-decoration: none
+
+  // Base style
+  if $anchor is a 'function'
+    $anchor()
+
+  // Color
+  if $anchor-color is a 'color'
+    color: $anchor-color
+
+  // Hover
+  &:hover
+    // Base style
+    if $anchor-hover is a 'function'
+      $anchor-hover()
+
+    // Color
+    if $anchor-hover-color is a 'color'
+      color: $anchor-hover-color
+  // Active
+  &:active
+    // Base style
+    if $anchor-active is a 'function'
+      $anchor-active()
+
+    // Color
+    if $anchor-active-color is a 'color'
+      color: $anchor-active-color

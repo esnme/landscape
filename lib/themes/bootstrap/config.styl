@@ -19,52 +19,140 @@ $site-width         = ($grid-columns * $grid-column-width) + ($grid-gutter-width
 $fluid-grid-column-width = 6.382978723%
 $fluid-grid-gutter-width = 2.127659574%
 
+// Colors
+$color-1            = #fff      // White
+$color-2            = #000      // Black
+$color-3            = #eee      // Very light gray
+$color-4            = #ccc      // Light gray
+$color-5            = #999      // Medium light gray
+$color-6            = #666      // Gray
+$color-7            = #333      // Dark gray
+$color-8            = #353535   // Custom light gray
+$color-9            = #d14      // Violet
+
+$color-light        = $color-1
+$color-dark         = $color-2
+$color-default      = $color-3
+$color-primary      = $color-3
+$color-muted        = $color-5
+$color-warning      = #c09853   // Orange
+$color-danger       = #b94a48   // Red
+$color-success      = #468847   // Green
+$color-info         = #3a87ad   // Blue
+
+// Typography
+
+// Fonts
+$font-family-serif        = Georgia, "Times New Roman", Times, serif;
+$font-family-sans-serif   = "Helvetica Neue", Helvetica, Arial, sans-serif
+$font-family-monospace    = Menlo, Monaco, "Courier New", monospace
+
+$base-font-family   = $font-family-sans-serif
+$base-font-size     = 13px
+$base-line-height   = 18px
+$base-color         = $color-8
+
 // Borders
 $base-border-width  = 1px
 $base-border-radius = 4px
 
-// Typography
-$base-font-family   = "Helvetica Neue", Helvetica, Arial, sans-serif
-$base-font-size     = 13px
-$base-line-height   = 18px
-$base-font-color    = #353535
+// Headers
+$header-color       = $color-7
+$header-line-height = 1.3em
 
-// Colors
-$color-light        = #fff
-$color-dark         = #000
-$color-muted        = #999
+$h1-font-size       = 2.3em
+$h2-font-size       = 1.8em
+$h3-font-size       = 1.4em
+$h4-font-size       = 1.1em
+$h5-font-size       = 1em
+$h6-font-size       = .85em
 
-$color-default      = #333
-$color-primary      = #666
-$color-warning      = #f89406
-$color-danger       = #b94a48
-$color-success      = #468847
-$color-info         = #3a87aD
+$h6()
+  color: $color-5
+  text-transform: uppercase
+
+// Paragraphs
+$paragraph-font-family = $base-font-family
+$paragraph-font-size   = $base-font-size
+
+$paragraph()
+  // Anchors in paragraphs
+  a:hover
+    text-decoration: underline
+
+// Lists
+$list-margin = 0 0 ($base-line-height / 2) 25px
 
 // Anchors
-$anchor-color               = #08c
-$anchor-color-hover         = darken($anchor-color, 40%)
-$anchor-color-active        = lighten($anchor-color, 10%)
+$anchor-color               = #08c // Blue
+$anchor-hover-color         = darken($anchor-color, 40%)
+$anchor-active-color        = lighten($anchor-color, 10%)
+
+// Code
+$code-inline-color          = $color-9
 
 // Buttons
-$button-color-default       = $color-default
-$button-color-primary       = $color-primary
-$button-color-warning       = $color-warning
-$button-color-danger        = $color-danger
-$button-color-success       = $color-success
-$button-color-info          = $color-info
 
-// Button backgrounds
-$button-default-background = #ccc
-$button-primary-background = $anchor-color
+// Button structure
+$button-padding             = 4px 10px 4px
+$button-line-height         = $base-line-height
 
-$button-hover-color-default     = #333
-$button-hover-color-primary     = $button-hover-color-default
+// Button colors
+$button-color               = $color-8
+$button-primary-color       = $color-primary
+$button-warning-color       = $color-warning
+$button-danger-color        = $color-danger
+$button-success-color       = $color-success
+$button-info-color          = $color-info
 
 // Button borders
-$button-border-color            = #ccc
-$button-border-color-bottom     = #bbb
+$button-border-color            = $color-4
+$button-border-color-bottom     = darken($color-4, 10%)
 $button-border-radius           = $base-border-radius
+$button-border                  = 1px solid $button-border-color
+
+// Button effects
+$button-text-shadow         = 0 1px 1px fade-out($color-light, .25)
+$button-box-shadow          = inset 0 1px 0 fade-out($color-light, .75), 0 1px 2px fade-out($color-dark, .95)
+
+// Hover
+$button-hover()
+  color: $button-color
+  text-decoration: none
+  background-color: #e6e6e6
+  background-position: 0 -15px
+  // transition is only when going to hover, otherwise the background
+  // behind the gradient (there for IE<=9 fallback) gets mismatched
+  transition: background-position .2s linear, border .2s linear, color .2s linear, opacity.2s linear
+
+// Active
+$button-active()
+  background-image: none
+  box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)
+  background-color: darken($color-light, 10%)
+  background-color: darken($color-light, 15%) \\9 // IE haxx
+  color: rgba(0,0,0,.5)
+  transition: all .15s ease
+  .caret
+    opacity: .4 !important
+
+// Disabled
+$button-disabled()
+  background-image: none
+  background-color: darken($color-light, 10%);
+  opacity: .65
+  box-shadow: none
+
+// Button backgrounds
+$button-gradient()
+  p = $color-1
+  s = darken(p, 10%)
+  gradient-bar(p, s)
+
+$button-default-background = #ccc
+$button-primary-background = $anchor-color
+$button-hover-color-default     = #333
+$button-hover-color-primary     = $button-hover-color-default
 
 // Navbar
 $navbar-height                  = 40px
@@ -106,6 +194,7 @@ $dropdown-border-radius  = $base-border-radius
 $well-margin      = 0 0 20px 0
 $well-padding     = 19px
 $well-background  = #f5f5f5
+// Custom border
 $well-border()
   border: 1px solid #eee
   border: 1px solid rgba(0,0,0,.05)

@@ -37,6 +37,7 @@ var resminConfig = {
     }
 };
 
+// Configure
 app.configure(function(){
   app.set('view engine', 	'jade');
   app.set('view options', { layout: false });
@@ -64,6 +65,7 @@ app.configure('production', function(){
 
 app.dynamicHelpers(resmin.dynamicHelper);
 
+// Routes
 app.get('/', function(req, res){
   res.render('index');
 });
@@ -88,4 +90,5 @@ app.get('/javascript.html', function(req, res){
   res.render('javascript', context);
 });
 
-app.listen(6060);
+// Let's listen
+app.listen(3000);

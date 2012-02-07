@@ -6,24 +6,99 @@
   display: inline-block
   cursor: pointer
 
+  // Color
+  if $button-color is a 'color'
+    color: $button-color
+
+  // Padding
+  if $button-padding is a 'unit'
+    padding: $button-padding
+
+  // Font family
+  if $button-font-family is defined
+    font-family: $button-font-family
+
+  // Font size
+  if $button-font-size is a 'unit'
+    font-size: $button-font-size
+
+  // Line height
+  if $button-line-height is a 'unit'
+    line-height: $button-line-height
+
+  // Text align
+  text-align: center unless $button-text-align
+
+  // Border
+  if $button-border is a 'function'
+    $button-border()
+  else if $button-border is defined
+    border: $button-border
+
+  // Border radius
+  if $button-border-radius is a 'unit'
+    border-radius: $button-border-radius
+
+  // Text shadow
+  if $button-text-shadow is a 'function'
+    $button-text-shadow()
+  else if $button-text-shadow is defined
+    text-shadow: $button-text-shadow
+
+  // Gradient background
+  if $button-gradient is a 'function'
+    $button-gradient()
+
+  // Box shadow
+  if $button-box-shadow is a 'function'
+    $button-box-shadow()
+  else if $button-box-shadow
+    box-shadow: $button-box-shadow
+
   + .btn
-    margin-left: 6px
+    margin-left: .75em
 
   // Caret inside button
   .caret
     // Reposition dropdown caret
-    margin-top: ($button-border-radius*1.5)
+    if ($button-line-height) is a 'unit'
+      margin-top: ($button-line-height / 2.5)
+    else
+      margin-top: ($base-line-height / 2.5)
     margin-left: 0
 
-  // Active state
+  // Give IE7 some love
+  ie7-restore-left-whitespace()
+
+  // Hover
+  &:hover
+    if $button-hover is a 'function'
+      $button-hover()
+    .caret
+      opacity: 1
+
+  // Active
   &.active,
   &:active
+    // Implement your own outline style
     outline: 0
+    if $button-active is a 'function'
+      $button-active()
+    .caret
+      opacity: .4 !important
 
-  // Disabled state
+  // Focuse
+  &:focus
+    @extend .tab-focus
+    if $button-focus is a 'function'
+      $button-focus()
+
+  // Disabled
   &.disabled,
   &[disabled]
     cursor: default
+    if $button-disabled is a 'function'
+      $button-disabled()
     
   // Different caret color for different buttons
   &.btn-primary,
@@ -33,6 +108,44 @@
     .caret
       border-top-color: #fff
       opacity: .75
+
+// Button Sizes
+
+// Large
+.btn-large
+  // Font size
+  if $button-font-size
+    font-size: ($base-font-size + 2px)
+  else
+    font-size: 1.2em
+
+  // Font padding
+  if $button-padding is a 'unit'
+    padding: ($button-padding * 2)
+  else
+    padding: .5em .3em
+  
+  line-height: normal
+  if ($button-border-radius) is a 'unit'
+    border-radius: ($button-border-radius * 1.2)
+  .icon
+    margin-top: .05em
+
+// Small
+.btn-small
+   // Font size
+  if $button-font-size is a 'unit'
+    font-size: ($base-font-size * .8)
+  else
+    font-size: .9em
+  line-height: ($base-line-height * .8)
+  // Font padding
+  if $button-padding is a 'unit'
+    padding: ($button-padding * .8)
+  else
+    padding: .2em .1em
+  .icon
+    margin-top: .05em
       
 // Button groups
 .btn-group
@@ -41,7 +154,7 @@
   
   // Space out series of button groups
   + .btn-group
-    margin-left: 5px
+    margin-left: .75em
     
   // Float them, remove border radius, then 
   .btn
@@ -87,3 +200,49 @@
   margin-bottom: 9px
   .btn-group
     display: inline-block
+
+// Alternate buttons
+
+// Set text color
+.btn-primary,
+.btn-primary:hover,
+.btn-warning,
+.btn-warning:hover,
+.btn-danger,
+.btn-danger:hover,
+.btn-success,
+.btn-success:hover,
+.btn-info,
+.btn-info:hover
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25)
+  color: $color-light
+
+// Provide *some* extra contrast for those who can get it
+.btn-primary,
+.btn-warning,
+.btn-danger,
+.btn-success,
+.btn-info
+  &.active,
+  &:active
+    color: rgba(255,255,255,.6)
+
+// Backgrounds
+.btn-primary
+  button-background($button-primary-background, spin($button-primary-background, 20))
+
+// Warning appears are orange
+.btn-warning
+  button-background(lighten($color-warning, 15%), $color-warning)
+
+// Danger and error appear as red
+.btn-danger
+  button-background(#ee5f5b, #bd362f)
+
+// Success appears as green
+.btn-success
+  button-background(#62c462, #51a351)
+
+// Info appears as a neutral blue
+.btn-info
+  button-background(#5bc0de, #2f96b4)

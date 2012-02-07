@@ -13,6 +13,7 @@ A [Stylus](https://github.com/learnboost/stylus)-powered frontend toolkit based 
 Clone the bootstrap submodule
 
 ```bash
+$ git submodule init
 $ git submodule update
 ```
 
