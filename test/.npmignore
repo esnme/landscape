@@ -1,0 +1,7 @@
+.gitignore
+.git
+.bin
+node_modules
+*.log
+*.tmp
+*.sock

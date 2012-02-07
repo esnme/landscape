@@ -1,0 +1,804 @@
+extends layout
+
+block navbar
+  - var section = 'components'
+  include navbar
+
+block content
+  header.jumbotron.subhead
+    h1 Components
+    p.lead.
+      Dozens of reusable components are built into Bootstrap to 
+      provide navigation, alerts, popovers, and much more.
+    .subnav
+      ul.nav.nav-pills
+        li.dropdown
+          a.dropdown-toggle(href="#", data-toggle="dropdown") Buttons 
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href="#button-groups") Button groups
+            li
+              a(href="#button-dropdowns") Button dropdowns
+        li.dropdown
+          a.dropdown-toggle(href="#", data-toggle="dropdown") Navigation
+            span.caret
+          ul.dropdown-menu
+            li
+              a(href="#navs") Nav, tabs, pills
+            li
+              a(href="#navbar") Navbar
+            li
+              a(href="#breadcrumbs") Breadcrumbs
+        li
+          a(href="#labels") Labels
+        li
+          a(href="#thumbnails") Thumbnails
+        li
+          a(href="#alerts") Alerts
+        li
+          a(href="#misc") Miscellaneous
+
+  section#button-groups
+    .page-header
+      h1 Button groups
+        small Join buttons for more toolbar-like functionality
+
+    .row
+      .span4
+        h3 Button groups
+        p 
+          :markdown
+            Use button groups to join multiple buttons together as one composite component. 
+            Build them with a series of `<a>` or `<button>` elements.
+            You can also combine sets of `<div class="btn-group">` into a `<div class="btn-toolbar">`
+            for more complex projects.
+            
+          .btn-group
+            a.btn(href="#") Left
+            a.btn(href="#") Middle
+            a.btn(href="#") Right
+              
+          .btn-toolbar
+            .btn-group
+              a.btn(href="#") 1
+              a.btn(href="#") 2
+              a.btn.disabled(href="#") 3
+              a.btn(href="#") 4
+            .btn-group
+              a.btn(href="#") 5
+              a.btn(href="#") 6
+              a.btn(href="#") 7
+            .btn-group
+              a.btn(href="#") 8
+                
+      .span4
+        h3 Example markup
+        p Here's how the HTML looks for a standard button group built with anchor tag buttons:
+        pre.prettyprint.linenums.
+          <div class="btn-group">
+            <a class="btn" href="#">1</a>
+            <a class="btn" href="#">2</a>
+            <a class="btn" href="#">3</a>
+          </div>
+        p And with a toolbar for multiple groups:
+        pre.prettyprint.linenums.
+          <div class="btn-toolbar">
+            <div class="btn-group">
+              ...
+            </div>
+          </div>
+      .span4
+        h3 Checkbox and radio flavors
+        p
+          :markdown
+            Button groups can also function as radios, where only one button may be active, 
+            or checkboxes, where any number of buttons may be active. 
+            View [he Javascript docs](./javascript.html) for that.
+        p
+          a.btn.js-btn(href="./javascript.html#buttons") Get the javascript &raquo;
+        hr
+        h4.muted Heads up
+        p.muted CSS for button groups is in a separate file, button-groups.less.
+
+  section#button-dropdowns
+    .page-header
+      h1 Button dropdowns
+        small Contextual dropdown menus built on button groups
+
+    .row
+      .span4
+        h3 Button dropdowns
+        :markdown
+          Use any button to trigger a dropdown menu by placing it within a 
+          `.btn-group` and providing the proper menu markup.
+
+        .btn-toolbar
+          .btn-group
+            a.btn.dropdown-toggle(data-toggle="dropdown", href="#") Action 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Action
+              li
+                a(href="#") Another action
+              li
+                a(href="#") Something else here
+              li.divider
+              li
+                a(href="#") Separated link
+          .btn-group
+            a.btn.btn-primary.dropdown-toggle(data-toggle="dropdown", href="#") Action 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Action
+              li
+                a(href="#") Another action
+              li
+                a(href="#") Something else here
+              li.divider
+              li
+                a(href="#") Separated link
+          .btn-group
+            a.btn.btn-danger.dropdown-toggle(data-toggle="dropdown", href="#") Danger 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Action
+              li
+                a(href="#") Another action
+              li
+                a(href="#") Something else here
+              li.divider
+              li
+                a(href="#") Separated link
+        .btn-toolbar
+          .btn-group
+            a.btn.btn-success.dropdown-toggle(data-toggle="dropdown", href="#") Success 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Action
+              li
+                a(href="#") Another action
+              li
+                a(href="#") Something else here
+              li.divider
+              li
+                a(href="#") Separated link
+          .btn-group
+            a.btn.btn-info.dropdown-toggle(data-toggle="dropdown", href="#") Info 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Action
+              li
+                a(href="#") Another action
+              li
+                a(href="#") Something else here
+              li.divider
+              li
+                a(href="#") Separated link
+
+      .span8
+        h3 Example markup
+        p.
+          Similar to a button group, our markup uses regular button markup, but with a handful of 
+          additions to refine the style and support Bootstrap's dropdown jQuery plugin.
+        pre.prettyprint.linenums.
+          <div class="btn-group">
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              Action 
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- dropdown menu links -->
+            </ul>
+          </div>
+    .row
+      .span4
+        h3 Split button dropdowns
+        :markdown
+          Building on the button group styles and markup, we can easily create a split button. 
+          Split buttons feature a standard action on the left and a dropdown toggle on the 
+          right with contextual links.
+        .btn-toolbar
+          .btn-group
+            a.btn(href="#") Action
+            a.btn.dropdown-toggle(data-toggle="dropdown", href="#")
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Action
+              li
+                a(href="#") Another action
+              li
+                a(href="#") Something else here
+              li.divider
+              li
+                a(href="#") Separated link
+                
+          .btn-group
+            a.btn.btn-primary(href="#") Action
+            a.btn.btn-primary.dropdown-toggle(data-toggle="dropdown", href="#")
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Action
+              li
+                a(href="#") Another action
+              li
+                a(href="#") Something else here
+              li.divider
+              li
+                a(href="#") Separated link
+
+          .btn-group
+            a.btn.btn-danger(href="#") Danger
+            a.btn.btn-danger.dropdown-toggle(data-toggle="dropdown", href="#")
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Action
+              li
+                a(href="#") Another action
+              li
+                a(href="#") Something else here
+              li.divider
+              li
+                a(href="#") Separated link
+        .btn-toolbar
+          .btn-group
+            a.btn.btn-success(href="#") Success
+            a.btn.btn-success.dropdown-toggle(data-toggle="dropdown", href="#")
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Action
+              li
+                a(href="#") Another action
+              li
+                a(href="#") Something else here
+              li.divider
+              li
+                a(href="#") Separated link
+
+          .btn-group
+            a.btn.btn-info(href="#") Info
+            a.btn.btn-info.dropdown-toggle(data-toggle="dropdown", href="#")
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Action
+              li
+                a(href="#") Another action
+              li
+                a(href="#") Something else here
+              li.divider
+              li
+                a(href="#") Separated link
+
+      .span8
+        h3 Example markup
+        p.
+          Similar to a button group, our markup uses regular button markup, 
+          but with a handful of additions to refine the style and support 
+          Bootstrap's dropdown jQuery plugin.
+        pre.prettyprint.linenums.
+          <div class="btn-group">
+            <a class="btn" href="#">Action</a>
+            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- dropdown menu links -->
+            </ul>
+          </div>
+  section#navs
+    .page-header
+      h1 Nav, tabs, and pills
+        small Highly customizable list-style navigation
+    h2 Lightweight defaults
+      small Same markup, different classes
+    .row
+      .span4
+        h3 Powerful base class
+        :markdown
+          All nav components here — tabs, pills, and lists — **share the same base markup and styles** through the `.nav` class.
+        h3 Why tabs and pills?
+        :markdown
+          Tabs and pills in Bootstrap are built on a `<ul>` with the same core HTML, a list of links. 
+          Swap between tabs or pills with only a class.
+
+          Both options are great for sub-sections of content or navigating between pages of related content.
+      .span4
+        h3 Basic tabs
+        :markdown
+          Take a regular `<ul>` of links and add `.nav-tabs`:
+        ul.nav.nav-tabs
+          li.active
+            a(href="#") Home
+          li
+            a(href="#") Profile
+          li
+            a(href="#") Messages
+        pre.prettyprint.linenums.
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="#">Home</a>
+            </li>
+            <li><a href="#">...</a></li>
+            <li><a href="#">...</a></li>
+          </ul>
+      .span4
+        h3 Basic pills
+        :markdown
+          Take that same HTML, but use `.nav-pills` instead:
+        ul.nav.nav-pills
+          li.active
+            a(href="#") Home
+          li
+            a(href="#") Profile
+          li
+            a(href="#") Messages
+        pre.prettyprint.linenums.
+          <ul class="nav nav-pills">
+            <li class="active">
+              <a href="#">Home</a>
+            </li>
+            <li><a href="#">...</a></li>
+            <li><a href="#">...</a></li>
+          </ul>
+    h2 Stackable
+      small Make tabs or pills vertical
+    .row
+      .span4
+        h3 How to stack 'em
+        :markdown
+          As tabs and pills are horizontal by default, just add a second class, `.nav-stacked`, to make them appear vertically stacked.
+      .span4
+        h3 Stacked tabs
+        ul.nav.nav-tabs.nav-stacked
+          li.active
+            a(href="#") Home
+          li
+            a(href="#") Profile
+          li
+            a(href="#") Messages
+        pre.prettyprint.linenums.
+          <ul class="nav nav-tabs nav-stacked">
+            ...
+          </ul>
+      .span4
+        h3 Stacked pills
+        ul.nav.nav-pills.nav-stacked
+          li.active
+            a(href="#") Home
+          li
+            a(href="#") Profile
+          li
+            a(href="#") Messages
+        pre.prettyprint.linenums.
+          <ul class="nav nav-pills nav-stacked">
+            ...
+          </ul>
+    h2 Dropdowns
+      small For advanced nav components
+    .row
+      .span4
+        h3 Rich menus made easily
+        :markdown
+          Dropdown menus in Bootstrap tabs and pills are super easy and require only a
+          little extra HTML and a lightweight jQuery plugin.
+
+          Head over to the Javascript page to read the docs on 
+          [initializing dropdowns](./javascript.html#tabs) in Landscape.
+      .span4
+        h3 Tabs with dropdowns
+        ul.nav.nav-tabs
+          li.active
+            a(href="#") Home
+          li
+            a(href="#") Profile
+          li.dropdown
+            a.dropdown-toggle(href="#", data-toggle="dropdown") Dropdown 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Action
+              li
+                a(href="#") Another action
+              li
+                a(href="#") Something else here
+              li.divider
+              li
+                a(href="#") Separated link
+        pre.prettyprint.linenums.
+          <ul class="nav nav-tabs">
+            <li class="dropdown">
+              <a class="dropdown-toggle"
+                 data-toggle="dropdown"
+                 href="#">
+                  Dropdown
+                  <b class="caret"></b>
+                </a>
+              <ul class="dropdown-menu">
+                <!-- links -->
+              </ul>
+            </li>
+          </ul>
+      .span4
+        h3 Pills with dropdowns
+        ul.nav.nav-pills
+          li.active
+            a(href="#") Home
+          li
+            a(href="#") Profile
+          li.dropdown
+            a.dropdown-toggle(href="#", data-toggle="dropdown") Dropdown 
+              span.caret
+            ul.dropdown-menu
+              li
+                a(href="#") Action
+              li
+                a(href="#") Another action
+              li
+                a(href="#") Something else here
+              li.divider
+              li
+                a(href="#") Separated link
+        pre.prettyprint.linenums.
+          <ul class="nav nav-pills">
+            <li class="dropdown">
+              <a class="dropdown-toggle"
+                 data-toggle="dropdown"
+                 href="#">
+                  Dropdown
+                  <b class="caret"></b>
+                </a>
+              <ul class="dropdown-menu">
+                <!-- links -->
+              </ul>
+            </li>
+          </ul>
+  section#navbar
+    .page-header
+      h1 Navbar
+    
+    h2 Static navbar example
+    p An example of a static (not fixed to the top) navbar with project name, navigation, and search form.
+
+    .navbar
+      .navbar-inner
+        .container
+          .btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+            .icon-bar
+            .icon-bar
+            .icon-bar
+          a.brand(href="#") Project name
+          .nav-collapse
+            ul.nav
+              li.active
+                a(href="#") Home
+              li
+                a(href="#") Link
+              li
+                a(href="#") Link
+              li
+                a(href="#") Link
+              li.dropdown
+                a.dropdown-toggle(href="#", data-toggle="dropdown") Dropdown
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href="#") Action
+                  li
+                    a(href="#") Another action
+                  li
+                    a(href="#") Something else here
+                  li.divider
+                  li
+                    a(href="#") Separated link
+            form.navbar-search.pull-left
+              input.search-query.span2(type="text", placeholder="Search")
+            ul.nav.pull-right
+              li
+                a(href="#") Link
+              li.divider-vertical
+              li.dropdown
+                a.dropdown-toggle(href="#", data-toggle="dropdown") Dropdown
+                  span.caret
+                ul.dropdown-menu
+                  li
+                    a(href="#") Action
+                  li
+                    a(href="#") Another action
+                  li
+                    a(href="#") Something else here
+                  li.divider
+                  li
+                    a(href="#") Separated link
+      br
+      .row
+        .span8
+          h3  Navbar scaffolding
+          p The navbar requires only a few divs to structure it well for static or fixed display.
+          pre.prettyprint.linenums.
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="container">
+                  ...
+                </div>
+              </div>
+            </div>
+          :markdown
+            To make the navbar fixed to the top of the viewport, add `.navbar-fixed-top` to the outermost div, 
+            `.navbar`. In your CSS, you will also need to account for the overlap it causes by adding 
+            padding-top: 40px; to your `<body>`.
+          pre.prettyprint.linenums.
+            <div class="navbar navbar-fixed-top">
+              ...
+            </div>
+          h3 Brand name
+          p A simple link to show your brand or project name only requires an anchor tag.
+          pre.prettyprint.linenums.
+            <a class="brand" href="#">
+              Project name
+            </a>
+          h3 Search form
+          :markdown
+            Search forms receive custom styles in the navbar with the `.navbar-search` class. Include `.pull-left` or `.pull-right` on the form to align it.
+          pre.prettyprint.linenums.
+            <form class="navbar-search pull-left">
+              <input type="text" class="search-query" placeholder="Search">
+            </form>
+          h3 Optional responsive variation
+          :markdown
+            Depending on the amount of content in your topbar, you might want to implement the responsive options. 
+            To do so, wrap your nav content in a containing div, `.nav-collapse.collapse`, and add the navbar toggle button, `.btn-navbar`.
+          pre.prettyprint.linenums.
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="container">
+                  
+                  <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </a>
+                  
+                  <!-- Be sure to leave the brand out there if you want it shown -->
+                  <a class="brand" href="#">Project name</a>
+             
+                  <!-- Everything you want hidden at 940px or less, place within here -->
+                  <div class="nav-collapse">
+                    <!-- .nav, .navbar-search, .navbar-form, etc -->
+                  </div>
+             
+                </div>
+              </div>
+            </div>
+          .alert.alert-info <strong>Heads up!</strong> The responsive navbar requires the collapse plugin.
+        .span4
+          h3 Nav links
+          p Nav items are simple to add via unordered lists.
+          pre.prettyprint.linenums.
+            <ul class="nav">
+              <li class="active">
+                <a href="#">Home</a>
+              </li>
+              <li><a href="#">Link</a></li>
+              <li><a href="#a">Link</a></li>
+            </ul>
+          h3 Adding dropdowns
+          :markdown
+            Adding dropdowns to the nav is super simple, but does require the use of [our javascript plugin](http://twitter.github.com/bootstrap/javascript.html#dropdown).
+          pre.prettyprint.linenums.
+            <ul class="nav">
+              <li class="dropdown">
+                <a href="#"
+                      class="dropdown-toggle"
+                      data-toggle="dropdown">
+                      Account
+                      <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  ...
+                </ul>
+              </li>
+            </ul>
+          a.btn(href="./javascript.html#dropdown") Get the javascript &rarr;
+  
+  section#labels
+    .page-header
+      h1 Inline labels
+        small Label and annotate text
+      
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th Labels
+          th Markup
+      tbody
+        tr
+          td <span class="label">Default</span>
+          td
+            :markdown
+              `<span class="label">Default</span>`
+        tr
+          td <span class="label label-success">New</span>
+          td
+            :markdown
+              `<span class="label label-success">New</span>`
+        tr
+          td <span class="label label-warning">Warning</span>
+          td
+            :markdown
+              `<span class="label label-label-warning">Warning</span>`
+        tr
+          td <span class="label label-important">Important</span>
+          td
+            :markdown
+              `<span class="label label-important">Important</span>`
+        tr
+          td <span class="label label-info">Info</span>
+          td
+            :markdown
+              `<span class="label label-info">Info</span>`
+  section#thumbnails
+    .page-header
+      h1 Thumbnails
+        small Grids of images, videos, text, and more
+    
+    .row
+      .span6
+        h2 Default thumbnails
+        p By default, Bootstrap's thumbnails are designed to showcase linked images with minimal required markup.
+        
+        ul.thumbnails
+          li.span3
+            a(href="#").thumbnail
+              img(src="http://placehold.it/260x180", alt="")
+          li.span3
+            a(href="#").thumbnail
+              img(src="http://placehold.it/260x180", alt="")
+          li.span3
+            a(href="#").thumbnail
+              img(src="http://placehold.it/260x180", alt="")
+          li.span3
+            a(href="#").thumbnail
+              img(src="http://placehold.it/260x180", alt="")
+              
+      .span6
+        h2 Highly customizable
+        p With a bit of extra markup, it's possible to add any kind of HTML content like headings, paragraphs, or buttons into thumbnails.
+        
+        ul.thumbnails
+          li.span3
+            .thumbnail
+              img(src="http://placehold.it/260x180", alt="")
+              .caption
+                h5 Thumbnail caption
+                p.
+                  Cras justo odio, dapibus ac facilisis in, egestas eget quam. 
+                  Donec id elit non mi porta gravida at eget metus. Nullam id 
+                  dolor id nibh ultricies vehicula ut id elit.
+                p
+                  a.btn.btn-primary(href="#") Action
+                  a.btn(href="#") Action
+          li.span3
+            .thumbnail
+              img(src="http://placehold.it/260x180", alt="")
+              .caption
+                h5 Thumbnail caption
+                p.
+                  Cras justo odio, dapibus ac facilisis in, egestas eget quam. 
+                  Donec id elit non mi porta gravida at eget metus. Nullam id 
+                  dolor id nibh ultricies vehicula ut id elit.
+                p
+                  a.btn.btn-primary(href="#") Action
+                  a.btn(href="#") Action
+
+  section#alerts
+    .page-header
+      h1 Alerts
+        small Styles for success, warning and error Messages
+    
+    h2 Lightweight defaults
+
+    .row
+      .span4
+        h3 Rewritten base class
+        :markdown
+          With Bootstrap 2, we've simplified the base class: `.alert` instead of `.alert-message`. 
+          We've also reduced the minimum required markup — no `<p>` is required by default, just the outter `<div>`.
+        h3 Single alert message
+        :markdown
+          For a more durable component with less code, we've removed the differentiating look for block alerts, 
+          messages that come with more padding and typically more text. The class also has changed to `.alert-block`.
+        hr
+        h3 Goes great with Javascript
+        :markdown
+          Bootstrap comes with a great jQuery plugin that supports alert messages, making dismissing them quick and easy.
+        a.btn.js-btn(href="./javascript.html#alerts") Get the plugin »
+      .span8
+        h3 Example alerts
+        p Wrap your message and an optional close icon in a div with simple class.
+        .alert
+          a.close &times;
+          | <strong>Warning!</strong> Best check yo self, you're not looking too good.
+        pre.prettyprint.linenums.
+          <div class="alert">
+            <a class="close">\&times\;</a>
+            <strong>Warning!</strong> Best check yo self, you're not looking too good.
+          </div>
+        :markdown
+          Easily extend the standard alert message with two optional classes: `.alert-block` 
+          for more padding and text controls and `.alert-heading` for a matching heading.
+        .alert.alert-block
+          a.close &times;
+          h4.alert-heading Warning!
+          | Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. 
+          | Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        pre.prettyprint.linenums.
+          <div class="alert alert-block">
+            <a class="close">\&times\;</a>
+            <h4 class="alert-heading">Warning!</h4>
+            Best check yo self, you're not...
+          </div>
+    h2 Contextual alternatives
+      small Add optional classes to change an alert's connotation
+    .row
+      .span4
+        h3 Error or danger
+        .alert.alert-error
+          a.close &times;
+          | <b>Oh snap!</b> Change a few things up and try submitting again.
+        pre.prettyprint.linenums.
+          <div class="alert alert-error">
+            ...
+          </div>
+      .span4
+        h3 Succes
+        .alert.alert-success
+          a.close &times;
+          | <b>Well done!</b> You successfully read this important alert message.
+        pre.prettyprint.linenums.
+          <div class="alert alert-success">
+            ...
+          </div>
+      .span4
+        h3 Information
+        .alert.alert-info
+          a.close &times;
+          | <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+        pre.prettyprint.linenums.
+          <div class="alert alert-info">
+            ...
+          </div>
+  section#progress
+
+  section#misc
+    .page-header
+      h1 Miscellaneous
+        small Wells, badges and close icon
+
+    .row
+      .span4
+        h2 Wells
+        p Use the well as a simple effect on an element to give it an inset effect.
+        .well Look, I'm in a well!
+        pre.prettyprint.linenums.
+          <div class="well">
+            ...
+          </div>
+      .span4
+        h2 Close icon
+        p Use the generic close icon for dismissing content like modals and alerts.
+        p
+          a.close(style="float: none") &times;
+        pre.prettyprint.linenums.
+          <a class="close">\&times\;</a>
+      .span4

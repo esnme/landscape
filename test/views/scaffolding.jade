@@ -1,0 +1,306 @@
+extends layout
+
+block navbar
+  - var section = 'scaffolding'
+  include navbar
+
+block content
+  header.jumbotron.subhead
+    h1 Scaffolding
+    p.lead.
+      The toolkit is built on a responsive 12-column grid. 
+      We've also included fixed- and fluid-width 
+      layouts based on that system.
+    .subnav
+      ul.nav.nav-pills
+        li
+          a(href="#grid-system") Grid system
+        li
+          a(href="#layouts") Layouts
+        li
+          a(href="#responsive") Responsive design
+
+  section#grid-system
+    .page-header
+      h1 Grid system
+        small 12 columns with a responsive twist
+        
+    h2 Default grid
+    
+    .row.show-grid
+      .span1 1
+      .span1 1
+      .span1 1
+      .span1 1
+      .span1 1
+      .span1 1
+      .span1 1
+      .span1 1
+      .span1 1
+      .span1 1
+      .span1 1
+      .span1 1
+     
+    .row.show-grid
+      .span2 2
+      .span2 2
+      .span2 2
+      .span2 2
+      .span2 2
+      .span2 2
+      
+    .row.show-grid
+      .span3 3
+      .span3 3
+      .span3 3
+      .span3 3
+
+    .row.show-grid
+      .span4 4
+      .span4 4
+      .span4 4
+      
+    .row.show-grid
+      .span6 6
+      .span6 6
+      
+    .row.show-grid
+      .span12 12
+      
+    .row
+      .span4
+        p.
+          The default grid system provided as part of Bootstrap is a 940px-wide, 
+          12-column grid. It also has three responsive variations for various 
+          devices and resolutions: phone, tablet, and large widescreen desktops.
+      .span4
+        pre.prettyprint.linenums.
+          <div class="row">
+            <div class="span6">..</div>
+            <div class="span12">..</div>
+          </div>
+      .span4
+        p. 
+          As shown here, a basic layout can be created with two "columns," 
+          each spanning a number of the 12 foundational columns we defined 
+          as part of our grid system.
+    br
+    h2 Offsetting columns
+    
+    .row.show-grid
+      .span4 4
+      .span6.offset2 6 offset 2
+      
+    .row.show-grid
+      .span3.offset6 1/3 offset 2/3s
+      
+    .row.show-grid
+      .span3.offset3 3 offset 3
+      .span3.offset3 3 offset 3
+      
+    .row.show-grid
+      .span4.offset4 4 offset 4
+      
+    .row.show-grid
+      .span4.offset2 4 offset 2
+      .span4.offset2 4 offset 2
+    
+    .row.show-grid
+      .span6.offset4 6 offset 4
+    
+    h2 Nesting columns
+    
+    .row
+      .span6
+        p. 
+          With the static (non-fluid) grid system in Bootstrap, nesting is easy. 
+          To nest your content, just add a new <code>.row</code> and set of 
+          <code>.span*</code> columns within an existing <code>.span*</code> 
+          column.
+      
+        h3 Example
+        .row.show-grid
+          .span6 Level 1 of column
+            .row.show-grid
+              .span3 Level 2
+              .span3 Level 2
+      .span6
+        pre.prettyprint.linenums.
+          <div class="row">
+            <div class="span12">
+              Level 1 of column
+              <div class="row">
+                <div class="span6">
+                  Level 2
+                </div>
+                <div class="span6">
+                  Level 2
+                </div>
+              </div>
+            </div>
+          </div>
+    h2 Grid customization
+    
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th.span3 Variable
+          th Default value
+          th Description
+      tbody
+        tr
+          td
+            code $grid-columns
+          td 12
+          td Number of columns
+        tr
+          td
+            code $grid-column-width
+          td 60px
+          td Width of each column
+        tr
+          td 
+            code $grid-gutter-width
+          td 20px
+          td Negative space between columns
+        tr
+          td
+            code $site-width
+          td
+            em Computed sum of all columns and gutters
+          td Counts numbers of columns and gutters to set width of the <code>fixed-container()</code> mixin
+    .row
+      .span4
+        h3 Variables in LESS
+        :markdown
+          Built into Bootstrap are a handful of variables for customizing the default 940px grid system, documented above. 
+          All variables for the grid are stored in config.styl.
+      .span4
+        h3 How to customize
+        :markdown
+          Modifying the grid means changing the three `$grid-*` variables and recompiling Bootstrap. 
+          Change the grid variables in variables.less and use one of the four ways documented to recompile. 
+          If you're adding more columns, be sure to add the CSS for those in scaffolding.styl.
+      .span4
+        h3 Stay responsive
+        :markdown
+          Customization of the grid only works at the default level, the 940px grid. To maintain the responsive 
+          aspects of Bootstrap, you'll also have to customize the grids in responsive.styl.
+          
+  section#layouts
+    .page-header
+      h1 Layouts
+        small Basic templates to create webpages
+    .row
+      .span6
+        h2 Fixed layout
+        :markdown
+          The default and simple 940px-wide, centered layout for just about any website or page 
+          provided by a single `<div class="container">`.
+        pre.prettyprint.linenums.
+          <body>
+            <div class="container">
+              ...
+            </div>
+          </body>
+      .span6
+        h2 Fluid layout
+        :markdown
+          `<div class="container-fluid">` gives flexible page structure, min- and max-widths, 
+          and a left-hand sidebar. It's great for apps and docs.
+        pre.prettyprint.linenums.
+          <div class="container-fluid">
+            <div class="row-fluid">
+              <div class="span2">
+                <!--Sidebar content-->
+              </div>
+              <div class="span10">
+                <!--Body content-->
+              </div>
+            </div>
+          </div>
+    
+  section#responsive
+    .page-header
+      h1 Responsive design
+        small Media queries for various devices and resolutions
+        
+    .row
+      .span4
+        img(src="/bootstrap/docs/assets/img/responsive-illustrations.png")
+        
+      .span8
+        h2 Supported devices
+        p.
+          Bootstrap supports a handful of media queries to help make your projects 
+          more appropriate on different devices and screen resolutions. 
+          Here's what's included:
+        table.table.table-striped.table-bordered
+          thead
+            tr
+              th Label
+              th Layout width
+              th Column width
+              th Gutter width
+          tbody
+            tr
+              td Smartphones
+              td 480px and below
+              td(colspan="2")
+                span.muted Fluid columns, no fixed width
+            tr
+              td Portrait tablets
+              td 480px to 768px
+              td(colspan="2")
+                span.muted Fluid columns, no fixed width
+            tr
+              td Landscape tablets
+              td 768px to 940px
+              td 44px
+              td 20px
+            tr
+              td Default
+              td 940px and up
+              td 60px
+              td 20px
+            tr
+              td Large display
+              td 1210px and up
+              td 70px
+              td 30px
+
+        h3 What they do
+        :markdown
+          Media queries allow for custom CSS based on a number of conditions—ratios, 
+          widths, display type, etc—but usually focuses around `min-width` and `max-width`.
+          - Modify the width of column in our grid
+          - Stack elements instead of float wherever necessary
+          - Resize headings and text to be more appropriate for devices
+    br
+    h2 Using the media queries
+    .row
+      .span6
+        :markdown
+          Landscape doesn't automatically include these media queries, but understanding and adding 
+          them is very easy and requires minimal setup. You have a few options for including the 
+          responsive features of Landscape:
+
+          - Use the compiled responsive version, landscape-responsive.css
+          - Add @import "responsive.styl" and recompile Landscape
+          - Modify and recompile responsive.less as a separate
+          
+          **Why not just include it?** Truth be told, not everything needs to be responsive. 
+          Instead of encouraging developers to remove this feature, we figure it best to enable it.
+      .span6
+        pre.prettyprint.linenums.
+          // Landscape phones and down
+          @media (max-width: 480px) { ... }
+         
+          // Landscape phone to portrait tablet
+          @media (max-width: 768px) { ... }
+         
+          // Portrait tablet to landscape and desktop
+          @media (min-width: 768px) and (max-width: 980px) { ... }
+         
+          // Large desktop
+          @media (min-width: 1200px) { .. }

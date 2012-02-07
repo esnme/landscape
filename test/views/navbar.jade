@@ -1,0 +1,29 @@
+header
+  nav.navbar.navbar-fixed-top
+    .navbar-inner
+      .container
+        .btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.brand(href="/") esn
+        .nav-collapse
+          ul.nav
+          
+            li(class = section == "index" ? "active" : "")
+              a(href="./") Overview
+            
+            li(class = section == "scaffolding" ? "active" : "")
+              a(href="./scaffolding.html") Scaffolding
+            
+            li(class = section == "base-css" ? "active" : "")
+              a(href="./base-css.html") Base CSS
+              
+            li(class = section == "components" ? "active" : "")
+              a(href="./components.html") Components
+
+            li(class = section == "javascript" ? "active" : "")
+              a(href="./javascript.html") JavaScript plugins
+              
+            li(class = section == "stylus" ? "active" : "")
+              a(href="./stylus.html") Using Stylus

@@ -1,7 +1,9 @@
 LANDSCAPE
 =========
 
-A CSS toolkit based on Bootstrap by Twitter.
+A frontend toolkit based on [Bootstrap](https://github.com/twitter/bootstrap/).
+
+## 
 
 ## Requirements
 - [nodejs](http://nodejs.org/)

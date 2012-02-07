@@ -1,0 +1,38 @@
+<!DOCTYPE html><!--[if lt IE 7]><html lang="en-us" class="ie6"><![endif]--><!--[if IE 7]><html lang="en-us" class="ie7"><![endif]--><!--[if IE 8]><html lang="en-us" class="ie8"><![endif]--><!--[if gt IE 8]><!--> <html lang="en-us"> <!--<![endif]-->
+head
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible", content="IE=Edge;chrome=1")
+
+  //script(src="./js/modernizr.js")
+
+  block title
+    title(dir="ltr") ESN Landscape
+  
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+  block styles
+    if resmin.css
+      each url in resmin.css.landscape
+        link(rel='stylesheet', href=url)
+  
+body(data-spy="scroll", data-target=".subnav", data-offset="50")
+
+  block navbar
+  
+  .container
+    block content
+    block footer
+      footer.footer
+        p.pull-right
+          a(href="#") Back to top &uarr;
+        :markdown
+          Designed and built with all the love in the world [@twitter](http://twitter.com/twitter) by [@mdo](http://twitter.com/mdo) and [@fat](http://twitter.com/fat).
+          
+          Code licensed under the [Apache License v2.0](http://www.apache.org/licenses/LICENSE-2.0). Documentation licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/).
+  block scripts
+    if resmin.js
+      each group in resmin.js
+        each url in group
+          script(src=url)
+      
+</html>

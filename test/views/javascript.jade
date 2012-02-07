@@ -1,0 +1,42 @@
+extends layout
+
+block navbar
+  - var section = 'javascript'
+  include navbar
+
+block content
+  header.jumbotron.subhead
+    h1 JavaScript plugins
+    p.lead Bring the components to life with custom jQuery/Ender plugins.
+
+  section#modal
+    .page-header
+      h1 Modal
+        bootstrap-modal.js
+
+    .row
+      .span3
+        h3 About modals
+        p 
+          :markdown
+            A streamlined, but flexible, take on the traditional javascript modal 
+            plugin with only the minimum required functionality and smart defaults.
+                
+      .span9
+        h2 Static example
+        p Below is a statically rendered modal.
+        
+        .well(style="background-color: #888; border: none;")
+          .modal(style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1")
+            .modal-header
+              a.close.js-dismiss(href="#") x
+              h3 Modal header
+            .modal-body
+              p One fine body…
+            .modal-footer
+              a.btn.primary(href="#") Save changes
+              a.btn(href="#") Close
+
+        h2 Live demo
+        p Toggle a modal via javascript by clicking the button below. It will slide down and fade in from the top of the page.
+        a.btn.primary.large(data-toggle="modal", href="#myModal") Launch demo modal

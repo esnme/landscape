@@ -1,0 +1,17 @@
+extends layout
+
+block navbar
+  - var section = 'index'
+  include navbar
+
+block content
+  #overview
+    header.jumbotron.masthead
+      .inner
+        h1 Landscape
+        p.lead.
+          Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions.
+        p Based on Bootstrap, from Twitter.
+        p.download-info
+          a.btn.btn-primary.btn-large(href="https://github.com/esnme/landscape/") View project on GitHub
+          a.btn.btn-large(href="./scaffolding.html") Get started &rarr;

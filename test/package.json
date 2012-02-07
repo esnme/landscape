@@ -1,0 +1,21 @@
+{
+  "name": "esn-toolkit",
+  "author": "Marcus Ekwall <marcus.ekwall@gmail.com>",
+  "description": "ESN Landscape, frontend toolkit based on Bootstrap from Twitter",
+  "subdomain": "esntk",
+  "scripts": {
+    "start": "app.js"
+  },
+  "dependencies": {
+    "express": ">= 2.5.6",
+    "jade": ">= 0.20.0",
+    "markdown": ">= 0.3.1",
+    "resmin": ">= 0.1.1",
+    "less": ">= 1.2.0",
+    "stylus": ">= 0.22.6",
+    "nib": ">= 0.3.2",
+    "canvas": ">= 0.10.1"
+  },
+  "engine": "node >= 0.6.8",
+  "version": "0.0.4-31"
+}

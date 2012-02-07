@@ -1,0 +1,802 @@
+extends layout
+
+block navbar
+  - var section = "base-css"
+  include navbar
+
+block content
+  header.jumbotron.subhead
+    h1 Base CSS
+    p.lead.
+      On top of the scaffolding, basic HTML elements are styled and enhanced 
+      with extensible classes to provide a fresh, consistent look and feel.
+    .subnav
+      ul.nav.nav-pills
+        li
+          a(href="#typography") Typography
+        li
+          a(href="#code") Code
+        li
+          a(href="#tables") Tables
+        li
+          a(href="#forms") Forms
+        li
+          a(href="#buttons") Buttons
+
+  section#typography
+    .page-header
+      h1 Typography
+        small Headings, paragraphs, lists and other inline type elements
+    
+    h2 Headings &amp; copy
+    .row
+      .span4
+        h3 Typographic scale
+        p
+          :markdown
+            The entire typographic grid is based on two variables in our variables.styl file: 
+            `$base-font-size` and `$base-line-height`. The first is the base font-size used throughout 
+            and the second is the base line-height. We use those variables, and some math, 
+            to create the margins, paddings, and line-heights of all our type and more.
+          
+      .span4
+        h3 Example paragraph
+        p Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        
+        h1 Example heading
+          small Has sub-heading...
+          
+      .span4
+        .well
+          h1 Heading 1
+          h2 Heading 2
+          h3 Heading 3
+          h4 Heading 4
+          h5 Heading 5
+          h6 Heading 6
+          
+    h2 Emphasis, address and abbreviation
+    
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th Element
+          th Usage
+          th Optional
+      tbody
+        tr
+          td
+            code="<strong>"
+          td
+            For emphasizing a snippet of text with <strong>important</strong>
+          td
+            span.muted None
+        tr
+          td
+            code="<em>"
+          td
+            For For emphasizing a snippet of text with <em>stress</em>
+          td
+            span.muted None
+        tr
+          td
+            code="<abbr>"
+          td
+            Wraps abbreviations and acronyms to show the expanded version on hover
+          td
+            Include optional <code>title</code> for expanded text
+        tr
+          td
+            code="<address>"
+          td
+            For contact information for its nearest ancestor or the entire body of work
+          td
+            Preserve formatting by ending all lines with <code>&lt;br&gt;</code>
+            
+    .row
+      .span4
+        h3 Using emphasis
+        p.
+          <a href="#">Fusce dapibus</a>, <strong>tellus ac cursus commodo</strong>, 
+          <em>tortor mauris condimentum nibh</em>, ut fermentum massa justo sit amet risus. 
+          Maecenas faucibus mollis interdum. Nulla vitae elit libero, a pharetra augue.
+        p.
+          <strong>Note:</strong> Feel free to use <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> 
+          in HTML5, but their usage has changed a bit. <code>&lt;b&gt;</code> is meant to highlight 
+          words or phrases without conveying additional importance while <code>&lt;i&gt;</code> is 
+          mostly for voice, technical terms, etc.
+      .span4
+        h3 Example addresses
+        p Here are two examples of how it could be used:
+        address
+          strong ESN Social Software AB
+          br
+          | Bredgränd 4
+          br
+          | 753 20 Uppsala
+        address
+          strong Full Name
+          br
+          <a href="#">first.last@gmail.com</a>
+          
+      .span4
+        h3 Example abbreviations
+        p.
+          Abbreviations are styled with uppercase text and a light dotted bottom border. 
+          They also have a help cursor on hover so users have extra indication something will be shown on hover.
+        p <abbr title="HyperText Markup Language">HTML</abbr> is the best thing since sliced bread.
+        p An abbreviation of the word attribute is ATTR.
+        
+    h2 Blockquotes
+    
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th Element
+          th Usage
+          th Optional
+      tbody
+        tr
+          td
+            code="<blockquote>"
+          td
+            Block-level element for quoting content from another source
+          td
+            p
+              :markdown
+                Add cite attribute for source URL
+
+                Use `.pull-left` and `.pull-right` classes for floated options
+        tr
+          td
+            code="<small>"
+          td
+            Optional element for adding a user-facing citation, typically an author with title of work
+          td
+            p
+              :markdown
+                Place the `<cite>` around the title or name of source
+    .row
+      .span4
+        p
+          :markdown
+            To include a blockquote, wrap `<blockquote>` around any HTML as the quote. For straight quotes we recommend a `<p>`.
+
+            Include an optional `<small>` element to cite your source and you'll get an em dash `&mdash;` before it for styling purposes.
+      .span8
+        pre.prettyprint.linenums.
+          <blockquote>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis.</p>
+            <small>Someone famous</small>
+          </blockquote>
+    h3 Example blockquotes
+    .row
+      .span6
+        p Default blockquotes are styled as such:
+        blockquote
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis.
+          small Someone famous in Body of work
+      .span6
+        p To float your blockquote to the right, add <code>class="pull-right"</code>:
+        blockquote.pull-right
+          p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis.
+          small Someone famous in Body of work
+          
+    h2 Lists
+    
+    .row
+      .span3
+        h4 Unordered
+        :markdown
+          `<ul>`
+        ul
+          li Lorem ipsum dolor sit amet
+          li Consectetur adipiscing elit
+          li Integer molestie lorem at massa
+          li Facilisis in pretium nisl aliquet
+          li Nulla volutpat aliquam velit
+          ul
+            li Phasellus iaculis neque
+            li Purus sodales ultricies
+            li Vestibulum laoreet porttitor sem
+            li Ac tristique libero volutpat at
+          li Faucibus porta lacus fringilla vel
+          li Aenean sit amet erat nunc
+          li Eget porttitor lorem
+      .span3
+        h4 Unstyled
+        :markdown
+          `<ul class="unstyled">`
+        ul.unstyled
+          li Lorem ipsum dolor sit amet
+          li Consectetur adipiscing elit
+          li Integer molestie lorem at massa
+          li Facilisis in pretium nisl aliquet
+          li Nulla volutpat aliquam velit
+          ul
+            li Phasellus iaculis neque
+            li Purus sodales ultricies
+            li Vestibulum laoreet porttitor sem
+            li Ac tristique libero volutpat at
+          li Faucibus porta lacus fringilla vel
+          li Aenean sit amet erat nunc
+          li Eget porttitor lorem
+      .span3
+        h4 Ordered
+        :markdown
+          `<ol>`
+        ol
+          li Lorem ipsum dolor sit amet
+          li Consectetur adipiscing elit
+          li Integer molestie lorem at massa
+          li Facilisis in pretium nisl aliquet
+          li Nulla volutpat aliquam velit
+          li Faucibus porta lacus fringilla vel
+          li Aenean sit amet erat nunc
+          li Eget porttitor lorem
+      .span3
+        h4 Description
+        :markdown
+          `<dl>`
+        dl
+          dt Description lists
+          dd A description list is perfect for defining terms.
+          dt Euismod
+          dd Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.
+          dd Donec id elit non mi porta gravida at eget metus.
+          dt Malesuada porta
+          dd Etiam porta sem malesuada magna mollis euismod.
+          
+  section#code
+    .page-header
+      h1 Code
+        small Inline and block code snippets
+    
+    .row
+      .span4
+        h2 Inline
+        :markdown
+          Wrap inline snippets of code with `<code>`.
+        pre.prettyprint.linenums.
+          For example, <code>section</code> should be wrapped as inline.
+      .span4
+        h2 Basic block
+        :markdown
+          Use `<pre>` for multiple lines of code. Be sure to turn any carets into their unicode characters for proper rendering.
+        pre.
+          <p>Sample text here...</p>
+        pre.prettyprint.linenums.
+          <pre>
+            &lt;p&gt;Sample text here...&lt;/p&gt;
+          </pre>
+        :markdown
+          **Note:** Be sure to keep code within `<pre>` tags as close to the left as possible; it will render all tabs.
+      .span4
+        h2 Google Prettify
+        :markdown
+          Take the same `<pre>` element and add two optional classes for enhanced rendering.
+        pre.prettyprint.linenums.
+          <p>Sample text here...</p>
+        pre.prettyprint.linenums.
+          <pre class="prettyprint
+               linenums">
+            &lt;p&gt;Sample text here...&lt;/p&gt;
+          </pre>
+        :markdown
+          [Download google-code-prettify](http://code.google.com/p/google-code-prettify/) and view the readme for [how to use](http://google-code-prettify.googlecode.com/svn/trunk/README.html).
+  section#tables 
+    .page-header
+      h1 Tables
+        small For, you guessed it, tabular data
+        
+    h2 Table markup
+    .row
+      .span8
+        table.table.table-bordered.table-striped
+          thead
+            tr
+              th Tag
+              th Description
+          tbody
+            tr
+              td
+                :markdown
+                  `<table>`
+              td
+                p Wrapping element for displaying data in a tabular format
+            tr
+              td
+                :markdown
+                  `<thead>`
+              td
+                :markdown
+                  Container element for table header rows (`<tr>`) to label table columns
+            tr
+              td
+                :markdown
+                  `<tbody>`
+              td
+                :markdown
+                  Container element for table rows (`<tr>`) in the body of the table
+            tr
+              td
+                :markdown
+                  `<tr>`
+              td
+                :markdown
+                  Container element for a set of table cells (`<td>` or `<th>`) that appears on a single row
+            tr
+              td
+                :markdown
+                  `<td>`
+              td
+                :markdown
+                  Default table cell
+            tr
+              td
+                :markdown
+                  `<thead>`
+              td
+                :markdown
+                  Special table cell for column (or row, depending on scope and placement) labels
+                  Must be used within a `<thead>`
+            tr
+              td
+                :markdown
+                  `<caption>`
+              td
+                :markdown
+                  Description or summary of what the table holds, especially useful for screen readers
+                  
+      .span4
+        pre.prettyprint.linenums.
+          <table>
+            <thead>
+              <tr>
+                <th>...</th>
+                <th>...</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>...</td>
+                <td>...</td>
+              </tr>
+            </tbody>
+          </table>
+    h2 Table options
+    
+    table.table.table-bordered.table-striped
+      thead
+        tr
+          th Name
+          th Class
+          th Description
+      tbody
+        tr
+          td Default
+          td.muted Class
+          td No styles, just columns and rows
+        tr
+          td Basic
+          td
+            code .table
+          td Only horizontal lines between rows
+        tr
+          td Bordered
+          td
+            code .table-bordered
+          td Rounds corners and adds outter border
+        tr
+          td Zebra-striped
+          td
+            code .table-striped
+          td Adds light gray background color to odd rows (1, 3, 5, etc)
+        tr
+          td Condensed
+          td
+            code .table-condensed
+          td
+            Cuts vertical padding in half, from 8px to 4px, within all <code>td</code> and <code>th</code> elements
+            
+    h2 Table examples
+    
+    h3 1. Default table styles
+    .row
+      .span4
+        :markdown
+          Tables are automatically styled with only a few borders to ensure readability and maintain structure. With 2.0, the `.table` class is required.
+        pre.prettyprint.linenums.
+          <table class="table">
+            ...
+          </table>
+      .span8
+        table.table
+          thead
+            tr
+              th #
+              th First Name
+              th Last Name
+              th Language
+          tbody
+            tr
+              td 1
+              td Mark
+              td Otto
+              td CSS
+            tr
+              td 2
+              td Jacob
+              td Thornton
+              td JavaScript
+            tr
+              td 3
+              td Stu
+              td Dent
+              td HTML
+              
+    h3 2. Striped table
+    .row
+      .span4
+        p Get a little fancy with your tables by adding zebra-striping—just add the <code>.table-striped</code> class.
+        p.muted <strong>Note:</strong> Sprited tables use the <code>:nth-child</code> CSS selector and is not available in IE7-IE8.
+        pre.prettyprint.linenums.
+          <table class="table table-striped">
+            ...
+          </table>
+      .span8
+        table.table.table-striped
+          thead
+            tr
+              th #
+              th First Name
+              th Last Name
+              th Language
+          tbody
+            tr
+              td 1
+              td Mark
+              td Otto
+              td CSS
+            tr
+              td 2
+              td Jacob
+              td Thornton
+              td JavaScript
+            tr
+              td 3
+              td Stu
+              td Dent
+              td HTML
+              
+    h3 3. Bordered table
+    .row
+      .span4
+        p Add borders around the entire table and rounded corners for aesthetic purposes.
+        pre.prettyprint.linenums.
+          <table class="table table-bordered">
+            ...
+          </table>
+      .span8
+        table.table.table-bordered
+          thead
+            tr
+              th #
+              th First Name
+              th Last Name
+              th Language
+          tbody
+            tr
+              td 1
+              td(colspan="2") Mark Otto
+              td CSS
+            tr
+              td 2
+              td Jacob
+              td Thornton
+              td(rowspan="2") JavaScript
+            tr
+              td 3
+              td Stu
+              td Dent
+            tr
+              td 4
+              td Brostef
+              td Stalin
+              td HTML
+              
+    h3 4. Condensed table
+    .row
+      .span4
+        :markdown
+          Make your tables more compact by adding the `.table-condensed` class to cut table cell padding in half (from 10px to 5px).
+        pre.prettyprint.linenums.
+          <table class="table table-condensed">
+            ...
+          </table>
+      .span8
+        table.table.table-condensed
+          thead
+            tr
+              th #
+              th First Name
+              th Last Name
+              th Language
+          tbody
+            tr
+              td 1
+              td Mark
+              td Otto
+              td CSS
+            tr
+              td 2
+              td Jacob
+              td Thornton
+              td JavaScript
+            tr
+              td 3
+              td Stu
+              td Dent
+              td HTML
+    h3 5. Combine them all!
+    .row
+      .span4
+        :markdown
+          Feel free to combine any of the table classes to achieve different looks by utilizing any of the available classes.
+        pre.prettyprint.linenums.
+          <table class="table table-striped table-bordered table-condensed">
+            ...
+          </table>
+      .span8
+        table.table.table-striped.table-bordered.table-condensed
+          thead
+            tr
+              th #
+              th First Name
+              th Last Name
+              th Language
+          tbody
+            tr
+              td 1
+              td Mark
+              td Otto
+              td CSS
+            tr
+              td 2
+              td Jacob
+              td Thornton
+              td JavaScript
+            tr
+              td 3
+              td Stu
+              td Dent
+              td HTML
+            tr
+              td 4
+              td Brosef
+              td Stalin
+              td HTML
+  section#forms
+    .page-header
+      h1 Forms
+      
+    .row
+      .span4
+        h2 Flexible HTML and CSS
+        p.
+          The best part about forms in Bootstrap is that all your inputs and controls 
+          look great no matter how you build them in your markup. No superfluous HTML 
+          is required, but we provide the patterns for those who require it.
+        p.
+          More complicated layouts come with succinct and scalable classes for easy 
+          styling and event binding, so you're covered at every step.
+      .span4
+        h2 Four layouts included
+        p Bootstrap comes with support for four types of form layouts:
+        ul
+          li Vertical (default)
+          li Search
+          li Inline
+          li Horizontal
+        p.
+          Different types of form layouts require some changes to markup, but the 
+          controls themselves remain and behave the same.
+      .span4
+        h2 Control states and more
+        p.
+          Bootstrap's forms include styles for all the base form controls like input, 
+          textarea, and select you'd expect. But it also comes with a number of custom 
+          components like appended and prepended inputs and support for lists of checkboxes.
+        p.
+          States like error, warning, and success are included for each type of form 
+          control. Also included are styles for disabled controls.
+          
+    h2 Four types of forms
+    p Bootstrap provides simple markup and styles for four styles of common web forms.
+    
+    table.table.table-striped.table-bordered
+      thead
+        tr
+          th Name
+          th Class
+          th Description
+      tbody
+        tr
+          td
+            strong Vertical (default)
+          td <code>.form-vertical</code> <span class="muted">(not required)</span>
+          td Stacked, left-aligned labels over controls
+        tr
+          td
+            strong Horizontal
+          td
+            code .form-horizontal
+          td Float left, right-aligned labels on same line as controls
+        tr
+          td
+            strong Inline
+          td
+            code .form-inline
+          td Left-aligned label and inline-block controls for compact style
+        tr
+          td
+            strong Search
+          td
+            code .form-inline
+          td Extra-rounded text input for a typical search aesthetic
+    
+    h2 Example forms
+      small using just form controls, no extra markup
+    .row
+      .span4
+        h3 Basic form
+        :markdown
+          With v2.0, we have lighter and smarter defaults for form styles. No extra markup, just form controls.
+        form.well
+          label Label name
+          input.span3(type="text", placeholder="Type something...")
+          label.checkbox Check me out
+            input(type="checkbox")
+          button.btn(type="submit") Submit
+      .span4
+        h3 Search form
+        :markdown
+          Reflecting default WebKit styles, just add `.form-search` for extra rounded search fields.
+        form.well.form-search
+          input.input-medium.search-query(type="text")
+          button.btn(type="submit") Submit
+      .span4
+        h3 Inline form
+        :markdown
+          Inputs are block level to start. For `.form-inline` and `.form-horizontal`, we use inline-block.
+        form.well.form-inline
+          input.input-small(type="text", placeholder="E-mail")
+          input.input-small(type="password", placeholder="Password")
+          button.btn(type="submit") Submit
+    
+    br
+    h2 Horizontal forms
+    .row
+      .span8
+        form.form-horizontal
+          legend Controls Bootstrap supports
+          fieldset.control-group
+            label.control-label Text input
+            .controls
+              input.input-xlarge(type="text")
+              p.help-block In addition to freeform text, any HTML5 text-based input appears like so.
+              
+          fieldset.control-group
+            label.control-label Checkbox
+            .controls
+              label.checkbox <input type="checkbox" /> Option one is this and that—be sure to include why it’s great
+              
+          fieldset.control-group
+            label.control-label Select list
+            .controls
+              select
+                option 1
+                option 2
+                option 3
+                option 4
+                option 5
+                
+          fieldset.control-group
+            label.control-label Multi-select
+            .controls
+              select(multiple="multiple")
+                option 1
+                option 2
+                option 3
+                option 4
+                option 5
+                
+          fieldset.control-group
+            label.control-label File input
+            .controls
+              input(type="file")
+              
+          fieldset.control-group
+            label.control-label Textarea
+            .controls
+              textarea.input-xlarge(rows=3)
+              
+          fieldset.form-actions
+            button.btn.primary(type="submit") Save changes
+            button.btn(type="reset") Cancel
+      
+      .span4
+        .form-docs
+          h3 What's included
+          p Shown on the left are all the default form controls we support. Here's the bulleted list:
+          ul
+            li text inputs (text, password, email, etc)
+            li checkbox
+            li radio
+            li select
+            li multiple select
+            li file input
+            li textarea
+          hr
+          h3 New defaults with v2.0
+          :markdown
+            Up to v1.4, Bootstrap's default form styles used the horizontal layout. With Bootstrap 2, 
+            we removed that constraint to have smarter, more scalable defaults for any form.
+    .row
+      .span8
+        form.form-horizontal
+          legend Form control states
+          
+          fieldset.control-group
+            label.control-label Focused input
+            .controls
+              input.input-xlarge.focused(type="text", placeholder="This is focused...")
+              
+          fieldset.control-group
+            label.control-label Disabled input
+            .controls
+              input.input-xlarge(type="text", placeholder="Disabled input here...", disabled="disabled")
+              
+          fieldset.control-group
+            label.control-label Disabled checkbox
+            .controls
+              label.checkbox <input type="checkbox" disabled="disabled" /> This is a disabled checkbox
+              
+          fieldset.control-group.warning
+            label.control-label Input with warning
+            .controls
+              input.input-xlarge(type="text")
+              span.help-inline Something may have gone wrong
+              
+          fieldset.control-group.error
+            label.control-label Input with error
+            .controls
+              input.input-xlarge(type="text")
+              span.help-inline Please correct the error
+              
+          fieldset.control-group.success
+            label.control-label Input with success
+            .controls
+              input.input-xlarge(type="text")
+              span.help-inline Woohoo!
+              
+          fieldset.form-actions
+            button.btn.primary(type="submit") Save changes
+            button.btn(type="reset") Cancel
+                
+      .span4
+        .form-docs
+          h3 Prepend &amp; inputs
+          :markdown
+            Input groups—with appended or prepended text—provide an easy way to 
+            give more context for your inputs. Great examples include the @ sign 
+            for Twitter usernames or $ for finances.
+          hr
+          h3 Checkboxes and radios
+          :markdown
+            Up to v1.4, Bootstrap required extra markup around checkboxes and radios 
+            to stack them. Now, it's a simple matter of repeating the `<label class="checkbox">`
+            that wraps the `<input type="checkbox">`.
+
+            Inline checkboxes and radios are also supported. Just add `.inline` to any 
+            `.checkbox` or `.radio` and you're done.
