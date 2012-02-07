@@ -4,44 +4,30 @@
  
 .thumbnails
   @extend .clearfix
-  if $thumbnails-spacing is a 'unit'
-    margin-left: -($thumbnails-spacing)
+  margin-left: -20px
   list-style: none
 
 .thumbnails > li
   float: left
-  if $thumbnails-spacing is a 'unit'
-    margin: 0 0 $thumbnails-spacing $thumbnails-spacing
+  margin: 0 0 20px 20px
 
 .thumbnail
   display: block
+  padding: 4px
   line-height: 1
-
-  if $thumbnails-padding is a 'unit'
-    padding: $thumbnails-padding
-
-  if $thumbnails-border
-    border: 1px solid #ddd
-
-  if $thumbnails-border-radius is a 'unit'
-    border-radius: $thumbnails-border-radius
-  
-  if $thumbnails-box-shadow
-    box-shadow: $thumbnails-box-shadow
+  border: 1px solid #ddd
+  border-radius: $base-border-radius
+  box-shadow: 0 1px 1px rgba(0,0,0,.075)
 
 // Add a hover state for linked versions only
 a.thumbnail:hover
-  if $thumbnails-hover is a 'function'
-    $thumbnails-hover()
-  else
-    border-color: $anchor-color
-    box-shadow: 0 1px 4px fade-out($anchor-color, .75)
+  border-color: $anchor-color
+  box-shadow: 0 1px 4px rgba(0,105,214,.25)
 
 // Images and captions
 .thumbnail > img
   display: block
   max-width: 100%
 
-if $thumbnails-caption-padding is a 'unit'
-  .thumbnail .caption
-    padding: $thumbnails-caption-padding
+.thumbnail .caption
+  padding: 9px
