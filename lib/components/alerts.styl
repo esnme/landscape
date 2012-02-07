@@ -2,105 +2,149 @@
 
 // Base alert styles
 .alert
-  if $alert-padding is a 'list'
+  // Padding
+  if $alert-padding is a 'unit'
     padding: $alert-padding
+
+  // Margin
+  if $alert-margin is a 'unit'
+    margin: $alert-margin
   else
-    padding: 8px 35px 8px 14px
+    margin-bottom: $base-line-height
+  
+  // Text shadow
+  if $alert-text-shadow is not null
+    text-shadow: $alert-text-shadow
 
-  margin-bottom: $base-line-height
-  text-shadow: 0 1px 0 rgba(255,255,255,.5)
-
+  // Background
   if $warning-background is a 'function'
     $warning-background()
   else if $warning-background is a 'color'
     background-color: $warning-background
-  else if $warning-background
+  else if $warning-background not null
     background: $warning-background
 
+  // Border
   if $warning-border is a 'function'
     $warning-border()
   else if $warning-border is a 'color'
     border: 1px solid $warning-border
-  else if $warning-border
+  else if $warning-border not null
     border: $warning-border
 
-  border-radius: $base-border-radius
+  // Border radius
+  if $alert-border-radius is a 'unit'
+    border-radius: $alert-border-radius
+  else
+    border-radius: $base-border-radius
 
-if $warning-color is a 'color'
-  .alert,
-  .alert-heading
-    color: $warning-color
+  // Adjust close link position
+  .close
+    position: relative
+    top: -2px
+    right: -21px
+    line-height: 18px
 
-// Adjust close link position
-.alert .close
-  position: relative
-  top: -2px
-  right: -21px
-  line-height: 18px
+  // Color
+  if $warning-color is a 'color'
+    &,
+    .alert-heading
+      color: $warning-color
+      .close,
+      .close:hover
+        color: @color
 
-// Alternate styles
+// Success
 .alert-success
 
+  // Background
   if $success-background is a 'function'
     $success-background()
   else if $success-background is a 'color'
     background-color: $success-background
-  else if $success-background
+  else if $success-background not null
     background: $success-background
 
+  // Border
   if $success-border is a 'function'
     $success-border()
   else if $success-border is a 'color'
     border-color: $success-border
-  else if $success-border
+  else if $success-border not null
     border: $success-border
 
-if $success-color is a 'color'
-  .alert-success,
-  .alert-success .alert-heading
-    color: $success-text
+  // Color
+  if $success-color is a 'color'
+    &,
+    .alert-heading 
+      color: $success-color
+      .close,
+      .close:hover
+        color: @color
 
+// Danger & error
 .alert-danger,
 .alert-error
+  // Background
   if $error-background is a 'function'
     $error-background()
   else if $error-background is a 'color'
     background-color: $error-background
-  else if $error-background
+  else if $error-background not null
     background: $error-background
 
+  // Border
   if $error-border is a 'function'
     $error-border()
   else if $error-border is a 'color'
     border-color: $error-border
-  else if $error-border
+  else if $error-border not null
     border: $error-border
 
-/*
-if $error-color is a 'color'
-  .alert-danger,
-  .alert-error,
-  .alert-danger .alert-heading,
-  .alert-error .alert-heading 
-    color: $error-color
+  // Color
+  if $error-color is a 'color'
+    &,
+    .alert-heading 
+      color: $error-color
+      .close,
+      .close:hover
+        color: @color
 
-.alert-info 
-  background-color: @infoBackground
-  border-color: @infoBorder
+// Information
+.alert-info
+  // Background
+  if $info-background is a 'function'
+    $info-background()
+  else if $info-background is a 'color'
+    background-color: $info-background
+  else if $info-background not null
+    background: $info-background
+  
+  // Border
+  if $info-border is a 'function'
+    $info-border()
+  else if $info-border is a 'color'
+    border-color: $info-border
+  else if $info-border not null
+    border: $info-border
 
-.alert-info,
-.alert-info .alert-heading 
-  color: @infoText
+  // Color
+  if $info-color is a 'color'
+    &,
+    .alert-heading 
+      color: $info-color
+      .close,
+      .close:hover
+        color: @color
 
 // Block alerts
-.alert-block 
-  padding-top: 14px
-  padding-bottom: 14px
+.alert-block
+  padding-top: ($base-line-height / 1.2)
+  padding-bottom: ($base-line-height / 1.2)
 
 .alert-block > p,
 .alert-block > ul 
   margin-bottom: 0
 
 .alert-block p + p 
-  margin-top: 5px
-*/
+  margin-top: ($base-line-height / 2)
