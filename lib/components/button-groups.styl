@@ -1,0 +1,60 @@
+// ESN Landscape
+
+// Button groups
+.btn-group
+  @extend .clearfix
+  position: relative
+  
+  // Space out series of button groups
+  + .btn-group
+    margin-left: .75em
+    
+  // Float them, remove border radius, then 
+  .btn
+    position: relative
+    float: left
+    margin-left: -1px
+    border-radius: 0
+  
+    // Re-add left border-radius to first elements
+    &:first-child
+      margin-left: 0
+      border-top-left-radius: $button-border-radius
+      border-bottom-left-radius: $button-border-radius
+    
+    // Re-add right border-radius to last elements and dropdown toggle
+    &.dropdown-toggle,
+    &:last-child
+      border-top-right-radius: $button-border-radius
+      border-bottom-right-radius: $button-border-radius
+    
+    // On hover/focus/active, bring the proper btn to front
+    &:hover,
+    &:focus,
+    &:active
+      z-index: 2
+      
+    // Split button dropdowns
+    // Give the line between buttons some depth
+    &.dropdown-toggle
+      padding-left: 8px
+      padding-right: 8px
+  
+  // Button dropdown menu
+  &.open
+    .dropdown-menu
+      display: block
+      top: 30px
+      border-radius: $button-border-radius
+
+// Optional: Group multiple button groups together for a toolbar
+.btn-toolbar
+  margin-top: 9px
+  margin-bottom: 9px
+  .btn-group
+    display: inline-block
+    /*&:hover
+      .btn
+        //button-border($button-
+      //.btn-primary
+      //border-color: darken($button-primary-border-color, 5%)*/

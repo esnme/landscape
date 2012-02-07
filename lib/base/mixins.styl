@@ -150,9 +150,12 @@ popover-arrow-right($arrow-width = 5px)
   border-right: $arrow-width solid black
   
 // Fonts
-$font-family-serif        = Georgia, "Times New Roman", Times, serif;
-$font-family-sans-serif   = "Helvetica Neue", Helvetica, Arial, sans-serif
-$font-family-monospace    = Menlo, Monaco, "Courier New", monospace
+if not $font-family-serif
+  $font-family-serif = Georgia, "Times New Roman", Times, serif;
+if not $font-family-sans-serif
+  $font-family-sans-serif = "Helvetica Neue", Helvetica, Arial, sans-serif
+if not $font-family-monospace
+  $font-family-monospace = Menlo, Monaco, "Courier New", monospace
 
 font-family-serif()
   font-family: $font-family-serif
@@ -181,19 +184,22 @@ font-monospace($size = $base-font-size, $weight = normal, $line-height = $base-l
   font-shorthand($size, $weight, $line-height)
 
 // Gradient bar colors for buttons and alerts
-gradient-bar($primary, $secondary)
-  background: linear-gradient(50px top, $primary, $secondary)
+gradient-bar($primary, $secondary, $height=50px)
+  background: linear-gradient($height top, $primary, $secondary)
   background-color: mix($primary, $secondary, 60%)
   background-repeat: repeat-x
+
+button-border-color($primary, $secondary)
   border-color: $secondary $secondary darken($secondary, 38%)
   border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fade-in(rgba(0,0,0,.1), .15)
 
 // Buttons
 
 // Mixin for generating button backgrounds
-button-background($start, $end)
+button-background($start, $end, $height=50px)
   // gradient-bar will set the background to a pleasing blend of these, to support IE<=9
-  gradient-bar($start, $end)
+  gradient-bar($start, $end, $height)
+  button-border-color($start, $end)
   //reset-filter()
 
   // in these cases the gradient won't cover the background, so we override

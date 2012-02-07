@@ -9,6 +9,12 @@
   // Color
   if $button-color is a 'color'
     color: $button-color
+  else
+    if $button-background-color
+      if light($button-background-color)
+        color: $color-light
+      else
+        color: $color-dark
 
   // Padding
   if $button-padding is a 'unit'
@@ -35,6 +41,12 @@
   else if $button-border is defined
     border: $button-border
 
+  if $button-border-width is a 'unit'
+    border-width: $button-border-width
+  
+  if $button-border-type
+    border-type: $button-border-type
+
   // Border radius
   if $button-border-radius is a 'unit'
     border-radius: $button-border-radius
@@ -48,6 +60,9 @@
   // Gradient background
   if $button-gradient is a 'function'
     $button-gradient()
+  else
+    new = saturate($color-light, 40%)
+    button-background(lighten(new, 10%), darken(new, 10%))
 
   // Box shadow
   if $button-box-shadow is a 'function'
@@ -74,20 +89,11 @@
   &:hover
     if $button-hover is a 'function'
       $button-hover()
+    color: $button-color
     .caret
       opacity: 1
 
-  // Active
-  &.active,
-  &:active
-    // Implement your own outline style
-    outline: 0
-    if $button-active is a 'function'
-      $button-active()
-    .caret
-      opacity: .4 !important
-
-  // Focuse
+  // Focus
   &:focus
     @extend .tab-focus
     if $button-focus is a 'function'
@@ -108,6 +114,17 @@
     .caret
       border-top-color: #fff
       opacity: .75
+
+// Button active
+.btn-group.open .dropdown-toggle,
+.btn.active,
+.btn:active
+    // Implement your own outline style
+    outline: 0
+    if $button-active is a 'function'
+      $button-active()
+    .caret
+      opacity: .4 !important
 
 // Button Sizes
 
@@ -146,103 +163,95 @@
     padding: .2em .1em
   .icon
     margin-top: .05em
-      
-// Button groups
-.btn-group
-  @extend .clearfix
-  position: relative
-  
-  // Space out series of button groups
-  + .btn-group
-    margin-left: .75em
-    
-  // Float them, remove border radius, then 
-  .btn
-    position: relative
-    float: left
-    margin-left: -1px
-    border-radius: 0
-  
-    // Re-add left border-radius to first elements
-    &:first-child
-      margin-left: 0
-      border-top-left-radius: $button-border-radius
-      border-bottom-left-radius: $button-border-radius
-    
-    // Re-add right border-radius to last elements and dropdown toggle
-    &.dropdown-toggle,
-    &:last-child
-      border-top-right-radius: $button-border-radius
-      border-bottom-right-radius: $button-border-radius
-    
-    // On hover/focus/active, bring the proper btn to front
-    &:hover,
-    &:focus,
-    &:active
-      z-index: 2
-      
-    // Split button dropdowns
-    // Give the line between buttons some depth
-    &.dropdown-toggle
-      padding-left: 8px
-      padding-right: 8px
-  
-  // Button dropdown menu
-  &.open
-    .dropdown-menu
-      display: block
-      top: 30px
-      border-radius: $button-border-radius
-
-// Optional: Group multiple button groups together for a toolbar
-.btn-toolbar
-  margin-top: 9px
-  margin-bottom: 9px
-  .btn-group
-    display: inline-block
 
 // Alternate buttons
 
-// Set text color
-.btn-primary,
-.btn-primary:hover,
-.btn-warning,
-.btn-warning:hover,
-.btn-danger,
-.btn-danger:hover,
-.btn-success,
-.btn-success:hover,
-.btn-info,
-.btn-info:hover
-  text-shadow: 0 -1px 0 rgba(0,0,0,.25)
-  color: $color-light
-
-// Provide *some* extra contrast for those who can get it
-.btn-primary,
-.btn-warning,
-.btn-danger,
-.btn-success,
-.btn-info
-  &.active,
-  &:active
-    color: rgba(255,255,255,.6)
-
 // Backgrounds
 .btn-primary
-  button-background($button-primary-background, spin($button-primary-background, 20))
+  if $button-primary-gradient is a 'function'
+    $button-primary-gradient()
+  else
+    new = saturate($color-primary, 40%)
+    con = dark(darken(new, 20%)) ? $color-light : $color-dark
+    ts = dark(darken(new, 20%)) ? $color-dark : $color-light
+    color:  con
+    text-shadow: 0 -1px 0 rgba(ts, .25)
+    button-background(lighten(new, 10%), spin(darken(new, 10%), 20))
+    &:hover
+      color: con
+      text-shadow: @text-shadow
+    &.active,
+    &:active
+      color: fade-out(con, .4)
 
 // Warning appears are orange
 .btn-warning
-  button-background(lighten($color-warning, 15%), $color-warning)
+  if $button-warning-gradient is a 'function'
+    $button-warning-gradient()
+  else
+    new = saturate($color-danger, 50%)
+    con = dark(darken(new, 20%)) ? $color-light : $color-dark
+    ts = dark(darken(new, 20%)) ? $color-dark : $color-light
+    color:  con
+    text-shadow: 0 -1px 0 rgba(ts, .25)
+    button-background(lighten(new, 10%), darken(new, 10%))
+    &:hover
+      color: con
+      text-shadow: @text-shadow
+    &.active,
+    &:active
+      color: fade-out(con, .4)
 
 // Danger and error appear as red
 .btn-danger
-  button-background(#ee5f5b, #bd362f)
+  if $button-danger-button is a 'function'
+    $button-danger-button()
+  else
+    new = saturate($color-danger, 50%)
+    con = dark(darken(new, 20%)) ? $color-light : $color-dark
+    ts = dark(darken(new, 20%)) ? $color-dark : $color-light
+    color:  con
+    text-shadow: 0 -1px 0 rgba(ts, .25)
+    button-background(lighten(new, 30%), darken(new, 10%))
+    &:hover
+      color: con
+      text-shadow: @text-shadow
+    &.active,
+    &:active
+      color: fade-out(con, .4)
 
 // Success appears as green
 .btn-success
-  button-background(#62c462, #51a351)
+  if $button-success-button is a 'function'
+    $button-success-button()
+  else
+    new = saturate($color-success, 50%)
+    con = dark(darken(new, 20%)) ? $color-light : $color-dark
+    ts = dark(darken(new, 20%)) ? $color-dark : $color-light
+    color:  con
+    text-shadow: 0 -1px 0 rgba(ts, .25)
+    button-background(lighten(new, 30%), spin(darken(new, 10%), 10))
+    &:hover
+      color: con
+      text-shadow: @text-shadow
+    &.active,
+    &:active
+      color: fade-out(con, .4)
 
 // Info appears as a neutral blue
 .btn-info
-  button-background(#5bc0de, #2f96b4)
+  if $button-info-button is a 'function'
+    $button-info-button()
+  else
+    new = saturate($color-info, 50%)
+    con = dark(darken(new, 20%)) ? $color-light : $color-dark
+    ts = dark(darken(new, 20%)) ? $color-dark : $color-light
+    color:  con
+    text-shadow: 0 -1px 0 rgba(ts, .25)
+    button-background(lighten(new, 40%), spin(darken(new, 10%), -10))
+    &:hover
+      color: con
+      text-shadow: @text-shadow
+    &.active,
+    &:active
+      color: fade-out(con, .4)

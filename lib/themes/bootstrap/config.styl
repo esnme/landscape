@@ -29,11 +29,12 @@ $color-6            = #666      // Gray
 $color-7            = #333      // Dark gray
 $color-8            = #353535   // Custom light gray
 $color-9            = #d14      // Violet
+$color-10           = #08c      // Blue
 
 $color-light        = $color-1
 $color-dark         = $color-2
 $color-default      = $color-3
-$color-primary      = $color-3
+$color-primary      = darken($color-10, 15%)
 $color-muted        = $color-5
 $color-warning      = #c09853   // Orange
 $color-danger       = #b94a48   // Red
@@ -84,7 +85,7 @@ $paragraph()
 $list-margin = 0 0 ($base-line-height / 2) 25px
 
 // Anchors
-$anchor-color               = #08c // Blue
+$anchor-color               = $color-10
 $anchor-hover-color         = darken($anchor-color, 40%)
 $anchor-active-color        = lighten($anchor-color, 10%)
 
@@ -117,9 +118,9 @@ $button-box-shadow          = inset 0 1px 0 fade-out($color-light, .75), 0 1px 2
 
 // Hover
 $button-hover()
-  color: $button-color
+  //color: $button-color
   text-decoration: none
-  background-color: #e6e6e6
+  //background-color: #e6e6e6
   background-position: 0 -15px
   // transition is only when going to hover, otherwise the background
   // behind the gradient (there for IE<=9 fallback) gets mismatched
@@ -129,9 +130,9 @@ $button-hover()
 $button-active()
   background-image: none
   box-shadow: inset 0 2px 4px rgba(0,0,0,.15), 0 1px 2px rgba(0,0,0,.05)
-  background-color: darken($color-light, 10%)
-  background-color: darken($color-light, 15%) \\9 // IE haxx
-  color: rgba(0,0,0,.5)
+  //background-color: darken($color-light, 10%)
+  //background-color: darken($color-light, 15%) \\9 // IE haxx
+  //color: rgba(0,0,0,.5)
   transition: all .15s ease
   .caret
     opacity: .4 !important
@@ -144,15 +145,25 @@ $button-disabled()
   box-shadow: none
 
 // Button backgrounds
-$button-gradient()
+$button-gradient-old()
   p = $color-1
   s = darken(p, 10%)
   gradient-bar(p, s)
 
 $button-default-background = #ccc
-$button-primary-background = $anchor-color
+
+// Primary
+$button-primary-gradient2()
+  button-background($anchor-color, spin($anchor-color, 20))
+
+$button-primary-background      = $anchor-color
+
 $button-hover-color-default     = #333
 $button-hover-color-primary     = $button-hover-color-default
+
+// Warning
+$button-danger-gradient2()
+  button-background(#ee5f5b, #bd362f)
 
 // Navbar
 $navbar-height                  = 40px
