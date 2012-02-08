@@ -157,112 +157,61 @@
 
 // Alternate buttons
 
+bootstrap-button($color, $saturation=40%, $lighten=10%, $darken=20%, $spin=0)
+  $color = saturate($color, $saturation)
+  if dark(darken($color, 20%))
+    $front = $color-light
+    $back = $color-dark
+  else
+    $front = $color-dark
+    $back = $color-light
+  color: $front
+  text-shadow: 0 -1px 0 rgba($back, .25)
+  button-background(lighten($color, $lighten), spin(darken($color, $darken), $spin))
+  // Hover
+  &:hover
+    color: $front
+    text-shadow: @text-shadow
+  // Active
+  &.active,
+  &:active
+    color: fade-out($front, .4)
+  // Caret color
+  .caret
+    border-top-color: $front
+    opacity: .75
+
 // Backgrounds
 .btn-primary
   if $button-primary-gradient is a 'function'
     $button-primary-gradient()
   else
-    new = saturate($color-primary, 40%)
-    con = dark(darken(new, 20%)) ? $color-light : $color-dark
-    ts = dark(darken(new, 20%)) ? $color-dark : $color-light
-    color:  con
-    text-shadow: 0 -1px 0 rgba(ts, .25)
-    button-background(lighten(new, 10%), spin(darken(new, 10%), 20))
-    &:hover
-      color: con
-      text-shadow: @text-shadow
-    &.active,
-    &:active
-      color: fade-out(con, .4)
-
-    .caret
-      border-top-color: con
-      opacity: .75
+    bootstrap-button($color-primary, 40%, 10%, 10%, 20)
 
 // Warning appears are orange
 .btn-warning
   if $button-warning-gradient is a 'function'
     $button-warning-gradient()
   else
-    new = saturate($color-danger, 50%)
-    con = dark(darken(new, 20%)) ? $color-light : $color-dark
-    ts = dark(darken(new, 20%)) ? $color-dark : $color-light
-    color:  con
-    text-shadow: 0 -1px 0 rgba(ts, .25)
-    button-background(lighten(new, 10%), darken(new, 10%))
-    &:hover
-      color: con
-      text-shadow: @text-shadow
-    &.active,
-    &:active
-      color: fade-out(con, .4)
-
-    .caret
-      border-top-color: con
-      opacity: .75
+    bootstrap-button($color-warning, 50%, 10%, 10%, 0)
 
 // Danger and error appear as red
 .btn-danger
   if $button-danger-button is a 'function'
     $button-danger-button()
   else
-    new = saturate($color-danger, 50%)
-    con = dark(darken(new, 20%)) ? $color-light : $color-dark
-    ts = dark(darken(new, 20%)) ? $color-dark : $color-light
-    color:  con
-    text-shadow: 0 -1px 0 rgba(ts, .25)
-    button-background(lighten(new, 30%), darken(new, 10%))
-    &:hover
-      color: con
-      text-shadow: @text-shadow
-    &.active,
-    &:active
-      color: fade-out(con, .4)
-
-    .caret
-      border-top-color: con
-      opacity: .75
+    bootstrap-button($color-danger, 50%, 30%, 10%, 0)
 
 // Success appears as green
 .btn-success
   if $button-success-button is a 'function'
     $button-success-button()
   else
-    new = saturate($color-success, 50%)
-    con = dark(darken(new, 20%)) ? $color-light : $color-dark
-    ts = dark(darken(new, 20%)) ? $color-dark : $color-light
-    color:  con
-    text-shadow: 0 -1px 0 rgba(ts, .25)
-    button-background(lighten(new, 30%), spin(darken(new, 10%), 10))
-    &:hover
-      color: con
-      text-shadow: @text-shadow
-    &.active,
-    &:active
-      color: fade-out(con, .4)
-
-    .caret
-      border-top-color: con
-      opacity: .75
+    bootstrap-button($color-success, 50%, 30%, 10%, 10)
 
 // Info appears as a neutral blue
 .btn-info
   if $button-info-button is a 'function'
     $button-info-button()
   else
-    new = saturate($color-info, 50%)
-    con = dark(darken(new, 20%)) ? $color-light : $color-dark
-    ts = dark(darken(new, 20%)) ? $color-dark : $color-light
-    color:  con
-    text-shadow: 0 -1px 0 rgba(ts, .25)
-    button-background(lighten(new, 40%), spin(darken(new, 10%), -10))
-    &:hover
-      color: con
-      text-shadow: @text-shadow
-    &.active,
-    &:active
-      color: fade-out(con, .4)
-
-    .caret
-      border-top-color: con
-      opacity: .75
+    bootstrap-button($color-info, 50%, 40%, 10%, -10)
