@@ -124,7 +124,7 @@ $button-hover()
   background-position: 0 -15px
   // transition is only when going to hover, otherwise the background
   // behind the gradient (there for IE<=9 fallback) gets mismatched
-  transition: background-position .2s linear, border .2s linear, color .2s linear, opacity.2s linear
+  transition: background-position .1s ease, border .1s ease, color .1s ease, opacity.1s ease
 
 // Active
 $button-active()
@@ -133,7 +133,8 @@ $button-active()
   //background-color: darken($color-light, 10%)
   //background-color: darken($color-light, 15%) \\9 // IE haxx
   //color: rgba(0,0,0,.5)
-  transition: all .15s ease
+  background-position: 0 -15px !important
+  transition: all .1s ease
   .caret
     opacity: .4 !important
 
@@ -175,6 +176,27 @@ $navbar-anchor-color-hover      = $color-light
 $navbar-border-radius           = $base-border-radius
 $navbar-box-shadow              = 0 1px 3px rgba(0,0,0,.25), inset 0 -1px 0 rgba(0,0,0,.1)
 $navbar-padding                 = 20px
+
+// Dropdowns
+$dropdown-min-width       = 160px
+$dropdown-max-width       = 220px
+$dropdown-padding         = 4px 0
+$dropdown-background      = $color-light
+
+$dropdown-border()
+  border: 1px solid $color-4
+  border-color: rgba(0,0,0,.2)
+  *border-right-width: 2px
+  *border-bottom-width: 2px
+
+$dropdown-border-radius       = $base-border-radius
+$dropdown-box-shadow          = 0 5px 10px rgba(0,0,0,.2)
+$dropdown-divider-color       = darken($color-3, 5%)
+$dropdown-divider-border      = 1px solid $color-light
+$dropdown-anchor-padding      = 3px 15px
+$dropdown-anchor-color        = $color-6
+$dropdown-anchor-hover-color  = $color-light
+$dropdown-anchor-background   = $anchor-color
 
 // Alert
 $alert-border-radius    = $base-border-radius

@@ -105,18 +105,9 @@
     cursor: default
     if $button-disabled is a 'function'
       $button-disabled()
-    
-  // Different caret color for different buttons
-  &.btn-primary,
-  &.btn-danger,
-  &.btn-info,
-  &.btn-success
-    .caret
-      border-top-color: #fff
-      opacity: .75
 
 // Button active
-.btn-group.open .dropdown-toggle,
+.btn-group.open .btn.dropdown-toggle,
 .btn.active,
 .btn:active
     // Implement your own outline style
@@ -184,6 +175,10 @@
     &:active
       color: fade-out(con, .4)
 
+    .caret
+      border-top-color: con
+      opacity: .75
+
 // Warning appears are orange
 .btn-warning
   if $button-warning-gradient is a 'function'
@@ -201,6 +196,10 @@
     &.active,
     &:active
       color: fade-out(con, .4)
+
+    .caret
+      border-top-color: con
+      opacity: .75
 
 // Danger and error appear as red
 .btn-danger
@@ -220,6 +219,10 @@
     &:active
       color: fade-out(con, .4)
 
+    .caret
+      border-top-color: con
+      opacity: .75
+
 // Success appears as green
 .btn-success
   if $button-success-button is a 'function'
@@ -238,6 +241,10 @@
     &:active
       color: fade-out(con, .4)
 
+    .caret
+      border-top-color: con
+      opacity: .75
+
 // Info appears as a neutral blue
 .btn-info
   if $button-info-button is a 'function'
@@ -255,3 +262,7 @@
     &.active,
     &:active
       color: fade-out(con, .4)
+
+    .caret
+      border-top-color: con
+      opacity: .75

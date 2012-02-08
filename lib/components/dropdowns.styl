@@ -8,7 +8,8 @@
   &.open
     .dropdown-toggle
       color: white
-      background: $navbar-link-color
+      if $navbar-anchor-color
+        background: $navbar-link-color
       background: rgba(0,0,0,.3)
 
     .dropdown-menu
@@ -54,35 +55,126 @@
   padding: 4px 0
   margin: 0 // override default ul
   list-style: none
-  border-radius: 0 0 $dropdown-border-radius $dropdown-border-radius
   background-clip: padding-box
   zoom: 1 // do we need this?
-  *border-right-width: 2px
-  *border-bottom-width: 2px
+
+  // Padding
+  if $dropdown-padding is a 'unit'
+    padding: $dropdown-padding
+  
+  // Borders
+  if $dropdown-border is a 'function'
+    $dropdown-border()
+  else if $dropdown-border is defined
+    border: $dropdown-border
+  
+  if $dropdown-border-color is a 'color'
+    border: 1px solid $dropdown-border-color
+    border-color: rgba(ligten($dropdown-border-color, 20%),.2)
+    *border-right-width: 2px
+    *border-bottom-width: 2px
+
+  // Background
+  if $dropdown-background is a 'function'
+    $dropdown-background()
+  else if $dropdown-background is a 'color'
+    background-color: $dropdown-background
+  else if $dropdown-background is defined
+    background: $dropdown-background
+  else
+    background: white
+
+  // Border radius
+  if $dropdown-border-radius is a 'unit'
+    border-radius: 0 0 $dropdown-border-radius $dropdown-border-radius
+
+  // Max width
+  if $dropdown-max-width is a 'unit'
+    max-width: $dropdown-max-width
+  else
+    max-width: 220px
+
+  // Min width
+  if $dropdown-min-width is a 'unit'
+    min-width: $dropdown-min-width
+    _width: $dropdown-min-width
+  else
+    min-width: 160px
+    _width: 160px
+
+  // Box shadow
+  if $dropdown-box-shadow is defined
+    box-shadow: $dropdown-box-shadow
 
   // Dividers (basically an hr) within the dropdown
   .divider
     height: 1px
-    margin: 5px 1px
     overflow: hidden
+
+    // Margin
+    if $dropdown-divider-margin is a 'unit'
+      margin: $dropdown-divider-margin
+    else
+      margin: 5px 1px
+
+    // Color of divider
+    if $dropdown-divider-color is a 'color'
+      background-color: $dropdown-divider-color
+    else
+      background-color: #e5e5e5
+
+    // Border color of divider
+    if $dropdown-divider-border is a 'color'
+      border-bottom: $dropdown-divider-border
+    else
+      border-bottom: 1px solid white
     
   // Links within the dropdown menu
   a
     display: block
-    padding: 3px 15px
     clear: both
-    font-weight: normal
-    line-height: 18px
-    color: gray
     white-space: nowrap
+
+    // Font weight
+    if $dropdown-anchor-font-weight is a 'unit'
+      font-weight: $dropdown-anchor-font-weight
+    else
+      font-weight: normal
+
+    // Line height
+    if $dropdown-anchor-line-height is a 'unit'
+      line-height: $dropdown-anchor-line-height
+    else
+      line-height: $base-line-height
+
+    // Padding
+    if $dropdown-anchor-padding is a 'unit'
+      padding: $dropdown-anchor-padding
+
+    // Color
+    if $dropdown-anchor-color is a 'color'
+      color: $dropdown-anchor-color
     
   // Hover state
   li > a:hover,
   .active > a,
   .active > a:hover
-    color: #fff
-    text-decoration: none
-    background-color: $anchor-color
+    if $dropdown-anchor-hover-color is a 'color'
+      color: $dropdown-anchor-hover-color
+    else
+      color: @color
+
+    if $dropdown-anchor-hover-underline is true
+      text-decoration: underline
+    else
+      text-decoration: none
+    
+    if $dropdown-anchor-background is a 'function'
+      $dropdown-anchor-background()
+    else if $dropdown-anchor-background is a 'color'
+      background-color: $dropdown-anchor-background
+    else
+      background-color: $anchor-color
 
 // Typeahead
 .typeahead
