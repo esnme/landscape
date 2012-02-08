@@ -186,14 +186,14 @@ bootstrap-button($color, $saturation=40%, $lighten=10%, $darken=20%, $spin=0)
   if $button-primary-gradient is a 'function'
     $button-primary-gradient()
   else
-    bootstrap-button($color-primary, 40%, 10%, 10%, 20)
+    bootstrap-button($color-primary, 30%, 10%, 0%, 20)
 
 // Warning appears are orange
 .btn-warning
   if $button-warning-gradient is a 'function'
     $button-warning-gradient()
   else
-    bootstrap-button($color-warning, 50%, 10%, 10%, 0)
+    bootstrap-button($color-warning, 50%, 10%, 0%, 0)
 
 // Danger and error appear as red
 .btn-danger
@@ -207,7 +207,7 @@ bootstrap-button($color, $saturation=40%, $lighten=10%, $darken=20%, $spin=0)
   if $button-success-button is a 'function'
     $button-success-button()
   else
-    bootstrap-button($color-success, 50%, 30%, 10%, 10)
+    bootstrap-button($color-success, 50%, 30%, 0%, 10)
 
 // Info appears as a neutral blue
 .btn-info

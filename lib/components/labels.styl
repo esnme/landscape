@@ -1,16 +1,54 @@
-// LABELS
-// ------
+// ESN Landscape
 
-.label {
-  padding: 1px 3px 2px;
-  font-size: @baseFontSize * .75;
-  font-weight: bold;
-  color: @white;
-  text-transform: uppercase;
-  background-color: @grayLight;
-  .border-radius(3px);
-}
-.label-important { background-color: @errorText; }
-.label-warning   { background-color: @orange; }
-.label-success   { background-color: @successText; }
-.label-info      { background-color: @infoText; }
+// Labels
+.label
+  // Padding
+  if $label-padding is a 'unit'
+    padding: $label-padding
+  else
+    padding: 1px 3px 2px
+  
+  // Font size
+  if $label-font-size is a 'unit'
+    font-size: $label-font-size
+  else
+    font-size: ($base-font-size * .75)
+
+  // Font weight
+  if $label-font-weight is defined
+    font-weight: $label-font-weight
+  else
+    font-weight: bold
+
+  // Color
+  if $label-color is a 'color'
+    color: $label-color
+  else
+    color: $color-light
+
+  // Background color
+  if $label-background is a 'color'
+    background-color: $label-background
+  else
+    background-color: $color-muted
+
+  // Border radius
+  if $label-border-radius is a 'unit'
+    border-radius: $label-border-radius
+
+  // Uppercase
+  if $label-uppercase is true
+    text-transform: uppercase
+
+  // Text shadow
+  if $label-text-shadow is defined
+    text-shadow: $label-text-shadow
+
+.label-important
+  background-color: $color-danger
+.label-warning
+  background-color: $color-warning
+.label-success
+  background-color: $color-success
+.label-info
+  background-color: $color-info
