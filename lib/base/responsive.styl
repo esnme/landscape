@@ -109,9 +109,10 @@
         @extend .row > [class*="span"]
 
 // Portrait tablet to default desktop
-@media (min-width: 768px) and (max-width: 980px)
+@media (min-width: 768px) and (max-width: 940px)
   // Reset grid variables
-  $grid-column-width = 42px
+  $grid-columns = 16
+  $grid-column-width = 44px
   $grid-gutter-width = 20px
   $site-width = 748px
   $fluid-grid-column-width = 5.801104972%
@@ -257,7 +258,9 @@
 
 // Large desktop & up
 @media (min-width: 1210px)
+
   // Reset grid variables
+  $grid-columns = 12
   $grid-column-width = 70px
   $grid-gutter-width = 30px
   $site-width = 1170px

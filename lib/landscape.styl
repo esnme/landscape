@@ -53,5 +53,5 @@ vendor-prefixes = webkit moz official o ms
 // Components: Misc
 @import "components/thumbnails"
 
-// Theme: Styles
-@import "themes/"+$theme+"/theme"
+if $responsive
+	@import "base/responsive.styl"

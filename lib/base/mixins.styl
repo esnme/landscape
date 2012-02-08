@@ -1,21 +1,27 @@
 // ESN Landscape
 
 // Mix two colors by any given amount
-mix(colorA, colorB, amount)
-  if colorB is a 'unit' and amount is a 'color'
-    return mix(colorA, amount, colorB)
-  require-color colorA
-  require-color colorB
-  if unit(amount) is '%'
-    amount = (amount / 100)
-  reverse = 1 - amount
-  alphaA = alpha(colorA)
-  alphaB = alpha(colorB)
-  rgbA = rgb(colorA)
-  rgbB = rgb(colorB)
-  mixedColor = (rgbA * reverse) + (rgbB * amount)
-  mixedAlpha = ((alphaA * 100 * reverse) + (alphaB * 100 * amount)) / 100
-  return rgba(red(mixedColor), green(mixedColor), blue(mixedColor), mixedAlpha)
+mix(colorA, colorB, weight=50%, opacity=true)
+  if colorB is a 'unit' and weight is a 'color'
+    return mix(colorA, weight, colorB)
+  require-color(colorA)
+  require-color(colorB)
+  require-unit(weight)
+  if unit(weight) is '%'
+    weight = (weight / 100)
+  reverse = 1 - weight
+  result = colorA * reverse + colorB * weight
+  if opacity
+    result-alpha = (alpha(colorA) * reverse) + (alpha(colorB) * weight)
+    result = rgba(result, result-alpha)
+  return result
+
+// Invert colors
+invert(color)
+  r = 255 - red(color)
+  g = 255 - green(color)
+  b = 255 - blue(color)
+  rgba(r,g,b,alpha(color))
 
 // Extendable clearfix class
 .clearfix

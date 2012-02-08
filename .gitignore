@@ -28,6 +28,6 @@ nbproject
 .idea
 
 # Files used in Nodejitsu deployment
-./index.js
-./package.json
-./.npmignore
+index.js
+package.json
+.npmignore
