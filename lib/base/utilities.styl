@@ -23,7 +23,7 @@
   // Transition
   if $fade-transition is a 'function'
     $fade-transition()
-  else if $fade-transition
+  else if $fade-transition is defined
     transition: $fade-transition
   else
     transition: opacity .15s linear
