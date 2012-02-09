@@ -1,11 +1,10 @@
 // ESN Landscape
 
-// GENERAL STYLES
-// --------------
+// General styles
 
 // Make all forms have space below them
 form
-  margin: 0 0 @baseLineHeight
+  margin: 0 0 $base-line-height
 
 fieldset
   padding: 0
@@ -32,6 +31,13 @@ button,
 select,
 textarea
   font-sans-serif($base-font-size, normal, $base-line-height);
+  + input,
+  + button,
+  + select,
+  + textarea,
+  + .btn,
+  + .btn-group,
+    margin-left: .5em
 
 // Identify controls by their labels
 label
@@ -271,7 +277,7 @@ select:focus:required:invalid
 // ------------
 
 .form-actions
-  padding: ($base-line-height - 1) 20px $base-line-height
+  padding: $base-line-height 20px $base-line-height
   margin-top: $base-line-height
   margin-bottom: $base-line-height
   background-color: #f5f5f5
