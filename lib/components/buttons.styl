@@ -139,44 +139,6 @@ if $button-generator is not defined
   // Give IE7 some love
   ie7-restore-left-whitespace()
 
-// Button Sizes
-
-// Large
-.btn-large
-  // Font size
-  if $button-font-size
-    font-size: ($base-font-size + 2px)
-  else
-    font-size: 1.2em
-
-  // Font padding
-  if $button-padding is a 'unit'
-    padding: ($button-padding * 2)
-  else
-    padding: .5em .3em
-  
-  line-height: normal
-  if ($button-border-radius) is a 'unit'
-    border-radius: ($button-border-radius * 1.2)
-  .icon
-    margin-top: .05em
-
-// Small
-.btn-small
-   // Font size
-  if $button-font-size is a 'unit'
-    font-size: ($base-font-size * .8)
-  else
-    font-size: .9em
-  line-height: ($base-line-height * .8)
-  // Font padding
-  if $button-padding is a 'unit'
-    padding: ($button-padding * .8)
-  else
-    padding: .2em .1em
-  .icon
-    margin-top: .05em
-
 // Alternate buttons
 
 // Primary
@@ -221,3 +183,44 @@ if $button-generator is not defined
     cursor: default
     if $button-disabled is a 'function'
       $button-disabled()
+
+// Button Sizes
+
+// Large
+.btn-large
+  // Font size
+  if $button-font-size is a 'unit'
+    font-size: ($button-font-size * 1.1)
+  else
+    font-size: 1.1em
+
+  // Padding
+  if $button-padding is a 'unit'
+    padding: ($button-padding * 2.4) ($button-padding * 4)
+  else
+    padding: .5em .3em
+  
+  line-height: normal
+  if ($button-border-radius) is a 'unit'
+    border-radius: ($button-border-radius * 1.2)
+  .icon
+    margin-top: .05em
+
+// Small
+.btn-small
+  // Font size
+  if $button-font-size is a 'unit'
+    font-size: ($button-font-size * .9)
+  else
+    font-size: .9em
+  
+  line-height: normal
+
+  // Padding
+  if $button-padding is a 'unit'
+    padding: ($button-padding * 1.4) ($button-padding * 2)
+  else
+    padding: .2em .4em
+  
+  .icon
+    margin-top: .05em
