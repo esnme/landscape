@@ -99,13 +99,6 @@
     if $button-focus is a 'function'
       $button-focus()
 
-  // Disabled
-  &.disabled,
-  &[disabled]
-    cursor: default
-    if $button-disabled is a 'function'
-      $button-disabled()
-
 // Button active
 .btn-group.open .btn.dropdown-toggle,
 .btn.active,
@@ -116,6 +109,13 @@
       $button-active()
     .caret
       opacity: .4 !important
+
+// Button disabled
+.btn.disabled,
+.btn[disabled]
+  cursor: default
+  if $button-disabled is a 'function'
+    $button-disabled()
 
 // Button Sizes
 
