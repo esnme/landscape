@@ -1,0 +1,37 @@
+extends layout
+
+block navbar
+  - var section = 'stylus'
+  include navbar
+
+block content
+  header.jumbotron.subhead
+    h1 Using Stylus with Landscape
+    p.lead.
+      Customize and extend Landscape with Stylus, a CSS preprocessor, to take advantage of the variables, mixins, and more used to build Landscape's CSS.
+    .subnav
+      ul.nav.nav-pills
+        li
+          a(href="#built-with") Built with Stylus
+        li
+          a(href="#variables") Variables
+        li
+          a(href="#mixins") Mixins
+        li
+          a(href="#compiling") Compiling Landscape
+
+  section#built-with
+    .page-header
+      h1 Built with Stylus
+
+  section#variables
+    .page-header
+      h1 Variables
+
+  section#mixins
+    .page-header
+      h1 Mixins
+
+  section#compiling
+    .page-header
+      h1 Compiling Landscape
