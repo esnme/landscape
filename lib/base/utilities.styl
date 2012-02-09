@@ -38,7 +38,7 @@
   // Transition
   if $collapse-transition is a 'function'
     $collapse-transition()
-  else if $collapse-transition
+  else if $collapse-transition is defined
     transition: $collapse-transition
   else
     transition: height .35s ease
