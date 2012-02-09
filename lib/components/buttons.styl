@@ -1,5 +1,36 @@
 // ESN Landscape
- 
+
+// Default button generator
+if $button-generator is not defined
+  $button-generator($color, $saturation=40%, $lighten=10%, $darken=20%, $spin=0)
+    $color = saturate($color, $saturation)
+    if dark(darken($color, 20%))
+      $front = $color-light
+      $back = $color-dark
+    else
+      $front = $color-dark
+      $back = $color-light
+    color: $front
+    text-shadow: 0 -1px 0 rgba($back, .25)
+    button-background(lighten($color, $lighten), spin(darken($color, $darken), $spin))
+    // Hover
+    &:hover
+      color: $front
+      text-shadow: @text-shadow
+    // Active
+    .btn-group.open &.dropdown-toggle,
+    &.active,
+    &:active
+      color: fade-out($front, .4)
+    // Disabled
+    &.disabled,
+    &[disabled]
+      color: fade-out($front, .6) !important
+    // Caret color
+    .caret
+      border-top-color: $front
+      opacity: .75
+
 // Buttons
 .btn
   user-select: none
@@ -57,13 +88,6 @@
   else if $button-text-shadow is defined
     text-shadow: $button-text-shadow
 
-  // Gradient background
-  if $button-gradient is a 'function'
-    $button-gradient()
-  else
-    new = saturate($color-light, 40%)
-    button-background(lighten(new, 10%), darken(new, 10%))
-
   // Box shadow
   if $button-box-shadow is a 'function'
     $button-box-shadow()
@@ -73,6 +97,35 @@
   + .btn
     margin-left: .75em
 
+  // Hover
+  &:hover
+    if $button-hover is a 'function'
+      $button-hover()
+    .caret
+      opacity: 1
+
+  // Active
+  .btn-group.open &.dropdown-toggle,
+  &.active,
+  &:active
+    // Implement your own outline style
+    outline: 0
+    if $button-active is a 'function'
+      $button-active()
+    .caret
+      opacity: .4 !important
+
+  // Focus
+  &:focus
+    @extend .tab-focus
+    if $button-focus is a 'function'
+      $button-focus()
+
+  // Gradient background
+  if $button-gradient is a 'function'
+    $button-gradient()
+  else
+    $button-generator($color-light, 40%, 10%, 10%, 0)
   // Caret inside button
   .caret
     // Reposition dropdown caret
@@ -84,38 +137,6 @@
 
   // Give IE7 some love
   ie7-restore-left-whitespace()
-
-  // Hover
-  &:hover
-    if $button-hover is a 'function'
-      $button-hover()
-    color: $button-color
-    .caret
-      opacity: 1
-
-  // Focus
-  &:focus
-    @extend .tab-focus
-    if $button-focus is a 'function'
-      $button-focus()
-
-  // Disabled
-  &.disabled,
-  &[disabled]
-    cursor: default
-    if $button-disabled is a 'function'
-      $button-disabled()
-
-// Button active
-.btn-group.open .btn.dropdown-toggle,
-.btn.active,
-.btn:active
-    // Implement your own outline style
-    outline: 0
-    if $button-active is a 'function'
-      $button-active()
-    .caret
-      opacity: .4 !important
 
 // Button Sizes
 
@@ -157,61 +178,45 @@
 
 // Alternate buttons
 
-bootstrap-button($color, $saturation=40%, $lighten=10%, $darken=20%, $spin=0)
-  $color = saturate($color, $saturation)
-  if dark(darken($color, 20%))
-    $front = $color-light
-    $back = $color-dark
-  else
-    $front = $color-dark
-    $back = $color-light
-  color: $front
-  text-shadow: 0 -1px 0 rgba($back, .25)
-  button-background(lighten($color, $lighten), spin(darken($color, $darken), $spin))
-  // Hover
-  &:hover
-    color: $front
-    text-shadow: @text-shadow
-  // Active
-  &.active,
-  &:active
-    color: fade-out($front, .4)
-  // Caret color
-  .caret
-    border-top-color: $front
-    opacity: .75
-
-// Backgrounds
+// Primary
 .btn-primary
   if $button-primary-gradient is a 'function'
     $button-primary-gradient()
   else
-    bootstrap-button($color-primary, 30%, 10%, 0%, 20)
+    $button-generator($color-primary, 30%, 10%, 0%, 20)
 
-// Warning appears are orange
+// Warning
 .btn-warning
   if $button-warning-gradient is a 'function'
     $button-warning-gradient()
   else
-    bootstrap-button($color-warning, 50%, 10%, 0%, 0)
+    $button-generator($color-warning, 50%, 10%, 0%, 0)
 
-// Danger and error appear as red
+// Danger
 .btn-danger
   if $button-danger-button is a 'function'
     $button-danger-button()
   else
-    bootstrap-button($color-danger, 50%, 30%, 10%, 0)
+    $button-generator($color-danger, 50%, 30%, 10%, 0)
 
-// Success appears as green
+// Success
 .btn-success
   if $button-success-button is a 'function'
     $button-success-button()
   else
-    bootstrap-button($color-success, 50%, 30%, 0%, 10)
+    $button-generator($color-success, 50%, 30%, 0%, 10)
 
-// Info appears as a neutral blue
+// Info
 .btn-info
   if $button-info-button is a 'function'
     $button-info-button()
   else
-    bootstrap-button($color-info, 50%, 40%, 10%, -10)
+    $button-generator($color-info, 50%, 40%, 10%, -10)
+
+// Disabled
+.btn
+  &.disabled,
+  &[disabled]
+    cursor: default
+    if $button-disabled is a 'function'
+      $button-disabled()

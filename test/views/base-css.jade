@@ -41,19 +41,21 @@ block content
           
       .span4
         h3 Example paragraph
-        p Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+        :markdown
+          Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus 
+          et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit.
         
-        h1 Example heading
-          small Has sub-heading...
+          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, 
+          est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui.
           
       .span4
         .well
-          h1 Heading 1
-          h2 Heading 2
-          h3 Heading 3
-          h4 Heading 4
-          h5 Heading 5
-          h6 Heading 6
+          h1 h1. Heading 1
+          h2 h2. Heading 2
+          h3 h3. Heading 3
+          h4 h4. Heading 4
+          h5 h5. Heading 5
+          h6 h6. Heading 6
           
     h2 Emphasis, address and abbreviation
     
@@ -67,31 +69,25 @@ block content
         tr
           td
             code="<strong>"
-          td
-            For emphasizing a snippet of text with <strong>important</strong>
+          td For emphasizing a snippet of text with <strong>important</strong>
           td
             span.muted None
         tr
           td
             code="<em>"
-          td
-            For For emphasizing a snippet of text with <em>stress</em>
+          td For For emphasizing a snippet of text with <em>stress</em>
           td
             span.muted None
         tr
           td
             code="<abbr>"
-          td
-            Wraps abbreviations and acronyms to show the expanded version on hover
-          td
-            Include optional <code>title</code> for expanded text
+          td Wraps abbreviations and acronyms to show the expanded version on hover
+          td Include optional <code>title</code> for expanded text
         tr
           td
             code="<address>"
-          td
-            For contact information for its nearest ancestor or the entire body of work
-          td
-            Preserve formatting by ending all lines with <code>&lt;br&gt;</code>
+          td For contact information for its nearest ancestor or the entire body of work
+          td Preserve formatting by ending all lines with <code>&lt;br&gt;</code>
             
     .row
       .span4
@@ -139,23 +135,19 @@ block content
         tr
           td
             code="<blockquote>"
+          td Block-level element for quoting content from another source
           td
-            Block-level element for quoting content from another source
-          td
-            p
-              :markdown
-                Add cite attribute for source URL
+            :markdown
+              Add `cite` attribute for source URL
 
-                Use `.pull-left` and `.pull-right` classes for floated options
+              Use `.pull-left` and `.pull-right` classes for floated options
         tr
           td
             code="<small>"
+          td Optional element for adding a user-facing citation, typically an author with title of work
           td
-            Optional element for adding a user-facing citation, typically an author with title of work
-          td
-            p
-              :markdown
-                Place the `<cite>` around the title or name of source
+            :markdown
+              Place the `<cite>` around the title or name of source
     .row
       .span4
         p

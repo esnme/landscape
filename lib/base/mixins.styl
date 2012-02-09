@@ -121,6 +121,12 @@ fluid-grid-column()
 make-column($col = 1)
   grid-column()
   columns($col)
+
+// Table columns
+table-columns($col = 1)
+  float: none
+  width: (($grid-column-width) * $col) + ($grid-gutter-width * ($col - 1)) - 16
+  margin-left: 0
   
 // Popover arrows
 popover-arrow-top($arrow-width = 5px)

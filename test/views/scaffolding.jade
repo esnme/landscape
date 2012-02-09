@@ -8,7 +8,7 @@ block content
   header.jumbotron.subhead
     h1 Scaffolding
     p.lead.
-      The toolkit is built on a responsive 12-column grid. 
+      Landscape is built on a responsive 12-column grid. 
       We've also included fixed- and fluid-width 
       layouts based on that system.
     .subnav
@@ -69,10 +69,12 @@ block content
       
     .row
       .span4
-        p.
-          The default grid system provided as part of Bootstrap is a 940px-wide, 
-          12-column grid. It also has three responsive variations for various 
-          devices and resolutions: phone, tablet, and large widescreen desktops.
+        :markdown
+          The default grid system provided as part of Bootstrap is a **940px-wide, 
+          12-column grid**.
+
+          It also has four responsive variations for various devices and resolutions: 
+          phone, tablet portrait, table landscape and small desktops, and large widescreen desktops.
       .span4
         pre.prettyprint.linenums.
           <div class="row">
@@ -80,7 +82,7 @@ block content
             <div class="span12">..</div>
           </div>
       .span4
-        p. 
+        :markdown
           As shown here, a basic layout can be created with two "columns," 
           each spanning a number of the 12 foundational columns we defined 
           as part of our grid system.
@@ -171,9 +173,9 @@ block content
           td Counts numbers of columns and gutters to set width of the <code>fixed-container()</code> mixin
     .row
       .span4
-        h3 Variables in LESS
+        h3 Variables in Stylus
         :markdown
-          Built into Bootstrap are a handful of variables for customizing the default 940px grid system, documented above. 
+          Built into Landscape are a handful of variables for customizing the default 940px grid system, documented above. 
           All variables for the grid are stored in config.styl.
       .span4
         h3 How to customize
@@ -219,7 +221,6 @@ block content
               </div>
             </div>
           </div>
-    
   section#responsive
     .page-header
       h1 Responsive design
@@ -273,25 +274,26 @@ block content
         :markdown
           Media queries allow for custom CSS based on a number of conditions—ratios, 
           widths, display type, etc—but usually focuses around `min-width` and `max-width`.
+          
           - Modify the width of column in our grid
           - Stack elements instead of float wherever necessary
           - Resize headings and text to be more appropriate for devices
     br
     h2 Using the media queries
     .row
-      .span6
+      .span5
         :markdown
           Landscape doesn't automatically include these media queries, but understanding and adding 
           them is very easy and requires minimal setup. You have a few options for including the 
           responsive features of Landscape:
 
-          - Use the compiled responsive version, landscape-responsive.css
-          - Add @import "responsive.styl" and recompile Landscape
-          - Modify and recompile responsive.less as a separate
+          1. Use the compiled responsive version, landscape-responsive.css
+          2. Add @import "responsive.styl" and recompile Landscape
+          3. Modify and recompile responsive.less as a separate
           
           **Why not just include it?** Truth be told, not everything needs to be responsive. 
           Instead of encouraging developers to remove this feature, we figure it best to enable it.
-      .span6
+      .span7
         pre.prettyprint.linenums.
           // Landscape phones and down
           @media (max-width: 480px) { ... }

@@ -1,9 +1,43 @@
 // ESN Landscape
 
+// Base typography
 body
   font-family: $base-font-family
+  font-size: $base-font-size
   color: $base-color
   line-height: $base-line-height
+
+// Anchor
+a
+  // Remove decoration
+  text-decoration: none
+
+  // Base style
+  if $anchor is a 'function'
+    $anchor()
+
+  // Color
+  if $anchor-color is a 'color'
+    color: $anchor-color
+
+  // Hover
+  &:hover
+    // Base style
+    if $anchor-hover is a 'function'
+      $anchor-hover()
+
+    // Color
+    if $anchor-hover-color is a 'color'
+      color: $anchor-hover-color
+  // Active
+  &:active
+    // Base style
+    if $anchor-active is a 'function'
+      $anchor-active()
+
+    // Color
+    if $anchor-active-color is a 'color'
+      color: $anchor-active-color
  
 // Headings
 h1, h2, h3, h4, h5, h6
@@ -113,8 +147,8 @@ h6
 // Paragrapahs
 p
   // Remove margin
-  //margin: 0
-  //margin-bottom: ($base-line-height / 2)
+  margin: 0
+  margin-bottom: ($base-line-height / 2)
 
   // Font family
   if $paragraph-font-family
@@ -210,6 +244,9 @@ abbr
   border-bottom: 1px dotted #ddd
   cursor: help
 
+small
+  font-size: 1em
+
 // Blockquotes
 blockquote
   padding-left: 15px
@@ -239,49 +276,19 @@ blockquote
 
 // Addresses
 address
+  font-style: normal
   display: block
   margin-bottom: $base-line-height
   line-height: $base-line-height
 
 // Images
 img
-  width: 100%
-  min-width: 100%
+  max-width: 100%
   height: auto
+  border: 0
+  -ms-interpolation-mode: bicubic
 
 blockquote
   padding: 0 0 0 15px
   margin: 0 0 18px
   border-left: 5px solid #eee
-
-// Anchor
-a
-  // Remove decoration
-  text-decoration: none
-
-  // Base style
-  if $anchor is a 'function'
-    $anchor()
-
-  // Color
-  if $anchor-color is a 'color'
-    color: $anchor-color
-
-  // Hover
-  &:hover
-    // Base style
-    if $anchor-hover is a 'function'
-      $anchor-hover()
-
-    // Color
-    if $anchor-hover-color is a 'color'
-      color: $anchor-hover-color
-  // Active
-  &:active
-    // Base style
-    if $anchor-active is a 'function'
-      $anchor-active()
-
-    // Color
-    if $anchor-active-color is a 'color'
-      color: $anchor-active-color

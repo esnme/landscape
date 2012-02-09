@@ -1,10 +1,6 @@
-/*
- * ESN Frontend Toolkit
- */
+// ESN Landscape
 
-/*
- * Tables
- */
+// Tables
 
 // Baseline styles
 .table
@@ -24,6 +20,10 @@
   td
     vertical-align: top
 
+    // Remove margin from last paragraph
+    p:last-child
+      margin: 0
+
   // Remove top border from thead by default
   thead:first-child tr th,
   thead:first-child tr td
@@ -33,20 +33,14 @@
   tbody + tbody
     border-top: 2px solid #ddd
 
-/*
- * Condensed table w/ half padding
- */
-
+// Condensed table w/ half padding
 .table-condensed
   th,
   td
     padding: 4px 5px
 
 
-/*
- * Bordered version
- */
-
+// Bordered
 .table-bordered
   border: 1px solid #ddd
   border-collapse: separate // Done so we can round those corners!
@@ -81,36 +75,23 @@
   tbody:last-child tr:last-child td:last-child
     border-radius: 0 0 $base-border-radius 0
 
-/*
- * Zebra striping
- */
+// Striped table
 
-// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+// Default striped table styles (alternating gray and transparent backgrounds)
 .table-striped
   tbody
     tr:nth-child(odd) td,
     tr:nth-child(odd) th
       background-color: #f9f9f9
 
-/*
- * Table cell sizing
- */
-
-// Change the columns
-table-columns($column-span = 1)
-  float: none
-  width: (($grid-column-width) * $column-span) + ($grid-gutter-width * ($column-span - 1)) - 16
-  margin-left: 0
-
+// Table cell sizing
 .table
   for $col in 1..$grid-columns
     .span{$col}
       table-columns($col)
       
-/*
- * Tablesorter
- * Support for the tablesorter jQuery plugin
- */
+// Tablesorter
+// Support for the tablesorter jQuery plugin
 .table
   // Tablesorting styles w/ jQuery plugin
   .header

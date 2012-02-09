@@ -1,16 +1,5 @@
 // ESN Landscape
 
-// Base structural layout
-body
-  font-family: $base-font-family
-  font-size: $base-font-size
-  color: $base-font-color
-  
-a
-  color: $anchor-color
-  &:hover
-    color: $anchor-color-hover
-
 // Layouts
 // Fixed-width and fluid (with sidebar) layouts
 
@@ -18,7 +7,7 @@ a
 .container
   @extend .clearfix
   container-fixed()
-	
+  
 // Fluid layouts (left aligned, with sidebar, min- & max-width content)
 if fluid is true
   .container-fluid
