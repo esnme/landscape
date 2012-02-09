@@ -202,8 +202,11 @@ gradient-bar($primary, $secondary, $height=50px)
   background-repeat: repeat-x
 
 button-border-color($primary, $secondary)
-  border-color: $secondary $secondary darken($secondary, 28%)
-  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) fade-in(rgba(0,0,0,.1), .15)
+  border-color: $secondary $secondary darken($secondary, 25%)
+  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25)
+  .btn-group.btn-group-highlight:hover &
+    border-color: darken($secondary, 15%)darken($secondary, 15%) darken($secondary, 35%)
+    border-color: rgba(0,0,0,.25) rgba(0,0,0,.25) rgba(0,0,0,.4)
 
 // Buttons
 
@@ -215,11 +218,12 @@ button-background($start, $end, $height=50px)
   //reset-filter()
 
   // in these cases the gradient won't cover the background, so we override
+  .btn-group.open &.dropdown-toggle,
   &:hover,
   &:active,
   &.active,
   &.disabled,
-  &[disabled]
+  &[disabled],
     background-color: $end
 
   // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves

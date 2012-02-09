@@ -21,14 +21,13 @@ Requirements
 
 How to get the test running?
 ----------------------------
-Clone the bootstrap submodule
+Make sure to get the Bootstrap submodule:
 
 ```bash
-$ git submodule init
-$ git submodule update
+$ git submodule update --init
 ```
 
-Install all npm packages
+Install all npm packages:
 
 ```bash
 $ cd test
