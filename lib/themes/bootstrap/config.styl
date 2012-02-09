@@ -140,7 +140,7 @@ $button-active()
 $button-disabled()
   color: @color !important
   background-image: none
-  background-color: darken($color-light, 10%);
+  //background-color: darken($color-light, 10%);
   opacity: .65
   box-shadow: none
 
@@ -153,17 +153,9 @@ $button-gradient-old()
 $button-default-background = #ccc
 
 // Primary
-$button-primary-gradient2()
-  button-background($anchor-color, spin($anchor-color, 20))
-
 $button-primary-background      = $anchor-color
-
 $button-hover-color-default     = #333
 $button-hover-color-primary     = $button-hover-color-default
-
-// Warning
-$button-danger-gradient2()
-  button-background(#ee5f5b, #bd362f)
 
 // Navbar
 $navbar-height                  = 40px
