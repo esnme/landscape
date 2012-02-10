@@ -1,8 +1,8 @@
 {
-  "name": "esn-toolkit",
+  "name": "landscape",
   "author": "Marcus Ekwall <marcus.ekwall@gmail.com>",
-  "description": "ESN Landscape, frontend toolkit based on Bootstrap from Twitter",
-  "subdomain": "esntk",
+  "description": "A Stylus-powered frontend toolkit based on Bootstrap.",
+  "subdomain": "landscape",
   "scripts": {
     "start": "app.js"
   },

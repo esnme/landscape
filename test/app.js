@@ -1,5 +1,5 @@
 var express = require('express'),
-    resmin = require('resmin')
+    resmin = require('resmin'),
     app = express.createServer(),
     pubDir = __dirname + '/public';
 	
@@ -32,7 +32,7 @@ var resminConfig = {
       all: [],
       landscape: [
         "/css/prettify.css",
-        "/css/landscape.styl"
+        "/themes/bootstrap/theme.styl"
       ]
     }
 };
@@ -47,6 +47,7 @@ app.configure(function(){
   app.use(app.router);
 });
 
+// Development
 app.configure('development', function(){
   resminConfig.merge = false;
   resminConfig.gzip = false;
@@ -56,6 +57,7 @@ app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
 
+// Production
 app.configure('production', function(){
   app.use(resmin.middleware(express, pubDir, resminConfig));
   var oneYear = 31557600000;
@@ -63,6 +65,7 @@ app.configure('production', function(){
   app.use(express.errorHandler()); 
 });
 
+// Register resmin dynamic helper
 app.dynamicHelpers(resmin.dynamicHelper);
 
 // Routes
@@ -88,6 +91,11 @@ app.get('/components.html', function(req, res){
 app.get('/javascript.html', function(req, res){
   var context = { xhr: req.xhr };
   res.render('javascript', context);
+});
+
+app.get('/stylus.html', function(req, res){
+  var context = { xhr: req.xhr };
+  res.render('stylus', context);
 });
 
 // Let's listen
