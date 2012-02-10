@@ -28,7 +28,7 @@
     display: block
     width: 100%
     height: 28px
-    /* Makes inputs behave like true block-level elements */
+    // Makes inputs behave like true block-level elements
     box-sizing: border-box
 
   // But don't let it screw up prepend/append inputs
@@ -127,6 +127,19 @@
     .span{$col}
       @extend .grid-column
       columns($col, $grid-column-width, $grid-gutter-width)
+
+  input,
+  textarea,
+  .uneditable-input
+    // Default columns
+    for $col in 1..$grid-columns
+      &.span{$col}
+        input-columns($col, $grid-column-width, $grid-gutter-width)
+        
+  select
+    for $col in 1..$grid-columns
+      &.span{$col}
+        select-columns($col, $grid-column-width, $grid-gutter-width)
 
   // Generate offset classes
   for $col in 1...$grid-columns
@@ -291,9 +304,9 @@
         input-columns($col, $grid-column-width, $grid-gutter-width)
         
   select
-  for $col in 1..$grid-columns
-    &.span{$col}
-      select-columns($col, $grid-column-width, $grid-gutter-width)
+    for $col in 1..$grid-columns
+      &.span{$col}
+        select-columns($col, $grid-column-width, $grid-gutter-width)
 
   // Generate offset classes
   for $col in 1...$grid-columns
