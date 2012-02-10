@@ -2,6 +2,44 @@
 
 // Bootstrap theme
 
+// Colors
+// Only used in config for readability
+
+// Grays
+$black              = #000
+$gray-darkest       = #111
+$gray-darker        = #222
+$gray-dark          = #333
+$gray               = #555
+$gray-medium        = #666
+$gray-light         = #999
+$gray-lighter       = #ccc
+$gray-lightest      = #eee
+$white              = #fff
+
+// Colors
+$red                = #b94a48   // Chestnut
+$green              = #468847   // Hippie Green
+$blue               = #049cdb   // Cerulean
+$cornflower-blue    = #0088cc   // Cornflower Blue
+$boston-blue        = #3a87ad   // Boston Blue
+$orange             = #f89406   // California
+$violet             = #dd1144   // Crimson
+$yellow             = #ffc40d   // Supernova
+$purple             = #7a43b6   // Studio
+$pink               = #c3325f   // Hibiscus
+
+// The below variables are used in the framework and must be set
+$color-light        = $white
+$color-dark         = $black
+$color-default      = $gray-lightest
+$color-primary      = darken($cornflower-blue, 15%)
+$color-muted        = $gray-light
+$color-warning      = $orange
+$color-danger       = $red
+$color-success      = $green
+$color-info         = $boston-blue
+
 // Fluid layout
 $fluid = true
 
@@ -19,30 +57,6 @@ $site-width         = ($grid-columns * $grid-column-width) + ($grid-gutter-width
 $fluid-grid-column-width = 6.382978723%
 $fluid-grid-gutter-width = 2.127659574%
 
-// Colors
-$color-1            = #fff      // White
-$color-2            = #000      // Black
-$color-3            = #eee      // Very light gray
-$color-4            = #ccc      // Light gray
-$color-5            = #999      // Medium light gray
-$color-6            = #666      // Gray
-$color-7            = #333      // Dark gray
-$color-8            = #353535   // Custom light gray
-$color-9            = #d14      // Violet
-$color-10           = #08c      // Blue
-$color-11           = #555
-$color-12           = #f5f5f5
-
-$color-light        = $color-1
-$color-dark         = $color-2
-$color-default      = $color-3
-$color-primary      = darken($color-10, 15%)
-$color-muted        = $color-5
-$color-warning      = #f89406   // Orange
-$color-danger       = #b94a48   // Red
-$color-success      = #468847   // Green
-$color-info         = #3a87ad   // Blue
-
 // Typography
 
 // Fonts
@@ -53,14 +67,14 @@ $font-family-monospace    = Menlo, Monaco, "Courier New", monospace
 $base-font-family   = $font-family-sans-serif
 $base-font-size     = 13px
 $base-line-height   = 18px
-$base-color         = $color-8
+$base-color         = $dark-gray
 
 // Borders
 $base-border-width  = 1px
 $base-border-radius = 4px
 
 // Headers
-$header-color       = $color-7
+$header-color       = $dark-gray
 $header-line-height = 1.3em
 
 $h1-font-size       = 2.3em
@@ -84,7 +98,7 @@ $h5()
 
 $h6()
   $h3()
-  color: $color-5
+  color: $gray-light
   text-transform: uppercase
 
 // Paragraphs
@@ -100,12 +114,12 @@ $paragraph()
 $list-margin = 0 0 ($base-line-height / 2) 25px
 
 // Anchors
-$anchor-color               = $color-10
+$anchor-color               = $cornflower-blue
 $anchor-hover-color         = darken($anchor-color, 40%)
 $anchor-active-color        = lighten($anchor-color, 10%)
 
 // Code
-$code-inline-color          = $color-9
+$code-inline-color          = $violet
 
 // Forms
 $form-consecutive-margin    = .4em
@@ -113,25 +127,25 @@ $form-consecutive-margin    = .4em
 $form-input-width           = 210px
 $form-input-padding         = 4px
 $form-input-margin          = 0 0 9px 0
-$form-input-border          = 1px solid $color-4
+$form-input-border          = 1px solid $gray-lighter
 $form-input-border-radius   = $base-border-radius
-$form-input-color           = $color-11
+$form-input-color           = $gray
 
-$form-input-background      = $color-12
+$form-input-background      = darken($white, 2%)
 $form-input-transition      = border linear .2s, box-shadow linear .2s
 $form-input-inner-shadow    = inset 0 1px 1px rgba(0,0,0,.1)
 $form-input-focus-shadow    = inset 0 1px 1px rgba(0,0,0,.1), 0 0 8px rgba(82,168,236,.6)
 $form-input-focus-border    = rgba(82,168,236,.8)
 
-$form-input-disabled-background = $color-12
+$form-input-disabled-background = $form-input-background
 $form-input-disabled-border     = #ddd
 
-$form-label-color           = $color-7
-$form-legend-color          = $color-7
+$form-label-color           = $gray-dark
+$form-legend-color          = $gray-dark
 $form-legend-border-bottom  = 1px solid #eee
 
 $form-select-width          = $form-input-width + 10px
-$form-select-background     = $color-1
+$form-select-background     = $white
 
 // Buttons
 
@@ -140,7 +154,7 @@ $button-padding             = 4px 10px 4px
 $button-line-height         = $base-line-height
 
 // Button colors
-$button-color               = $color-8
+$button-color               = lighten($gray-dark, 5%)
 $button-primary-color       = $color-primary
 $button-warning-color       = $color-warning
 $button-danger-color        = $color-danger
@@ -148,8 +162,8 @@ $button-success-color       = $color-success
 $button-info-color          = $color-info
 
 // Button borders
-$button-border-color            = $color-4
-$button-border-color-bottom     = darken($color-4, 10%)
+$button-border-color            = $gray-lighter
+$button-border-color-bottom     = darken($gray-lighter, 10%)
 $button-border-radius           = $base-border-radius
 $button-border                  = 1px solid $button-border-color
 
@@ -187,7 +201,7 @@ $button-disabled()
 
 // Button backgrounds
 $button-gradient-old()
-  p = $color-1
+  p = $white
   s = darken(p, 10%)
   gradient-bar(p, s)
 
@@ -216,17 +230,17 @@ $dropdown-padding         = 4px 0
 $dropdown-background      = $color-light
 
 $dropdown-border()
-  border: 1px solid $color-4
+  border: 1px solid $gray-lighter
   border-color: rgba(0,0,0,.2)
   *border-right-width: 2px
   *border-bottom-width: 2px
 
 $dropdown-border-radius       = $base-border-radius
 $dropdown-box-shadow          = 0 5px 10px rgba(0,0,0,.2)
-$dropdown-divider-color       = darken($color-3, 5%)
+$dropdown-divider-color       = darken($gray-lightest, 5%)
 $dropdown-divider-border      = 1px solid $color-light
 $dropdown-anchor-padding      = 3px 15px
-$dropdown-anchor-color        = $color-6
+$dropdown-anchor-color        = $gray-medium
 $dropdown-anchor-hover-color  = $color-light
 $dropdown-anchor-background   = $anchor-color
 
