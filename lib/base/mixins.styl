@@ -127,7 +127,16 @@ table-columns($col = 1)
   float: none
   width: (($grid-column-width) * $col) + ($grid-gutter-width * ($col - 1)) - 16
   margin-left: 0
-  
+
+// Form columns
+
+// This is a duplication of the main grid columns() mixin, but subtracts 10px to account for input padding and border
+input-columns($col = 1, $col-width = $grid-column-width, $gutter-width = $grid-gutter-width)
+  width: (($col-width) * $col) + ($gutter-width * ($col - 1)) - 10
+
+select-columns($col = 1, $col-width = $grid-column-width, $gutter-width = $grid-gutter-width)
+  width: (($col-width) * $col) + ($gutter-width * ($col - 1)) + 10
+
 // Popover arrows
 popover-arrow-top($arrow-width = 5px)
   bottom: 0
