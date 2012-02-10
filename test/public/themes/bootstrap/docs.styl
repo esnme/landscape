@@ -36,12 +36,12 @@ hr.soften
   border: 0
 
 // Jumbotrons
-.jumbotron 
+.jumbotron
   position: relative
 
   h1 
+    font-size: 81px !important
     margin-bottom: 9px
-    font-size: 81px
     letter-spacing: -1px
     line-height: 1
 
@@ -88,8 +88,8 @@ hr.soften
 .subnav 
   width: 100%
   height: 36px
-  background-color: #eeeeee /* Old browsers */
-  background-repeat: repeat-x /* Repeat the gradient */
+  background-color: #eeeeee // Old browsers
+  background-repeat: repeat-x // Repeat the gradient
   background-image: linear-gradient(top, #f5f5f5 0%,#eeeeee 100%)
   border: 1px solid #e5e5e5
   border-radius: 4px
@@ -139,7 +139,7 @@ hr.soften
     right: 0
     z-index: 1030
     border-color: #d5d5d5
-    border-width: 0 0 1px /* drop the border on the fixed edges */
+    border-width: 0 0 1px // drop the border on the fixed edges
     border-radius: 0
     box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1)
   
@@ -152,8 +152,7 @@ hr.soften
     a, a:hover 
       border-radius: 0
   
-/* Quick links
--------------------------------------------------- */
+// Quick links
 .quick-links 
   min-height: 30px
   padding: 5px 20px
@@ -163,8 +162,8 @@ hr.soften
   overflow: hidden
 
 .quick-links li 
-  display: inline
-  margin: 0 5px
+  display: inline !important
+  margin: 0 5px !important
   color: #999
 
 .quick-links .github-btn,
@@ -175,8 +174,7 @@ hr.soften
 
 
 
-/* Marketing section of Overview
--------------------------------------------------- */
+// Marketing section of Overview
 .marketing .row 
   margin-bottom: 9px
 
@@ -205,11 +203,7 @@ hr.soften
   float: left
   margin: 4px 5px 0 0
 
-
-
-
-/* Footer
--------------------------------------------------- */
+// Footer
 .footer 
   margin-top: 45px
   padding: 35px 0 36px
@@ -219,11 +213,7 @@ hr.soften
   margin-bottom: 0
   color: #555
 
-
-
-
-/* Special grid styles
--------------------------------------------------- */
+// Special grid styles
 .show-grid 
   margin-top: 10px
   margin-bottom: 20px
@@ -245,10 +235,7 @@ hr.soften
 .show-grid .show-grid [class*="span"] 
   background-color: #ccc
 
-
-
-/* Render mini layout previews
--------------------------------------------------- */
+// Render mini layout previews
 .mini-layout 
   border: 1px solid #ddd
   border-radius: 6px
@@ -282,10 +269,7 @@ hr.soften
   width: 77.5%
   margin-left: 2.5%
 
-
-
-/* Popover docs
--------------------------------------------------- */
+// Popover docs
 .popover-well 
   min-height: 160px
 
@@ -306,18 +290,14 @@ hr.soften
   margin: 5px 0 0 310px
   opacity: .1
 
-
-
-/* Download page
--------------------------------------------------- */
+// Download page
 .download .page-header 
   margin-top: 36px
 
 .page-header .toggle-all 
   margin-top: 5px
 
-
-/* Space out h3s when following a section */
+// Space out h3s when following a section
 .download h3 
   margin-bottom: 5px
 
@@ -325,8 +305,7 @@ hr.soften
 .download-builder .checkbox + h3 
   margin-top: 9px
 
-
-/* Fields for variables */
+// Fields for variables
 .download-builder input[type=text] 
   margin-bottom: 9px
   font-family: Menlo, Monaco, "Courier New", monospace
@@ -336,8 +315,7 @@ hr.soften
 .download-builder input[type=text]:focus 
   background-color: #fff
 
-
-/* Custom, larger checkbox labels */
+// Custom, larger checkbox labels
 .download .checkbox 
   padding: 6px 10px 6px 25px
   color: #555
@@ -355,13 +333,11 @@ hr.soften
   font-size: 12px
   color: #777
 
-
-/* Variables section */
+// Variables section
 #variables label 
   margin-bottom: 0
 
-
-/* Giant download button */
+// Giant download button
 .download-btn 
   margin: 36px 0 108px
 
@@ -390,16 +366,13 @@ hr.soften
      -moz-border-radius: 6px
           border-radius: 6px
 
+// Color swatches on LESS docs page
 
-
-
-/* Color swatches on LESS docs page
--------------------------------------------------- */
-/* Sets the width of the td */
+// Sets the width of the td
 .swatch-col 
   width: 30px
 
-/* Le swatch */
+// Le swatch
 .swatch 
   display: inline-block
   width: 30px
@@ -409,34 +382,27 @@ hr.soften
      -moz-border-radius: 3px
           border-radius: 3px
 
-/* For white swatches, give a border */
+// For white swatches, give a border
 .swatch-bordered 
   width: 28px
   height: 18px
   border: 1px solid #eee
 
-
-
-/* Misc
--------------------------------------------------- */
-
+// Misc
 pre.prettyprint 
   overflow: hidden
-
 
 .browser-support 
   max-width: 100%
 
-
-/* Make tables spaced out a bit more */
+// Make tables spaced out a bit more
 h2 + table,
 h3 + table,
 h4 + table,
 h2 + .row 
   margin-top: 5px
 
-
-/* Example sites showcase */
+// Example sites showcase
 .example-sites img 
   max-width: 100%
   margin: 0 auto
@@ -449,39 +415,33 @@ h2 + .row
   color: #999
   text-align: center
 
-
 .scrollspy-example 
   height: 200px
   overflow: auto
   position: relative
 
-
-/* Remove bottom margin on example forms in wells */
+// Remove bottom margin on example forms in wells
 form.well 
   padding: 14px
 
-
-/* Tighten up spacing */
+// Tighten up spacing
 .well hr 
   margin: 18px 0
 
-
-/* Fake the :focus state to demo it */
+// Fake the :focus state to demo it
 .focused 
   border-color: rgba(82,168,236,.8)
   box-shadow: inset 0 1px 3px rgba(0,0,0,.1), 0 0 8px rgba(82,168,236,.6)
   outline: 0
 
 
-/* For input sizes, make them display block */
+// For input sizes, make them display block
 .docs-input-sizes select,
 .docs-input-sizes input[type=text] 
   display: block
   margin-bottom: 9px
 
-
-/* Icons
-------------------------- */
+// Icons
 .the-icons 
   margin-bottom: 18px
 
@@ -505,25 +465,19 @@ form.well
   display: inline
   margin-left: 6px
 
-
-/* Eaxmples page
-------------------------- */
+// Eaxmples page
 .bootstrap-examples .thumbnail 
   margin-bottom: 9px
   background-color: #fff
 
-
-
-/* Responsive Docs
--------------------------------------------------- */
+// Responsive Docs
 @media (max-width: 480px) 
 
-  /* Reduce padding above jumbotron */
+  // Reduce padding above jumbotron
   body 
     padding-top: 70px
   
-
-  /* Change up some type stuff */
+  // Change up some type stuff
   h2 
     margin-top: 27px
   
@@ -534,8 +488,7 @@ form.well
   h3 
     margin-top: 18px
   
-
-  /* Adjust the jumbotron */
+  // Adjust the jumbotron
   .jumbotron h1,
   .jumbotron p 
     text-align: center
@@ -557,21 +510,19 @@ form.well
     padding: 10px 14px
     margin: 0 auto 10px
   
-  /* Masthead (home page jumbotron) */
+  // Masthead (home page jumbotron)
   .masthead 
     padding-top: 0
   
-
-  /* Don't space out quick links so much */
+  // Don't space out quick links so much
   .quick-links 
     margin: 40px 0 0
   
-  /* hide the bullets on mobile since our horizontal space is limited */
+  // hide the bullets on mobile since our horizontal space is limited
   .quick-links .divider 
     display: none
   
-
-  /* center example sites */
+  // center example sites
   .example-sites 
     margin-left: 0
   
@@ -585,45 +536,37 @@ form.well
   .example-sites .thumbnail > img 
     max-width: 270px
   
-
   table code 
     white-space: normal
     word-wrap: break-word
     word-break: break-all
   
-
-  /* Modal example */
+  // Modal example
   .modal-example .modal 
     position: relative
     top: auto
     right: auto
     bottom: auto
     left: auto
-  
-
-
-
 
 @media (max-width: 768px) 
 
-  /* Remove any padding from the body */
+  // Remove any padding from the body
   body 
     padding-top: 0
   
-
-  /* Jumbotron buttons */
+  // Jumbotron buttons
   .jumbotron .btn 
     margin-bottom: 10px
   
-
-  /* Subnav */
+  // Subnav
   .subnav 
     position: static
     top: auto
     z-index: auto
     width: auto
     height: auto
-    background: #fff /* whole background property since we use a background-image for gradient */
+    background: #fff // whole background property since we use a background-image for gradient
     -webkit-box-shadow: none
        -moz-box-shadow: none
             box-shadow: none
@@ -643,21 +586,18 @@ form.well
          -moz-border-radius: 4px 4px 0 0
               border-radius: 4px 4px 0 0
   
-
-  /* Popovers */
+  // Popovers
   .large-bird 
     display: none
   
   .popover-well .popover-wrapper 
     margin-left: 0
   
-
-  /* Space out the show-grid examples */
+  // Space out the show-grid examples
   .show-grid [class*="span"] 
     margin-bottom: 5px
   
-
-  /* Unfloat the back to top link in footer */
+  // Unfloat the back to top link in footer
   .footer .pull-right 
     float: none
   
@@ -665,12 +605,9 @@ form.well
     margin-bottom: 9px
   
 
-
-
-
 @media (min-width: 480px) and (max-width: 768px) 
 
-  /* Scale down the jumbotron content */
+  // Scale down the jumbotron content
   .jumbotron h1 
     font-size: 54px
   
@@ -678,50 +615,33 @@ form.well
     margin-right: 0
     margin-left: 0
   
-
-
-
-
 @media (min-width: 768px) and (max-width: 980px) 
 
-  /* Remove any padding from the body */
+  // Remove any padding from the body
   body 
     padding-top: 0
   
-
-  /* Scale down the jumbotron content */
+  // Scale down the jumbotron content
   .jumbotron h1 
     font-size: 72px
   
-
-
-
-
 @media (max-width: 980px) 
 
-  /* Unfloat brand */
+  // Unfloat brand
   .navbar-fixed-top .brand 
     float: left
     margin-left: 0
     padding-left: 10px
     padding-right: 10px
   
-
-  /* Inline-block quick links for more spacing */
+  // Inline-block quick links for more spacing
   .quick-links li 
     display: inline-block
     margin: 5px
   
-
-
-
-
-/* LARGE DESKTOP SCREENS */
+// LARGE DESKTOP SCREENS
 @media (min-width: 1210px) 
 
-  /* Update subnav container */
+  // Update subnav container
   .subnav-fixed .nav 
-    width: 1168px /* 2px less to account for left/right borders being removed when in fixed mode */
-  
-
-
+    width: 1168px // 2px less to account for left/right borders being removed when in fixed mode
