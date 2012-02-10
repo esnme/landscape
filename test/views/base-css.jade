@@ -690,12 +690,13 @@ block content
           fieldset.control-group
             label.control-label Checkbox
             .controls
-              label.checkbox <input type="checkbox" /> Option one is this and that—be sure to include why it’s great
+              label.checkbox <input type="checkbox" /> Option one is this and that — be sure to include why it’s great
               
           fieldset.control-group
             label.control-label Select list
             .controls
               select
+                option something
                 option 1
                 option 2
                 option 3
@@ -743,6 +744,7 @@ block content
           :markdown
             Up to v1.4, Bootstrap's default form styles used the horizontal layout. With Bootstrap 2, 
             we removed that constraint to have smarter, more scalable defaults for any form.
+      
     .row
       .span8
         form.form-horizontal
@@ -751,7 +753,12 @@ block content
           fieldset.control-group
             label.control-label Focused input
             .controls
-              input.input-xlarge.focused(type="text", placeholder="This is focused...")
+              input.input-xlarge.focused(type="text", value="This is focused...")
+
+          fieldset.control-group
+            label.control-label Uneditable input
+            .controls
+              span.input-xlarge.uneditable-input Some value here
               
           fieldset.control-group
             label.control-label Disabled input
@@ -766,19 +773,30 @@ block content
           fieldset.control-group.warning
             label.control-label Input with warning
             .controls
-              input.input-xlarge(type="text")
+              input(type="text")
               span.help-inline Something may have gone wrong
               
           fieldset.control-group.error
             label.control-label Input with error
             .controls
-              input.input-xlarge(type="text")
+              input(type="text")
               span.help-inline Please correct the error
               
           fieldset.control-group.success
             label.control-label Input with success
             .controls
-              input.input-xlarge(type="text")
+              input(type="text")
+              span.help-inline Woohoo!
+
+          fieldset.control-group.success
+            label.control-label Select with success
+            .controls
+              select(type="text")
+                option 1
+                option 2
+                option 3
+                option 4
+                option 5
               span.help-inline Woohoo!
               
           fieldset.form-actions
@@ -787,21 +805,125 @@ block content
                 
       .span4
         .form-docs
-          h3 Prepend &amp; inputs
+          h3 Redesigned browser states
           :markdown
-            Input groups—with appended or prepended text—provide an easy way to 
-            give more context for your inputs. Great examples include the @ sign 
-            for Twitter usernames or $ for finances.
+            Bootstrap features styles for browser-supported focused and `disabled` states. 
+            We remove the default Webkit `outline` and apply a `box-shadow` in it's place for `:focus`.
           hr
-          h3 Checkboxes and radios
+          h3 Form validation
           :markdown
-            Up to v1.4, Bootstrap required extra markup around checkboxes and radios 
-            to stack them. Now, it's a simple matter of repeating the `<label class="checkbox">`
-            that wraps the `<input type="checkbox">`.
+            It also includes validation styles for errors, warnings, and success. 
+            To use, add the error class to the surrounding `.control-group`.
+          pre.prettyprint.linenums.
+            <fieldset
+              class="control-group error">
+              …
+            </fieldset>
+    .row
+      .span8
+        form.form-horizontal
+          legend Extending form controls
+          
+          fieldset.control-group
+            label.control-label Form sizes
+            .controls.docs-input-sizes
+              input.span1(type="text", placeholder=".span1")
+              input.span2(type="text", placeholder=".span2")
+              input.span3(type="text", placeholder=".span3")
+              select.span1
+                option 1
+                option 2
+                option 3
+                option 4
+                option 5
+              select.span2
+                option 1
+                option 2
+                option 3
+                option 4
+                option 5
+              select.span3
+                option 1
+                option 2
+                option 3
+                option 4
+                option 5
+              p.help-block Use the same <code>.span*</code> classes from the grid system for input sizes.
+          
+          fieldset.control-group
+            label.control-label Prepended text
+            .controls
+              .input-prepend
+                span.add-on @
+                input.span2(type="text", size="16")
+              p.help-block Here's some help text
 
-            Inline checkboxes and radios are also supported. Just add `.inline` to any 
-            `.checkbox` or `.radio` and you're done.
+          fieldset.control-group
+            label.control-label Appended text
+            .controls
+              .input-append
+                input.span2(type="text", size="16")
+                span.add-on .00
+              p.help-block Here's more help text
 
+          fieldset.control-group
+            label.control-label Inline checkboxes
+            .controls
+              label.checkbox.inline
+                input(type="checkbox", value="option1")
+                | 1
+              label.checkbox.inline
+                input(type="checkbox", value="option2")
+                | 2
+              label.checkbox.inline
+                input(type="checkbox", value="option3")
+                | 3
+          
+          fieldset.control-group
+            label.control-label Checkboxes
+            .controls
+              label.checkbox
+                input(type="checkbox", value="option1")
+                | Option one is this and that—be sure to include why it's great
+              label.checkbox
+                input(type="checkbox", value="option1")
+                | Option two can also be checked and included in form results
+              label.checkbox
+                input(type="checkbox", value="option1")
+                | Option three can — yes, you guessed it — also be checked and included in form results
+              p.help-block <b>Note:</b> Labels surround all the options for much larger click areas and a more usable form.
+          
+          fieldset.control-group
+            label.control-label Radio buttons
+            .controls
+              label.radio
+                input(type="radio", name="optionRadios", id="optionRadios1", value="option1", checked="checked")
+                | Option one is this and that—be sure to include why it's great
+              label.radio
+                input(type="radio", name="optionRadios", id="optionRadios2", value="option2")
+                | Option two can is something else and selecting it will deselect option one
+
+      .span4
+        h3 Prepend & append inputs
+        :markdown
+          Input groups—with appended or prepended text—provide an easy way to give more context for your inputs. 
+          Great examples include the @ sign for Twitter usernames or $ for finances.
+        hr
+        h3 Checkboxes and radios
+        :markdown
+          Up to v1.4, Bootstrap required extra markup around checkboxes and radios to stack them. 
+          Now, it's a simple matter of repeating the `<label class="checkbox">` that wraps the `<input type="checkbox">`.
+
+          Inline checkboxes and radios are also supported. Just add `.inline` to any `.checkbox` or `.radio` and you're done.
+        hr
+        h4 Inline forms append/prepended
+        :markdown
+          To use prepend or append inputs in an inline form, be sure to place the `.add-on` and `input` on the same line, without spaces.
+        hr
+        h4 Form help text
+        :markdown
+          To add help text for your form inputs, include inline help text with `<span class="help-inline">` 
+          or a help text block with `<p class="help-block">` after the input element.
   section#buttons
     .page-header
       h1 Buttons
