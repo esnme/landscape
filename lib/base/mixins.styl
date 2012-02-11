@@ -210,14 +210,63 @@ gradient-bar($primary, $secondary, $height=50px)
   background-color: $primary
   background-repeat: repeat-x
 
+// Horizontal gradient
+gradient-horizontal($start = #555, $end = #333, $width = 50px)
+  background-color: $end
+  background-image: linear-gradient($width left, $start, $end)
+  background-repeat: repeat-x
+  //filter: unquote(s("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=1)", $start, $end))
+
+// Vertical gradient
+gradient-vertical($start = #555, $end = #333, $height = 50px)
+  background-color: mix($start, $end, 60%)
+  background-image: linear-gradient($height top, $start, $end)
+  background-repeat: repeat-x
+  //filter: unquote(s("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)", $start, $end))
+
+// Directional gradient
+gradient-directional($start = #555, $end = #333, $deg = 45deg)
+  background-color: $end
+  background-repeat: repeat-x
+  background-image: linear-gradient($deg, $start, $end)
+
+// Radial gradient
+gradient-radial($inner = #555, $outer = #333)
+  background-color: $outer
+  background-image: radial-gradient(circle, $inner, $outer)
+  background-repeat: no-repeat
+
+// Striped gradient
+gradient-striped($color, $angle = -45deg)
+  
+  background-color: $color
+
+  prop = 'background-image'
+  start = $angle
+  stops = rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent 100%
+  stops = normalize-stops(stops)
+
+  // legacy webkit
+  background-image: '-webkit-gradient(linear, %s, %s, %s)' % (join-stops(stops, webkit-stop))
+
+  // vendor prefixed
+  stops = join-stops(stops, std-stop)
+  for prefix in vendor-prefixes
+    unless prefix == official
+      background-image: '-%s-linear-gradient(%s, %s)' % (prefix start stops)
+
+  // standard 
+  background-image: 'linear-gradient(%s, %s)' % (start stops)
+
+// Buttons
+
+// Button border color
 button-border-color($primary, $secondary)
   border-color: $secondary $secondary darken($secondary, 25%)
   border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25)
   .btn-group.btn-group-highlight:hover &
     border-color: darken($secondary, 15%)darken($secondary, 15%) darken($secondary, 35%)
     border-color: rgba(0,0,0,.25) rgba(0,0,0,.25) rgba(0,0,0,.4)
-
-// Buttons
 
 // Mixin for generating button backgrounds
 button-background($start, $end, $height=50px)
