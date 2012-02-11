@@ -53,9 +53,9 @@ app.configure(function(){
 
 // Development
 app.configure('development', function(){
-  //resminConfig.merge = false;
-  //resminConfig.gzip = false;
-  //resminConfig.minify = false;
+  resminConfig.merge = false;
+  resminConfig.gzip = false;
+  resminConfig.minify = false;
   app.use(resmin.middleware(express, pubDir, resminConfig));
   app.use(express.static(pubDir));
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
