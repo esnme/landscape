@@ -37,6 +37,8 @@ block content
         li
           a(href="#alerts") Alerts
         li
+          a(href="#progress") Progress bars
+        li
           a(href="#misc") Miscellaneous
 
   section#button-groups
@@ -861,7 +863,69 @@ block content
             ...
           </div>
   section#progress
+    .page-header
+      h1 Progress bars
+        small For loading, redirecting or action status
+    
+    h2 Examples and markup
+    .row
+      .span4
+        h3 Basic
+        p Default progress bar with a vertical gradient
+        .progress
+          .bar(style="width: 60%")
+        pre.prettyprint.linenums.
+          <div class="progress">
+            <div class="bar" 
+              style="width: 60%;"></div>
+          </div>
+      .span4
+        h3 Striped
+        p Uses a gradient to create a striped effect.
+        .progress.progress-info.progress-striped
+          .bar(style="width: 20%")
+        pre.prettyprint.linenums.
+          <div class="progress progress-info
+               progress-striped">
+            <div class="bar"
+                 style="width: 20%;"></div>
+          </div>
+      .span4
+        h3 Animated
+        p Takes the striped example and animates it.
+        .progress.progress-danger.progress-striped.active
+          .bar(style="width: 40%")
+        pre.prettyprint.linenums.
+          <div class="progress progress-danger 
+                progress-striped active">
+            <div class="bar"
+                 style="width: 60%;"></div>
+          </div>
+    h2 Options and browser support
+    .row
+      .span4
+        h3 Additional colors
+        :markdown
+          Progress bars utilize some of the same class names as buttons and alerts for similar styling.
 
+          - `.progress-info`
+          - `.progress-success`
+          - `.progress-danger`
+
+          Alternatively, you can customize the LESS files and roll your own colors and sizes.
+      .span4
+        h3 Behavior
+        :markdown
+          Progress bars use CSS3 transitions, so if you dynamically adjust the width via javascript, it will smoothly resize.
+
+          If you use the `.active` class, your `.progress-striped` progress bars will animate the stripes left to right.
+      .span4
+        h3 Browser support
+        :markdown
+          Progress bars use CSS3 gradients, transitions, and animations to achieve all their effects. 
+          These features are not supported in IE7-8 or older versions of Firefox.
+
+          Opera does not support animations at this time.
   section#misc
     .page-header
       h1 Miscellaneous
