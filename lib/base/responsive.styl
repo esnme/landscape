@@ -109,12 +109,12 @@
         @extend .row > [class*="span"]
 
 // Portrait tablet to default desktop
-@media (min-width: 768px) and (max-width: 940px)
+@media (min-width: 768px) and (max-width: 980px)
   // Reset grid variables
-  $grid-columns = 16
-  $grid-column-width = 44px
+  $grid-columns = 12
+  $grid-column-width = 42px
   $grid-gutter-width = 20px
-  $site-width = 748px
+  $site-width = (($grid-columns * ($grid-column-width + $grid-gutter-width)) - $grid-gutter-width)
   $fluid-grid-column-width = 5.801104972%
   $fluid-grid-gutter-width = 2.762430939%
 
@@ -203,7 +203,7 @@
     padding: 6px 15px
     font-weight: bold
     color: $navbar-anchor-color
-    border-radius: $base-border-radius
+    border-radius: $navbar-border-radius
 
   .navbar .dropdown-menu li + li a
     margin-bottom: 2px
@@ -258,7 +258,6 @@
   .btn-navbar
     display: block
   
-
   // Hide everything in the navbar save .brand and toggle button */
   .nav-collapse
     overflow: hidden
@@ -270,45 +269,34 @@
     height: auto !important
 
 // Large desktop & up
-@media (min-width: 1210px)
+@media (min-width: 1200px)
 
   // Reset grid variables
   $grid-columns = 12
   $grid-column-width = 70px
   $grid-gutter-width = 30px
-  $site-width = 1170px
+  $site-width = (($grid-columns * ($grid-column-width + $grid-gutter-width)) - $grid-gutter-width)
   $fluid-grid-column-width = 5.982905983%
   $fluid-grid-gutter-width = 2.564102564%
 
+  // Set new container width
   .container
     width: $site-width
     
+  // Set new grid gutter width
   .row
     margin-left: ($grid-gutter-width * -1)
 
   [class*="span"]
     margin-left: $grid-gutter-width
 
-  // Generate column classes
+  // Columns
   for $col in 1..$grid-columns
     .span{$col}
       @extend .grid-column
       columns($col, $grid-column-width, $grid-gutter-width)
 
-  input,
-  textarea,
-  .uneditable-input
-    // Default columns
-    for $col in 1..$grid-columns
-      &.span{$col}
-        input-columns($col, $grid-column-width, $grid-gutter-width)
-        
-  select
-    for $col in 1..$grid-columns
-      &.span{$col}
-        select-columns($col, $grid-column-width, $grid-gutter-width)
-
-  // Generate offset classes
+  // Offset
   for $col in 1...$grid-columns
     .offset{$col}
       offset($col, $grid-column-width, $grid-gutter-width)
@@ -319,3 +307,24 @@
       for $col in 1..$grid-columns
         .span{$col}
           fluid-columns($col, $fluid-grid-column-width, $fluid-grid-gutter-width)
+
+  // Input columns
+  input,
+  textarea,
+  .uneditable-input
+    // Default columns
+    for $col in 1..$grid-columns
+      &.span{$col}
+        input-columns($col, $grid-column-width, $grid-gutter-width)
+  
+  // Select columns 
+  select
+    for $col in 1..$grid-columns
+      &.span{$col}
+        select-columns($col, $grid-column-width, $grid-gutter-width)
+
+  // Thumbnail spacing
+  .thumbnails
+    margin-left: -30px
+    > li
+      margin-left: 30px
