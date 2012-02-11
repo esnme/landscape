@@ -14,9 +14,8 @@
   // List item
   > li
     float: left
-    // Sspacing
-    if $thumbnails-spacing is a 'unit'
-      margin: 0 0 $thumbnails-spacing $thumbnails-spacing
+    // Spacing
+    margin: 0 0 18px 20px
 
 // Thumbnail
 .thumbnail
@@ -43,6 +42,8 @@
   > img
     display: block
     max-width: 100%
+    margin-left: auto
+    margin-right: auto
 
   // Caption
   if $thumbnails-caption-padding is a 'unit'
