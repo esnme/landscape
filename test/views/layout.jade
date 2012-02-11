@@ -12,8 +12,9 @@ head
 
   block styles
     if resmin.css
-      each url in resmin.css.landscape
-        link(rel='stylesheet', href=url)
+      each group in resmin.css
+        each url in group
+          link(rel='stylesheet', href=url)
   
 body(data-spy="scroll", data-target=".subnav", data-offset="50")
 
@@ -34,5 +35,6 @@ body(data-spy="scroll", data-target=".subnav", data-offset="50")
       each group in resmin.js
         each url in group
           script(src=url)
+      script(src="/js/prettify.js")
       
 </html>

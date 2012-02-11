@@ -12,7 +12,6 @@ var resminConfig = {
         "//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
       ],
       landscape: [
-        "/bootstrap/docs/assets/js/google-code-prettify/prettify.js",
         "/bootstrap/js/bootstrap-transition.js",
         "/bootstrap/js/bootstrap-alert.js",
         "/bootstrap/js/bootstrap-modal.js",
@@ -25,14 +24,19 @@ var resminConfig = {
         "/bootstrap/js/bootstrap-collapse.js",
         "/bootstrap/js/bootstrap-carousel.js",
         "/bootstrap/js/bootstrap-typeahead.js",
+      ],
+      app: [
+        //"/js/prettify.js",
         "/js/application.js"
       ]
     },
     css: {
       all: [],
       landscape: [
-        "/css/prettify.css",
         "/themes/bootstrap/theme.styl"
+      ],
+      app: [
+        "/css/prettify.css"
       ]
     }
 };
@@ -49,9 +53,9 @@ app.configure(function(){
 
 // Development
 app.configure('development', function(){
-  resminConfig.merge = false;
-  resminConfig.gzip = false;
-  resminConfig.minify = false;
+  //resminConfig.merge = false;
+  //resminConfig.gzip = false;
+  //resminConfig.minify = false;
   app.use(resmin.middleware(express, pubDir, resminConfig));
   app.use(express.static(pubDir));
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
