@@ -695,6 +695,7 @@ block content
   section#navbar
     .page-header
       h1 Navbar
+        small A navigator walked into a bar
     
     h2 Static navbar example
     p An example of a static (not fixed to the top) navbar with project name, navigation, and search form.
@@ -824,7 +825,8 @@ block content
             </ul>
           h3 Adding dropdowns
           :markdown
-            Adding dropdowns to the nav is super simple, but does require the use of [our javascript plugin](http://landscape.jit.su/javascript.html#dropdown).
+            Adding dropdowns to the nav is super simple, but does require the use of 
+            [our javascript plugin](http://landscape.jit.su/javascript.html#dropdown).
           pre.prettyprint.linenums.
             <ul class="nav">
               <li class="dropdown">
@@ -840,7 +842,54 @@ block content
               </li>
             </ul>
           a.btn(href="./javascript.html#dropdown") Get the javascript &rarr;
-  
+  section#breadcrumbs
+    .page-header
+      h1 Breadcrumbs
+        small Trail back from where you came
+    .row
+      .span6
+        h3 Why use them?
+        :markdown
+          Breadcrumb navigation is used as a way to show users where they are within an 
+          app or a site, but not for primary navigation. Keep their use sparse and succinct to be most effective.
+        h3 Examples
+        :markdown
+          A single example shown as it might be displayed across multiple pages.
+        ul.breadcrumb
+          li.active Home
+
+        ul.breadcrumb
+          li
+            a(href="#") Home
+          li.divider /
+          li.active Library
+        
+        ul.breadcrumb
+          li
+            a(href="#") Home
+          li.divider /
+          li
+            a(href="#") Library
+          li.divider /
+          li.active Data
+      .span6
+        h3 Markup
+        :markdown
+          HTML is your standard unordered list with links.
+        pre.prettyprint.linenums.
+          <ul class="breadcrumb">
+            <li>
+              <a href="#">Home</a>
+            </li>
+            <li class="divider">/</li>
+            <li>
+              <a href="#">Library</a>
+            </li>
+            <li class="divider">/</li>
+            <li class="active">
+              <a href="#">Data</a>
+            </li>
+          </ul>
   section#labels
     .page-header
       h1 Inline labels
