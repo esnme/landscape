@@ -475,6 +475,84 @@ block content
               </ul>
             </li>
           </ul>
+    h2 Nav lists
+      small Build simple stacked navs, great for sidebars
+    .row
+      .span4
+        h3 Application-style navigation
+        :markdown
+          Nav lists provide a simple and easy way to build groups of nav links with optional headers. 
+          They're best used in sidebars like the Finder in OS X.
+
+          Structurally, they're built on the same core nav styles as tabs and pills, so usage 
+          and customization are straightforward.
+        h4 With icons
+        :markdown
+          Nav lists are also easy to equip with icons. Add the proper `<i>` tag with class and you're set.
+      .span4
+        h3 Example nav list
+        :markdown
+          Take a list of links and add `class="nav nav-list"`.
+        .well(style="padding: 8px 0")
+          ul.nav.nav-list
+            li.nav-header List header
+            li.active
+              a(href="#") Home
+            li
+              a(href="#") Library
+            li
+              a(href="#") Application
+            li.nav-header Another list header
+            li
+              a(href="#") Profile
+            li
+              a(href="#") Settings
+            li
+              a(href="#") Help
+        pre.prettyprint.linenums.
+          <ul class="nav nav-list">
+            <li class="nav-header">
+              List header
+            </li>
+            <li class="active">
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#">Library</a>
+            </li>
+            ...
+          </ul>
+      .span4
+        h3 Example with icons
+        :markdown
+          Same example, but with `<i>` tags for icons.
+        .well(style="padding: 8px 0")
+          ul.nav.nav-list
+            li.nav-header List header
+            li.active
+              a(href="#") <i class="icon-white icon-home"></i> Home
+            li
+              a(href="#") <i class="icon-book"></i> Library
+            li
+              a(href="#") <i class="icon-pencil"></i> Application
+            li.nav-header Another list header
+            li
+              a(href="#") <i class="icon-user"></i> Profile
+            li
+              a(href="#") <i class="icon-cog"></i> Settings
+            li
+              a(href="#") <i class="icon-flag"></i> Help
+        pre.prettyprint.linenums.
+          <ul class="nav nav-list">
+            ...
+            <li>
+              <a href="#">
+                <i class="icon-book"></i>
+                Library
+              </a>
+            </li>
+            ...
+          </ul>
   section#navbar
     .page-header
       h1 Navbar
