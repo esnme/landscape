@@ -700,7 +700,7 @@ block content
     h2 Static navbar example
     p An example of a static (not fixed to the top) navbar with project name, navigation, and search form.
 
-    .navbar
+    nav.navbar
       .navbar-inner
         .container
           .btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
@@ -756,21 +756,21 @@ block content
           h3  Navbar scaffolding
           p The navbar requires only a few divs to structure it well for static or fixed display.
           pre.prettyprint.linenums.
-            <div class="navbar">
+            <nav class="navbar">
               <div class="navbar-inner">
                 <div class="container">
                   ...
                 </div>
               </div>
-            </div>
+            </nav>
           :markdown
             To make the navbar fixed to the top of the viewport, add `.navbar-fixed-top` to the outermost div, 
             `.navbar`. In your CSS, you will also need to account for the overlap it causes by adding 
             padding-top: 40px; to your `<body>`.
           pre.prettyprint.linenums.
-            <div class="navbar navbar-fixed-top">
+            <nav class="navbar navbar-fixed-top">
               ...
-            </div>
+            </nav>
           h3 Brand name
           p A simple link to show your brand or project name only requires an anchor tag.
           pre.prettyprint.linenums.
@@ -789,7 +789,7 @@ block content
             Depending on the amount of content in your topbar, you might want to implement the responsive options. 
             To do so, wrap your nav content in a containing div, `.nav-collapse.collapse`, and add the navbar toggle button, `.btn-navbar`.
           pre.prettyprint.linenums.
-            <div class="navbar">
+            <nav class="navbar">
               <div class="navbar-inner">
                 <div class="container">
                   
@@ -810,7 +810,7 @@ block content
              
                 </div>
               </div>
-            </div>
+            </nav>
           .alert.alert-info <strong>Heads up!</strong> The responsive navbar requires the collapse plugin.
         .span4
           h3 Nav links
@@ -873,7 +873,7 @@ block content
       .span6
         h3 Markup
         :markdown
-          HTML is your standard unordered list with links.
+          A HTML5 nav element with anchors and dividers.
         pre.prettyprint.linenums.
           <nav class="breadcrumb">
             <a href="#">Home</a>
@@ -883,8 +883,8 @@ block content
             <a href="#" class="active">Data</a>
           </nav>
         .alert.alert-info.
-            <strong>Note:</strong> We decided to use a <code>span</code> element for the divider since 
-            the <code>:last-child</code> selector lacks support in IE. This might change in future versions.
+            <strong>Note:</strong> we decided to use a <code>span</code> element for the divider since 
+            IE lacks support for the <code>:last-child</code> selector. This might change in future versions.
   section#labels
     .page-header
       h1 Inline labels
