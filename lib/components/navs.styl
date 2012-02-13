@@ -201,8 +201,8 @@
 
 // Remove border on bottom, left, right
 .nav-tabs-below,
-.nav-tabs-right,
-.nav-tabs-left
+.tabs-right,
+.tabs-left
   .nav-tabs
     border-bottom: 0
 
@@ -218,8 +218,9 @@
 // BOTTOM
 // ------
 
-.nav-tabs-below 
+.tabs-below
   .nav-tabs
+    border-bottom: none
     border-top: 1px solid #ddd
 
     > li
@@ -240,47 +241,46 @@
 // Left & right
 
 // Common styles
-.nav-tabs-left .nav-tabs > li,
-.nav-tabs-right .nav-tabs > li
-  float: none
-
-.nav-tabs-left .nav-tabs > li > a,
-.nav-tabs-right .nav-tabs > li > a
-  min-width: 74px
-  margin-right: 0
-  margin-bottom: 3px
+.tabs-left,
+.tabs-right
+  .nav-tabs > li
+    float: none
+    > a
+      min-width: 74px
+      margin-right: 0
+      margin-bottom: 3px
 
 // Tabs on the left
-.nav-tabs-left .nav-tabs
+.tabs-left .nav-tabs
   float: left
   margin-right: 19px
   border-right: 1px solid #ddd
 
-.nav-tabs-left .nav-tabs > li > a
-  margin-right: -1px
-  border-radius: $base-border-radius 0 0 $base-border-radius
-
-.nav-tabs-left .nav-tabs > li > a:hover
-  border-color: #aaa #ddd #aaa #aaa
-
-.nav-tabs-left .nav-tabs .active > a,
-.nav-tabs-left .nav-tabs .active > a:hover
-  border-color: #ddd transparent #ddd #ddd
+  > li > a
+    margin-right: -1px
+    border-radius: $base-border-radius 0 0 $base-border-radius
+    &:hover
+      border-color: #aaa #ddd #aaa #aaa
+  .active > a
+    &,
+    &:hover
+      border-color: #ddd transparent #ddd #ddd
 
 // Tabs on the right
-.nav-tabs-right .nav-tabs
+.tabs-right .nav-tabs
   float: right
   margin-left: 19px
   border-left: 1px solid #ddd
 
-.nav-tabs-right .nav-tabs > li > a
-  margin-left: -1px
-  border-radius: 0 4px 4px 0
+  > li > a
+    margin-left: -1px
+    border-radius: 0 4px 4px 0
 
-.nav-tabs-right .nav-tabs > li > a:hover
-  border-color: #aaa #aaa #aaa #ddd
+    &:hover
+      border-color: #aaa #aaa #aaa #ddd
 
-.nav-tabs-right .nav-tabs .active > a,
-.nav-tabs-right .nav-tabs .active > a:hover
-  border-color: #ddd #ddd #ddd transparent
+  .active > a
+    &,
+    &:hover
+      border-color: #ddd #ddd #ddd transparent
   

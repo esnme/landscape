@@ -553,6 +553,145 @@ block content
             </li>
             ...
           </ul>
+    h2 Tabbable
+      small Bring tabs to life via JavaScript
+    .row
+      .span4
+        h3 What's included
+        :markdown
+          Bring your tabs to life with a simple plugin to toggle between content via tabs. 
+          Landscape integrates tabbable tabs in four styles: top (default), right, bottom, and left.
+
+          Changing between them is easy and only requires changing very little markup.
+      .span4
+        h3 Tabbable example
+        :markdown
+          To make tabs tabbable, wrap the `.nav-tabs` in another div with class `.tabbable`.
+        .tabbable
+          ul.nav.nav-tabs
+            li.active
+              a(href="#tab-1", data-toggle="tab") Section A
+            li
+              a(href="#tab-2", data-toggle="tab") Section B
+            li
+              a(href="#tab-3", data-toggle="tab") Section C
+          .tab-content
+            #tab-1.tab-pane.active
+              p I'm in Section A.
+            #tab-2.tab-pane
+              p I'm in Section B.
+            #tab-3.tab-pane
+              p I'm in Section C.
+      .span4
+        h3 JavaScript plugin
+        :markdown
+          All tabbable tabs are powered by a lightweight JavaScript plugin. Read more about how to bring 
+          tabbable tabs to life on the JavaScript docs page.
+        a.btn(href="javascript.html#tabs") Get the JavaScript &rarr;
+    h3 Straightforward markup
+    :markdown
+      Using tabbable tabs requires a wrapping div, a set of tabs, and a set of tabbable panes of content.
+    pre.prettyprint.linenums.
+      <div class="tabbable">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#1" data-toggle="tab">Section 1</a></li>
+          <li><a href="#2" data-toggle="tab">Section 2</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="1">
+            <p>I'm in Section 1.</p>
+          </div>
+          <div class="tab-pane" id="2">
+            <p>Howdy, I'm in Section 2.</p>
+          </div>
+        </div>
+      </div>
+    h3 Tabbable in any direction
+    .row
+      .span4
+        h4 Tabs on the bottom
+        :markdown
+          Flip the order of the HTML and add a class to put tabs on the bottom.
+        .tabbable.tabs-below
+          .tab-content
+            #tab-below-1.tab-pane.active
+              p I'm in Section A.
+            #tab-below-2.tab-pane
+              p I'm in Section B.
+            #tab-below-3.tab-pane
+              p I'm in Section C.
+          ul.nav.nav-tabs
+            li.active
+              a(href="#tab-below-1", data-toggle="tab") Section A
+            li
+              a(href="#tab-below-2", data-toggle="tab") Section B
+            li
+              a(href="#tab-below-3", data-toggle="tab") Section C
+        pre.prettyprint.linenums.
+          <div class="tabbable tabs-below">
+            <div class="tab-content">
+              ...
+            </div>
+            <ul class="nav nav-tabs">
+              ...
+            </ul>
+          </div>
+      .span4
+        h4 Tabs on the left
+        :markdown
+          Swap the class to put tabs on the left.
+        .tabbable.tabs-left
+          ul.nav.nav-tabs
+            li.active
+              a(href="#tab-left-1", data-toggle="tab") Section A
+            li
+              a(href="#tab-left-2", data-toggle="tab") Section B
+            li
+              a(href="#tab-left-3", data-toggle="tab") Section C
+          .tab-content
+            #tab-left-1.tab-pane.active
+              p I'm in Section A.
+            #tab-left-2.tab-pane
+              p I'm in Section B.
+            #tab-left-3.tab-pane
+              p I'm in Section C.
+        pre.prettyprint.linenums.
+          <div class="tabbable tabs-left">
+            <ul class="nav nav-tabs">
+              ...
+            </ul>
+            <div class="tab-content">
+              ...
+            </div>
+          </div>
+      .span4
+        h4 Tabs on the right
+        :markdown
+          Swap the class to put tabs on the right.
+        .tabbable.tabs-right
+          ul.nav.nav-tabs
+            li.active
+              a(href="#tab-right-1", data-toggle="tab") Section A
+            li
+              a(href="#tab-right-2", data-toggle="tab") Section B
+            li
+              a(href="#tab-right-3", data-toggle="tab") Section C
+          .tab-content
+            #tab-right-1.tab-pane.active
+              p I'm in Section A.
+            #tab-right-2.tab-pane
+              p I'm in Section B.
+            #tab-right-3.tab-pane
+              p I'm in Section C.
+        pre.prettyprint.linenums.
+          <div class="tabbable tabs-right">
+            <ul class="nav nav-tabs">
+              ...
+            </ul>
+            <div class="tab-content">
+              ...
+            </div>
+          </div>
   section#navbar
     .page-header
       h1 Navbar
@@ -685,7 +824,7 @@ block content
             </ul>
           h3 Adding dropdowns
           :markdown
-            Adding dropdowns to the nav is super simple, but does require the use of [our javascript plugin](http://twitter.github.com/bootstrap/javascript.html#dropdown).
+            Adding dropdowns to the nav is super simple, but does require the use of [our javascript plugin](http://landscape.jit.su/javascript.html#dropdown).
           pre.prettyprint.linenums.
             <ul class="nav">
               <li class="dropdown">
@@ -746,7 +885,7 @@ block content
     .row
       .span6
         h2 Default thumbnails
-        p By default, Bootstrap's thumbnails are designed to showcase linked images with minimal required markup.
+        p By default, Landscape's thumbnails are designed to showcase linked images with minimal required markup.
         
         ul.thumbnails
           li.span3
