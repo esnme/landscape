@@ -51,16 +51,16 @@ $grid-columns       = 12
 $grid-column-width  = 60px
 $grid-gutter-width  = 20px
 $container-padding  = 20px
-$site-width         = ($grid-columns * $grid-column-width) + ($grid-gutter-width * ($grid-columns - 1))
+$site-width         = ($grid-column-width * $grid-columns) + ($grid-gutter-width * ($grid-columns - 1))
 
 // Fluid grid
-$fluid-grid-column-width = 6.382978723%
-$fluid-grid-gutter-width = 2.127659574%
+$fluid-grid-column-width = unit(($grid-column-width * $grid-columns) / $site-width / $grid-columns * 100, '%') // 6.382978723404255%
+$fluid-grid-gutter-width = unit(($grid-gutter-width * ($grid-columns - 1)) / $site-width / ($grid-columns - 1), '%') * 100 // 2.127659574468085%
 
 // Typography
 
 // Fonts
-$font-family-serif        = Georgia, "Times New Roman", Times, serif;
+$font-family-serif        = Georgia, "Times New Roman", Times, serif
 $font-family-sans-serif   = "Helvetica Neue", Helvetica, Arial, sans-serif
 $font-family-monospace    = Menlo, Monaco, "Courier New", monospace
 

@@ -9,7 +9,7 @@
   container-fixed()
   
 // Fluid layouts (left aligned, with sidebar, min- & max-width content)
-if fluid is true
+if fluid = true
   .container-fluid
     @extend .clearfix
     container-fluid()
@@ -34,7 +34,7 @@ for $col in 1...$grid-columns
     offset($col)
 
 // Row surrounds the columns
-if fluid is true
+if fluid = true
   .row-fluid
     @extend .clearfix
     width: 100%
