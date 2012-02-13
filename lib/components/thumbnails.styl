@@ -11,47 +11,45 @@
   if $thumbnails-spacing is a 'unit'
     margin-left: -($thumbnails-spacing)
 
-  // List item
-  > li
-    float: left
-    // Spacing
-    margin: 0 0 18px 20px
-
-// Thumbnail
 .thumbnail
-  display: block
-  line-height: 1
+  // Spacing
+  margin: 0 0 ($thumbnails-spacing / 1.6) $thumbnails-spacing
 
-  // Padding
-  if $thumbnails-padding is a 'unit'
-    padding: $thumbnails-padding
-
-  // Border
-  if $thumbnails-border
-    border: 1px solid #ddd
-
-  // Border radius
-  if $thumbnails-border-radius is a 'unit'
-    border-radius: $thumbnails-border-radius
-  
-  // Box shadow
-  if $thumbnails-box-shadow
-    box-shadow: $thumbnails-box-shadow
-
-  // Image
-  > img
+  // Figure
+  fig
     display: block
-    max-width: 100%
-    margin-left: auto
-    margin-right: auto
+    line-height: 1
 
-  // Caption
-  if $thumbnails-caption-padding is a 'unit'
-    .caption
-      padding: $thumbnails-caption-padding
+    // Padding
+    if $thumbnails-padding is a 'unit'
+      padding: $thumbnails-padding
+
+    // Border
+    if $thumbnails-border
+      border: 1px solid #ddd
+
+    // Border radius
+    if $thumbnails-border-radius is a 'unit'
+      border-radius: $thumbnails-border-radius
+    
+    // Box shadow
+    if $thumbnails-box-shadow
+      box-shadow: $thumbnails-box-shadow
+
+    // Image
+    > img
+      display: block
+      max-width: 100%
+      margin-left: auto
+      margin-right: auto
+
+    // Caption
+    if $thumbnails-caption-padding is a 'unit'
+      figcaption
+        padding: $thumbnails-caption-padding
 
 // Add a hover state for linked versions only
-a.thumbnail:hover
+a.thumbnail:hover > fig
   if $thumbnails-hover is a 'function'
     $thumbnails-hover()
   else

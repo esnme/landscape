@@ -931,29 +931,29 @@ block content
         h2 Default thumbnails
         p By default, Landscape's thumbnails are designed to showcase linked images with minimal required markup.
         
-        ul.thumbnails
-          li.span3
-            a(href="#").thumbnail
+        div.thumbnails
+          a(href="#").thumbnail.span3
+            fig
               img(src="http://placehold.it/260x180", alt="")
-          li.span3
-            a(href="#").thumbnail
+          a(href="#").thumbnail.span3
+            fig
               img(src="http://placehold.it/260x180", alt="")
-          li.span3
-            a(href="#").thumbnail
+          a(href="#").thumbnail.span3
+            fig
               img(src="http://placehold.it/260x180", alt="")
-          li.span3
-            a(href="#").thumbnail
+          a(href="#").thumbnail.span3
+            fig
               img(src="http://placehold.it/260x180", alt="")
               
       .span6
         h2 Highly customizable
         p With a bit of extra markup, it's possible to add any kind of HTML content like headings, paragraphs, or buttons into thumbnails.
         
-        ul.thumbnails
-          li.span3
-            .thumbnail
+        div.thumbnails
+          span.thumbnail.span3
+            fig
               img(src="http://placehold.it/260x180", alt="")
-              .caption
+              figcaption
                 h5 Thumbnail caption
                 p.
                   Cras justo odio, dapibus ac facilisis in, egestas eget quam. 
@@ -962,10 +962,10 @@ block content
                 p
                   a.btn.btn-primary(href="#") Action
                   a.btn(href="#") Action
-          li.span3
-            .thumbnail
+          span.thumbnail.span3
+            fig
               img(src="http://placehold.it/260x180", alt="")
-              .caption
+              figcaption
                 h5 Thumbnail caption
                 p.
                   Cras justo odio, dapibus ac facilisis in, egestas eget quam. 
@@ -974,7 +974,6 @@ block content
                 p
                   a.btn.btn-primary(href="#") Action
                   a.btn(href="#") Action
-
     .row
       .span4
         h3 Why use thumbnails
@@ -984,7 +983,7 @@ block content
       .span4
         h3 Simple, flexible markup
         :markdown
-          Thumbnail markup is simple — a `ul` with any number of `li` elements is all that is required. 
+          Thumbnail markup is simple — a `div` with any number of container elements, `a` or `span`, that include a `fig` element.
           It's also super flexible, allowing for any type of content with just a bit more markup to wrap your contents.
       .span4
         h3 Uses grid column sizes
@@ -999,51 +998,53 @@ block content
           As mentioned previously, the required markup for thumbnails is light and straightforward. 
           Here's a look at the default setup **for linked images:**
         pre.prettyprint.linenums.
-          <ul class="thumbnails">
-            <li class="span3">
-              <a href="#" class="thumbnail">
+          <div class="thumbnails">
+            <a class="thumbnail span3" href="#">
+              <fig>
                 <img src="http://placehold.it/260x180" alt="">
-              </a>
-            </li>
+              </fig>
+            </a>
             ...
-          </ul>
+          </div>
         :markdown
-          For custom HTML content in thumbnails, the markup changes slightly. 
-          To allow block level content anywhere, we swap the `<a>` for a `<div>` like so:
+          For a caption or other content within the thumbnail cointainer, the markup changes slightly. 
+          And to remove the hover effect, swap the `<a>` for a `<span>`:
         pre.prettyprint.linenums.
-          <ul class="thumbnails">
-            <li class="span3">
-              <div class="thumbnail">
+          <div class="thumbnails">
+            <span class="thumbnail span3">
+              <fig>
                 <img src="http://placehold.it/260x180" alt="">
-                <h5>Thumbnail label</h5>
-                <p>Thumbnail caption right here...</p>
-              </div>
-            </li>
+                <figcaption>
+                  <h5>Thumbnail label</h5>
+                  <p>Thumbnail caption right here...</p>
+                </figcaption>
+              </fig>
+            </span>
             ...
-          </ul>
+          </div>
       .span6
         h2 More examples
         :markdown
           Explore all your options with the various grid classes available to you. 
           You can also mix and match different sizes.
-        ul.thumbnails
-          li.span4
-            a.thumbnail(href="#")
+        div.thumbnails
+          a.thumbnail.span4(href="#")
+            fig
               img(src="http://placehold.it/360x268", alt="")
-          li.span2
-            a.thumbnail(href="#")
+          a.thumbnail.span2(href="#")
+            fig
               img(src="http://placehold.it/160x120", alt="")
-          li.span2
-            a.thumbnail(href="#")
+          a.thumbnail.span2(href="#")
+            fig
               img(src="http://placehold.it/160x120", alt="")
-          li.span2
-            a.thumbnail(href="#")
+          a.thumbnail.span2(href="#")
+            fig
               img(src="http://placehold.it/160x120", alt="")
-          li.span2
-            a.thumbnail(href="#")
+          a.thumbnail.span2(href="#")
+            fig
               img(src="http://placehold.it/160x120", alt="")
-          li.span2
-            a.thumbnail(href="#")
+          a.thumbnail.span2(href="#")
+            fig
               img(src="http://placehold.it/160x120", alt="")
 
   section#alerts
