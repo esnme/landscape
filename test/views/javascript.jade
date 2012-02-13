@@ -7,8 +7,27 @@ block navbar
 block content
   header.jumbotron.subhead
     h1 JavaScript plugins
-    p.lead Bring the components to life with custom jQuery/Ender plugins.
+    p.lead Bring the components to life with powerful plugins.
+    .subnav
+      ul.nav.nav-pills
+        li
+          a(href="#toc") All plugins
+        li
+          a(href="#modal") Modal
 
+  section#toc
+    .page-header
+      h1 JavaScript plugins
+        small A bunch of javascript plugins to get you started
+    
+    .row
+      .span3
+        label 
+          h3
+            a(href="#modals") Modals
+          p.
+            A streamlined, but flexible, take on the traditional javascript modal plugin 
+            with only the minimum required functionality and smart defaults.
   section#modal
     .page-header
       h1 Modal
@@ -39,4 +58,26 @@ block content
 
         h2 Live demo
         p Toggle a modal via javascript by clicking the button below. It will slide down and fade in from the top of the page.
-        a.btn.primary.large(data-toggle="modal", href="#myModal") Launch demo modal
+        // Sample modal content
+        #my-modal.modal.hide.fade
+          .modal-header
+            h3 Modal Heading
+          .modal-body
+            h4 Text in a modal
+            p Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem.
+            h4 Popover in a modal
+            p
+              | This 
+              a.btn.popover-test(href="#", data-content="And here's some amazing content. It's very engaging. Right?") button
+              |  should trigger a popover on hover.
+            h4 Tooltips in a modal
+            p
+              a.tooltip-test(href="#", data-original-title="Tooltip") This link
+              |  and 
+              a.tooltip-test(href="#", data-original-title="Tooltip") that link
+              |  should have tooltips on hover.
+
+          .modal-footer
+            .btn.btn-primary(href="#") Save changes
+            .btn(href="#", data-dismiss="modal") Close
+        a.btn.btn-primary.btn-large(data-toggle="modal", href="#my-modal") Launch demo modal
