@@ -25,7 +25,7 @@ block content
         label 
           h3
             a(href="#modals") Modals
-          p.
+          :markdown
             A streamlined, but flexible, take on the traditional javascript modal plugin 
             with only the minimum required functionality and smart defaults.
   section#modal
@@ -38,8 +38,9 @@ block content
         h3 About modals
         p 
           :markdown
-            A streamlined, but flexible, take on the traditional javascript modal 
-            plugin with only the minimum required functionality and smart defaults.
+            A streamlined, but flexible, take on the traditional javascript modal plugin 
+            with only the minimum required functionality and smart defaults.
+          a.btn(href="#") Download
                 
       .span9
         h2 Static example
@@ -82,3 +83,105 @@ block content
             .btn.btn-primary(href="#") Save changes
             .btn(href="#", data-dismiss="modal") Close
         a.btn.btn-primary.btn-large(data-toggle="modal", href="#my-modal") Launch demo modal
+
+        hr
+        h2 Using modal
+        p Call the modal via javascript:
+        pre.prettyprint.linenums.
+          $('#my-modal').modal(options);
+        h3 Options
+        table.table.table-bordered.table-striped
+          thead
+            tr
+              th Name
+              th Type
+              th Default
+              th Description
+          tbody
+            tr
+              td backdrop
+              td boolean
+              td true
+              td Includes a modal-backdrop element
+            tr
+              td keyboard
+              td boolean
+              td true
+              td Closes the modal when escape key is pressed
+
+        h3 Markup
+        :markdown
+          Additionally, you can activate modals on your page without having to write a single line of javascript. 
+          Just set `data-toggle="modal"` on a controller element with a `data-target="#foo"` or `href="#foo"` which 
+          corresponds to a modal element id, and when clicked, it will launch your modal.
+
+          Also, to add options to your modal instance, just include them as additional data attributes on 
+          either the control element or the modal markup itself.
+        pre.prettyprint.linenums.
+          <a class="btn" data-toggle="modal" href="#my-modal" >Launch Modal</a>
+        pre.prettyprint.linenums.
+          <div class="modal">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal">×</a>
+              <h3>Modal header</h3>
+            </div>
+            <div class="modal-body">
+              <p>One fine body…</p>
+            </div>
+            <div class="modal-footer">
+              <a href="#" class="btn btn-primary">Save changes</a>
+              <a href="#" class="btn">Close</a>
+            </div>
+          </div>
+        .alert.alert-info
+          | <strong>Heads up!</strong> If you want your modal to animate in and out, just add a 
+          | <code>.fade</code> class to the <code>.modal</code> element (refer to the demo to see this in action) and include 
+          | bootstrap-transition.js.
+        h3 Methods
+        h4 .modal(options)
+        :markdown
+          Activates your content as a modal. Accepts an optional options `object`.
+        pre.prettyprint.linenums.
+          $('#my-modal').modal({
+            keyboard: false
+          });
+        h4 .modal('toggle')
+        :markdown
+          Manually toggles a modal.
+        pre.prettyprint.linenums.
+          $('#my-modal').modal('toggle');
+        h4 .modal('show')
+        :markdown
+          Manually opens a modal.
+        pre.prettyprint.linenums.
+          $('#my-modal').modal('show');
+        h4 .modal('hide')
+        :markdown
+          Manually hides a modal.
+        pre.prettyprint.linenums.
+          $('#my-modal').modal('hide');
+        h3 Events
+        :markdown
+          Bootstrap's modal class exposes a few events for hooking into modal functionality.
+        table.table.table-bordered.table-striped
+          thead
+            tr
+              th Event
+              th Description
+          tbody
+            tr
+              td show
+              td This event fires immediately when the <code>show</code> instance method is called.
+            tr
+              td shown
+              td This event is fired when the modal has been made visible to the user (will wait for css transitions to complete).
+            tr
+              td hide
+              td This event is fired immediately when the <code>hide</code> instance method has been called.
+            tr
+              td hidden
+              td This event is fired when the modal has finished being hidden from the user (will wait for css transitions to complete).
+        pre.prettyprint.linenums.
+          $('#my-modal').on('hidden', function () {
+            // do something…
+          });
