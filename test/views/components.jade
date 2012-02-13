@@ -855,41 +855,36 @@ block content
         h3 Examples
         :markdown
           A single example shown as it might be displayed across multiple pages.
-        ul.breadcrumb
-          li.active Home
-
-        ul.breadcrumb
-          li
-            a(href="#") Home
-          li.divider /
-          li.active Library
         
-        ul.breadcrumb
-          li
-            a(href="#") Home
-          li.divider /
-          li
-            a(href="#") Library
-          li.divider /
-          li.active Data
+        nav.breadcrumb
+          a.active(href="#") Home
+
+        nav.breadcrumb
+          a(href="#") Home
+          span.divider /
+          a.active(href="#") Library
+        
+        nav.breadcrumb
+          a(href="#") Home
+          span.divider /
+          a(href="#") Library
+          span.divider /
+          a.active(href="#") Data
       .span6
         h3 Markup
         :markdown
           HTML is your standard unordered list with links.
         pre.prettyprint.linenums.
-          <ul class="breadcrumb">
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li class="divider">/</li>
-            <li>
-              <a href="#">Library</a>
-            </li>
-            <li class="divider">/</li>
-            <li class="active">
-              <a href="#">Data</a>
-            </li>
-          </ul>
+          <nav class="breadcrumb">
+            <a href="#">Home</a>
+            <span class="divider">/</span>
+            <a href="#">Library</a>
+            <span class="divider">/</span>
+            <a href="#" class="active">Data</a>
+          </nav>
+        .alert.alert-info.
+            <strong>Note:</strong> We decided to use a <code>span</code> element for the divider since 
+            the <code>:last-child</code> selector lacks support in IE. This might change in future versions.
   section#labels
     .page-header
       h1 Inline labels
