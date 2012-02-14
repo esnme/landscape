@@ -1,3 +1,3 @@
-[submodule "test/public/bootstrap"]
-	path = test/public/bootstrap
+[submodule "docs/public/bootstrap"]
+	path = docs/public/bootstrap
 	url = https://github.com/twitter/bootstrap.git
