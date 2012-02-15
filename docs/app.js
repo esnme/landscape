@@ -2,6 +2,12 @@ var express = require('express'),
     resmin = require('resmin'),
     app = express.createServer(),
     pubDir = __dirname + '/public';
+
+try {
+  var landscape = require('landscape');
+} catch(e) {
+  var landscape = require('../');
+}
 	
 var resminConfig = {
     minify: true,
@@ -38,6 +44,9 @@ var resminConfig = {
       app: [
         "/css/prettify.css"
       ]
+    },
+    stylus: function(style) {
+      style.use(landscape());
     }
 };
 

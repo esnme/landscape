@@ -22,12 +22,11 @@ nbproject
 *.sublime-workspace
 
 # Folders to ignore
+node_modules
 .hg
 .svn
 .CVS
 .idea
 
-# Files used in Nodejitsu deployment
-/index.js
-/package.json
+# Files used in npm publish
 /.npmignore

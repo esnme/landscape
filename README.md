@@ -3,36 +3,75 @@ LANDSCAPE
 
 A [Stylus](https://github.com/learnboost/stylus)-powered frontend toolkit based on [Bootstrap](https://github.com/twitter/bootstrap/).
 
-To get started -- checkout http://landscape.jit.su/!
+**Landscape is currently in early stages of development and breaking changes will most certainly be introduced. Recommended use for development purposes only.**
+
+To get started -- checkout [the docs](http://landscape.jit.su/)!
 
 
 Installation
 ------------
 
+To install Landscape you must have [nodejs](http://nodejs.org) installed.
+
+```bash
+$ npm install -g landscape
+```
+
+For automatic generation of linear gradient PNGs, install [node-canvas](http://github.com/learnboost/node-canvas) (does not currently work on Windows):
+
+```bash
+$ npm install -g canvas
+```
+
+*Note: You can install the packages locally by omitting the `-g` switch, but for ease of use it's recommended to install them globally.*
+
+Usage
+-----
+
+First you need access to Landscape within Stylus, this can be done with the Stylus executable or programatically.
+
+#### Stylus executable
+
+```bash
+$ stylus --use landscape mytheme.styl
+```
+
+For more info, see [Stylus docs](http://learnboost.github.com/stylus/docs/executable.html).
+
+#### Programatically
+
+```javascript
+var landscape = require('landscape');
+...
+stylus.use(landscape());
+``
+
+### Customize the theme
+
+Make a copy of the bootstrap theme and then change the variables inside `config.styl` to suite your needs.
+To make your app use your theme, just point it to your `theme.styl` file and Stylus should do the rest.
+
+How to run the docs locally?
+----------------------------
+
+You will have to clone the git repo, since the docs are not included in the npm package.
+
 ```bash
 $ git clone git@github.com:esnme/landscape.git
 ```
 
-Requirements
-------------
-- [nodejs](http://nodejs.org/)
-- [stylus](http://learnboost.github.com/stylus/)
-- [nib](http://visionmedia.github.com/nib/)
-
-How to get the test running?
-----------------------------
-Make sure to get the Bootstrap submodule:
+Also make sure you get the submodules.
 
 ```bash
 $ git submodule update --init
 ```
 
-Install all npm packages:
+Install all npm packages and then run `app.js`.
 
 ```bash
-$ cd test
-$ test/ npm update
-$ test/ node app.js
+$ cd docs
+$ docs/ npm update
+$ docs/ node app.js
 ```
 
 *Note: If you're running Windows you will have to uncomment the canvas package in `package.json`.*
