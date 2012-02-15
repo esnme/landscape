@@ -1,0 +1,37 @@
+// ESN Landscape
+
+// Pager
+.pager
+  // Extend with clearfix
+  @extend .clearfix
+
+  // Base
+  margin-left: 0
+  margin-bottom: $base-line-height
+  list-style: none
+  text-align: center
+
+  // List item
+  li
+    display: inline
+
+    + li
+      margin-left: .5em
+
+  // Anchor
+  a
+    display: inline-block
+    padding: 5px 14px
+    background-color: #fff
+    border: 1px solid #ddd
+    border-radius: ($base-border-radius * 3.5)
+
+    // Hover
+    &:hover
+      text-decoration: none
+      background-color: darken($color-light, 5%)
+
+  .previous a
+    float: left
+  .next a
+    float: right

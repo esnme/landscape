@@ -38,6 +38,8 @@ vendor-prefixes = webkit moz ms o official
 @import "components/navbar"
 @import "components/navs"
 @import "components/breadcrumbs"
+@import "components/pagination"
+@import "components/pager"
 
 // Components: Popovers
 @import "components/modals"
@@ -49,5 +51,5 @@ vendor-prefixes = webkit moz ms o official
 @import "components/labels"
 @import "components/progress-bars"
 
-if $responsive
+if $responsive = true
   @import "base/responsive.styl"

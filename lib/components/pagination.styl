@@ -1,0 +1,61 @@
+// ESN Landscape
+
+// Pagination
+.pagination
+  height: ($base-line-height * 2)
+  margin: $base-line-height 0
+
+  // Unordered list
+  ul
+    display: inline-block
+    ie7-inline-block()
+    margin-left: 0
+    margin-bottom: 0
+    border-radius: $base-border-radius
+    box-shadow: 0 1px 2px rgba(0,0,0,.05)
+
+  // List item
+  li
+    display: inline
+  
+  // Anchor
+  a
+    float: left
+    padding: 0 14px
+    line-height: ($base-line-height * 2) - 2
+    text-decoration: none
+    border: 1px solid #ddd
+    border-left-width: 0
+
+  // Hover and active
+  a:hover,
+  .active a
+      background-color: #f5f5f5
+
+  .active a
+    color: darken($color-light, 30%)
+    cursor: default
+
+  // Disabled
+  .disabled a,
+  .disabled a:hover
+      color: darken($color-light, 10%)
+      background-color: transparent
+      cursor: default
+
+  // First anchor
+  li:first-child a
+      border-left-width: 1px
+      border-radius: $base-border-radius 0 0 $base-border-radius
+
+  // Last anchor
+  li:last-child a
+    border-radius: 0 $base-border-radius $base-border-radius 0
+
+// Center aligned
+.pagination-centered
+  text-align: center
+
+// Right aligned
+.pagination-right
+  text-align: right

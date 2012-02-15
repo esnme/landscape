@@ -30,6 +30,8 @@ block content
               a(href="#navbar") Navbar
             li
               a(href="#breadcrumbs") Breadcrumbs
+            li
+              a(href="#pagination") Pagination
         li
           a(href="#labels") Labels
         li
@@ -885,6 +887,138 @@ block content
         .alert.alert-info.
             <strong>Note:</strong> we decided to use a <code>span</code> element for the divider since 
             IE lacks support for the <code>:last-child</code> selector. This might change in future versions.
+  section#pagination
+    .page-header
+      h1 Pagination
+        small Two options for paging through content
+    h2 Multicon-page pagination
+    .row
+      .span4
+        h3 When to use
+        :markdown
+          Ultra simplistic and minimally styled pagination inspired by Rdio, great for apps and search results. 
+          The large block is hard to miss, easily scalable, and provides large click areas.
+        h3 Stateful page links
+        :markdown
+          Links are customizable and work in a number of circumstances with the right class. `.disabled` for 
+          unclickable links and `.active` for current page.
+        h3 Flexible alignment
+        :markdown
+          Add either of two optional classes to change the alignment of pagination links: 
+          `.pagination-centered` and `.pagination-right`.
+      .span4
+        h3 Examples
+        nav.pagination
+          ul
+            li.disabled
+              a(href="#") Prev
+            li.active
+              a(href="#") 1
+            li
+              a(href="#") 2
+            li
+              a(href="#") 3
+            li
+              a(href="#") 4
+            li
+              a(href="#") Next
+        nav.pagination
+          ul
+            li
+              a(href="#") &laquo;
+            li
+              a(href="#") 10
+            li.active
+              a(href="#") 11
+            li
+              a(href="#") 12
+            li
+              a(href="#") &raquo;
+        nav.pagination
+          ul
+            li
+              a(href="#") &larr;
+            li.active
+              a(href="#") 10
+            li
+              a(href="#") ...
+            li
+              a(href="#") 20
+            li
+              a(href="#") &rarr;
+        nav.pagination.pagination-centered
+          ul
+            li.active
+              a(href="#") 1
+            li
+              a(href="#") 2
+            li
+              a(href="#") 3
+            li
+              a(href="#") 4
+            li
+              a(href="#") 5
+      .span4
+        h3 Markup
+        :markdown
+          Wrapped in a `<nav>`, pagination is just a `<ul>`.
+        pre.prettyprint.linenums.
+          <nav class="pagination">
+            <ul>
+              <li><a href="#">Prev</a></li>
+              <li class="active">
+                <a href="#">1</a>
+              </li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">Next</a></li>
+            </ul>
+          </nav>
+    h2 Pager
+      small For quick previous and next links
+    .row
+      .span4
+        h3 About pager
+        :markdown
+          The pager component is a set of links for simple pagination implemenations with light 
+          markup and even lighter styles. It's great for simple sites like blogs or magazines.
+      .span4
+        h3 Default example
+        :markdown
+          By default, the pager centers links.
+        ul.pager
+          li
+            a(href="#") Previous
+          li
+            a(href="#") Next
+        pre.prettyprint.linenums.
+          <ul class="pager">
+            <li>
+              <a href="#">Previous</a>
+            </li>
+            <li>
+              <a href="#">Next</a>
+            </li>
+          </ul>
+      .span4
+        h3 Alternatively, you can align each link to the sides:
+        :markdown
+          By default, the pager centers links.
+        ul.pager
+          li.previous
+            a(href="#") &larr; Older
+          li.next
+            a(href="#") Newer &rarr;
+        pre.prettyprint.linenums.
+          <ul class="pager">
+            <li class="previous">
+              <a href="#">&larr; Older</a>
+            </li>
+            <li class="next">
+              <a href="#">Newer &rarr;</a>
+            </li>
+          </ul>
   section#labels
     .page-header
       h1 Inline labels
