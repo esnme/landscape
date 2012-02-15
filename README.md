@@ -80,9 +80,19 @@ Coding convention
 -----------------
 Since Stylus is extremely lenient code-wise (you can omit braces, colons and semi-colos) we have put this tiny coding convention in place for Landscape:
 
-- All braces and colons are omitted
+- All braces and semi-colons are omitted
 - Variables are prepended with (`$`) dollar-sign
-- Properties are appended with (`:`) semi-colon
+- Properties are appended with (`:`) colon
+
+### Example
+
+```stylus
+$color = #aaa
+
+.button
+	color: $color
+	padding: 4px 10px
+```
 
 Copyright and license
 ---------------------
