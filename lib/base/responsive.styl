@@ -108,6 +108,30 @@
       > [class*="span"]
         @extend .row > [class*="span"]
 
+  // Subnav
+  .subnav 
+    position: static
+    top: auto
+    z-index: auto
+    width: auto
+    height: auto
+    background: #fff // whole background property since we use a background-image for gradient
+    box-shadow: none
+  
+    .nav > li 
+      float: none
+  
+      > a 
+        border: 0
+  
+      + li > a 
+        border-top: 1px solid #e5e5e5
+    
+      &:first-child > a
+        &,
+        &:hover 
+          border-radius: $base-border-radius $base-border-radius 0 0
+
 // Portrait tablet to default desktop
 @media (min-width: 768px) and (max-width: 980px)
   // Reset grid variables
@@ -268,6 +292,27 @@
   .nav-collapse.collapse
     height: auto !important
 
+  // Fixed subnav on scroll, but only for 980px and up (sorry IE!)
+  .subnav-fixed 
+    position: fixed
+    top: 40px
+    left: 0
+    right: 0
+    z-index: 1030
+    border-color: #d5d5d5
+    border-width: 0 0 1px // drop the border on the fixed edges
+    border-radius: 0
+    box-shadow: inset 0 1px 0 #fff, 0 1px 5px rgba(0,0,0,.1)
+  
+    .nav
+      width: 938px
+      margin: 0 auto
+      padding: 0 1px
+  
+  .subnav .nav > li:first-child
+    a, a:hover
+      border-radius: 0
+
 // Large desktop & up
 @media (min-width: 1200px)
 
@@ -328,3 +373,7 @@
     margin-left: -30px
     > li
       margin-left: 30px
+
+  // Update subnav container
+  .subnav-fixed .nav 
+    width: 1168px // 2px less to account for left/right borders being removed when in fixed mode
