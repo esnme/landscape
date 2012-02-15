@@ -13,7 +13,13 @@ block content
         li
           a(href="#toc") All plugins
         li
-          a(href="#modal") Modal
+          a(href="#modals") Modals
+        li
+          a(href="#dropdowns") Dropdowns
+        li
+          a(href="#scrollspy") Scrollspy
+        li
+          a(href="#tabs") Tabs
 
   section#toc
     .page-header
@@ -28,9 +34,87 @@ block content
           :markdown
             A streamlined, but flexible, take on the traditional javascript modal plugin 
             with only the minimum required functionality and smart defaults.
-  section#modal
+      .span3
+        label 
+          h3
+            a(href="#dropdowns") Dropdowns
+          :markdown
+            Add dropdown menus to nearly anything in Bootstrap with this simple plugin. 
+            Bootstrap features full dropdown menu support on in the navbar, tabs, and pills.
+      .span3
+        label 
+          h3
+            a(href="#scrollspy") Scrollspy
+          :markdown
+            Use scrollspy to automatically update the links in your navbar to show 
+            the current active link based on scroll position.
+      .span3
+        label 
+          h3
+            a(href="#tabs") Tabs
+          :markdown
+            Use this plugin to make tabs and pills more useful by allowing them to 
+            toggle through tabbable panes of local content.
+    .row
+      .span3
+        label 
+          h3
+            a(href="#tooltips") Tooltips
+          :markdown
+            A new take on the jQuery Tipsy plugin, Tooltips don't rely on images, uss 
+            CSS3 for animations, and data-attributes for local title storage.
+      .span3
+        label 
+          h3
+            a(href="#popovers") Popovers
+            small.muted *
+          :markdown
+            Add small overlays of content, like those on the iPad, to any element 
+            for housing secondary information.
+          p.muted * Requires Tooltips to be included
+      .span3
+        label 
+          h3
+            a(href="#alerts") Alerts
+          :markdown
+            The alert plugin is a tiny class for adding close functionality to alerts.
+      .span3
+        label 
+          h3
+            a(href="#buttons") Buttons
+          :markdown
+            Do more with buttons. Control button states or create groups of buttons 
+            for more components like toolbars.
+    .row
+      .span3
+        label 
+          h3
+            a(href="#collapse") Collapse
+          :markdown
+            Get base styles and flexible support for collapsible components like 
+            accordions and navigation.
+      .span3
+        label 
+          h3
+            a(href="#typeahead") Typeahead
+          :markdown
+            A basic, easily extended plugin for quickly creating elegant typeaheads 
+            with any form text input.
+      .span3
+        label 
+          h3
+            | Transitions
+            small.muted *
+          :markdown
+            For simple transition effects, include bootstrap-transition.js once to 
+            slide in modals or fade out alerts.
+          p.muted Required for animation in plugins
+    br
+    .alert.alert-info.
+      <strong>Heads up!</strong> All javascript plugins require the latest version of jQuery.
+  section#modals
     .page-header
-      h1 Modal
+      h1 Modals
         bootstrap-modal.js
 
     .row
@@ -49,12 +133,12 @@ block content
         .well(style="background-color: #888; border: none;")
           .modal(style="position: relative; top: auto; left: auto; margin: 0 auto; z-index: 1")
             .modal-header
-              a.close.js-dismiss(href="#") x
+              a.close.js-dismiss(href="#") &times;
               h3 Modal header
             .modal-body
               p One fine body…
             .modal-footer
-              a.btn.primary(href="#") Save changes
+              a.btn.btn-primary(href="#") Save changes
               a.btn(href="#") Close
 
         h2 Live demo
@@ -85,7 +169,7 @@ block content
         a.btn.btn-primary.btn-large(data-toggle="modal", href="#my-modal") Launch demo modal
 
         hr
-        h2 Using modal
+        h2 Usage
         p Call the modal via javascript:
         pre.prettyprint.linenums.
           $('#my-modal').modal(options);
@@ -122,7 +206,7 @@ block content
         pre.prettyprint.linenums.
           <div class="modal">
             <div class="modal-header">
-              <a class="close" data-dismiss="modal">×</a>
+              <a class="close" data-dismiss="modal">&times;</a>
               <h3>Modal header</h3>
             </div>
             <div class="modal-body">
@@ -185,3 +269,144 @@ block content
           $('#my-modal').on('hidden', function () {
             // do something…
           });
+    section#dropdowns
+      .page-header
+        h1 Dropdowns
+      
+      .row
+        .span3
+          h3 About dropdowns
+          :markdown
+            Add dropdown menus to nearly anything in Bootstrap with this simple plugin. Bootstrap features full 
+            dropdown menu support on in the navbar, tabs, and pills.
+          .btn Download
+        .span9
+          h2 Examples
+          :markdown
+            Click on the dropdown nav links in the navbar and pills below to test dropdowns.
+          nav#navbar-example.navbar.navbar-static
+            .navbar-inner
+              .container(style="width: auto")
+                a.brand(href="#") Project name
+                ul.nav
+                  li.dropdown
+                    a.dropdown-toggle(href="#", data-toggle="dropdown") Dropdown 
+                      b.caret
+                    ul.dropdown-menu
+                      li
+                        a(href="#") Action
+                      li
+                        a(href="#") Another action
+                      li
+                        a(href="#") Something else here
+                      li.divider
+                      li
+                        a(href="#") Separated link
+                  li.dropdown
+                    a.dropdown-toggle(href="#", data-toggle="dropdown") Dropdown 2 
+                      b.caret
+                    ul.dropdown-menu
+                      li
+                        a(href="#") Action
+                      li
+                        a(href="#") Another action
+                      li
+                        a(href="#") Something else here
+                      li.divider
+                      li
+                        a(href="#") Separated link
+                ul.nav.pull-right
+                  li.dropdown
+                    a.dropdown-toggle(href="#", data-toggle="dropdown") Dropdown 3 
+                      b.caret
+                    ul.dropdown-menu
+                      li
+                        a(href="#") Action
+                      li
+                        a(href="#") Another action
+                      li
+                        a(href="#") Something else here
+                      li.divider
+                      li
+                        a(href="#") Separated link
+          
+          br
+          ul.nav.nav-pills
+            li.active
+              a(href="#") Regular link
+            li.dropdown
+              a.dropdown-toggle(href="#", data-toggle="dropdown") Dropdown 
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href="#") Action
+                li
+                  a(href="#") Another action
+                li
+                  a(href="#") Something else here
+                li.divider
+                li
+                  a(href="#") Separated link
+            li.dropdown
+              a.dropdown-toggle(href="#", data-toggle="dropdown") Dropdown 2 
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href="#") Action
+                li
+                  a(href="#") Another action
+                li
+                  a(href="#") Something else here
+                li.divider
+                li
+                  a(href="#") Separated link
+            li.dropdown
+              a.dropdown-toggle(href="#", data-toggle="dropdown") Dropdown 3 
+                b.caret
+              ul.dropdown-menu
+                li
+                  a(href="#") Action
+                li
+                  a(href="#") Another action
+                li
+                  a(href="#") Something else here
+                li.divider
+                li
+                  a(href="#") Separated link
+
+          hr
+
+          h2 Usage
+          :markdown
+            Call the dropdowns via javascript:
+          pre.prettyprint.linenums.
+            $('.dropdown-toggle').dropdown()
+          h3 Markup
+          :markdown
+            To quickly add dropdown functionality to any element just add `data-toggle="dropdown"` a
+            nd any valid bootstrap dropdown will automatically be activated.
+          .alert.alert-info.
+            <strong>Heads up!</strong> You may optionally target a specific dropdown by using 
+            <code>data-target="#fat"</code> or <code>href="#fat"</code>.
+          pre.prettyprint.linenums.
+            <ul class="nav pills">
+              <li class="active"><a href="#">Regular link</a></li>
+              <li class="dropdown" id="menu1">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+                  Dropdown
+                  <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </li>
+              ...
+            </ul>
+          h3 Methods
+          h4 $().dropdown()
+          :markdown
+            A programatic api for activating menus for a given navbar or tabbed navigation.
