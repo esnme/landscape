@@ -44,7 +44,7 @@ For more info, see [Stylus docs](http://learnboost.github.com/stylus/docs/execut
 var landscape = require('landscape');
 ...
 stylus.use(landscape());
-``
+```
 
 ### Customize the theme
 
