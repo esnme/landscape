@@ -3,6 +3,9 @@
   "author": "Marcus Ekwall <marcus.ekwall@gmail.com>",
   "description": "A Stylus-powered frontend toolkit based on Bootstrap.",
   "subdomain": "landscape",
+  "domains": [
+    "landscape.esn.me"
+  ],
   "scripts": {
     "start": "app.js"
   },
@@ -17,5 +20,5 @@
     "canvas": ">= 0.10.1"
   },
   "engine": "node >= 0.6.8",
-  "version": "0.0.4-31"
+  "version": "0.0.4-36"
 }
