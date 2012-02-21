@@ -8,17 +8,13 @@ vendor-prefixes = webkit moz ms o official
 // https://github.com/visionmedia/nib
 @import "nib"
 
-// Base: Normalize
-@import "base/normalize"
+// Utils: Normalize, mixins & common classes
+@import "utils/normalize"
+@import "utils/mixins"
+@import "utils/utils"
 
-// Base: Mixins & utils
-@import "base/mixins"
-@import "base/utilities"
-
-// Base: Scaffolding
+// Base: Scaffolding, typography and base structure
 @import "base/scaffolding"
-
-// Base: CSS
 @import "base/typography"
 @import "base/code"
 @import "base/forms"
