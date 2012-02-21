@@ -38,6 +38,17 @@ a
     // Color
     if $anchor-active-color is a 'color'
       color: $anchor-active-color
+
+  // Focus
+  &:focus
+    if $anchor-focus-color is a 'color'
+      outline: thin dotted $anchor-focus-color
+    else if $anchor-active-color is a 'color'
+      outline: thin dotted $anchor-active-color
+    else
+      outline: thin dotted
+    outline: 5px auto -webkit-focus-ring-color
+    outline-offset: -2px
  
 // Headings
 h1, h2, h3, h4, h5, h6
