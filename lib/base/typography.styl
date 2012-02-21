@@ -231,7 +231,9 @@ dd
 hr
   margin: $base-line-height 0
   border: 0
+  // TODO: We dislike hardcoded colors. Remove!
   border-top: 1px solid #e5e5e5
+  // TODO: We dislike hardcoded colors. Remove!
   border-bottom: 1px solid #fff
 
 // Emphasis
@@ -252,6 +254,7 @@ if $color-muted
 abbr
   font-size: 90%
   text-transform: uppercase
+  // TODO: We dislike hardcoded colors. Remove!
   border-bottom: 1px dotted #ddd
   cursor: help
 
@@ -262,6 +265,7 @@ small
 blockquote
   padding-left: 15px
   margin-bottom: $base-line-height
+  // TODO: We dislike hardcoded colors. Remove!
   border-left: 5px solid #eee
   p
     margin-bottom: 0
@@ -270,7 +274,11 @@ blockquote
   small
     display: block
     line-height: $base-line-height
-    color: #ccc
+    if $blockquote-small-color is a 'color'
+      color: $blockquote-small-color
+    else
+      // TODO: We dislike hardcoded colors. Remove!
+      color: #ccc
     &:before
       content: '\2014 \00A0'
 
@@ -280,6 +288,7 @@ blockquote
     padding-left: 0
     padding-right: 15px
     border-left: 0
+    // TODO: We dislike hardcoded colors. Remove!
     border-right: 5px solid #eee
     p,
     small
@@ -302,4 +311,5 @@ img
 blockquote
   padding: 0 0 0 15px
   margin: 0 0 18px
+  // TODO: We dislike hardcoded colors. Remove!
   border-left: 5px solid #eee
