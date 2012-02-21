@@ -257,34 +257,3 @@ gradient-striped($color, $angle = -45deg)
 
   // standard 
   background-image: 'linear-gradient(%s, %s)' % (start stops)
-
-// Buttons
-
-// Button border color
-button-border-color($primary, $secondary)
-  border-color: $secondary $secondary darken($secondary, 25%)
-  border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25)
-  .btn-group.btn-group-highlight:hover &
-    border-color: darken($secondary, 15%)darken($secondary, 15%) darken($secondary, 35%)
-    border-color: rgba(0,0,0,.25) rgba(0,0,0,.25) rgba(0,0,0,.4)
-
-// Mixin for generating button backgrounds
-button-background($start, $end, $height=50px)
-  // gradient-bar will set the background to a pleasing blend of these, to support IE<=9
-  gradient-bar($start, $end, $height)
-  button-border-color($start, $end)
-  //reset-filter()
-
-  // in these cases the gradient won't cover the background, so we override
-  .btn-group.open &.dropdown-toggle,
-  &:hover,
-  &:active,
-  &.active,
-  &.disabled,
-  &[disabled],
-    background-color: $end
-
-  // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
-  &:active,
-  &.active
-    background-color: darken($end, 10%) \\9

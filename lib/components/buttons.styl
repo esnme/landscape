@@ -1,7 +1,7 @@
 // ESN Landscape
 
 // Default button generator
-if $button-generator is not defined
+if not $button-generator is defined
   $button-generator($color, $saturation=40%, $lighten=10%, $darken=20%, $spin=0)
     $color = saturate($color, $saturation)
     if dark(darken($color, 20%))
@@ -12,7 +12,7 @@ if $button-generator is not defined
       $back = $color-light
     color: $front
     text-shadow: 0 -1px 0 rgba($back, .25)
-    button-background(lighten($color, $lighten), spin(darken($color, $darken), $spin))
+    $button-background-generator(lighten($color, $lighten), spin(darken($color, $darken), $spin))
     // Hover
     &:hover
       color: $front
@@ -30,6 +30,37 @@ if $button-generator is not defined
     .caret
       border-top-color: $front
       opacity: .75
+
+// Default button border generator
+if not $button-border-color-generator is defined
+  $button-border-color-generator($primary, $secondary)
+    border-color: $secondary $secondary darken($secondary, 25%)
+    border-color: rgba(0,0,0,.1) rgba(0,0,0,.1) rgba(0,0,0,.25)
+    .btn-group.btn-group-highlight:hover &
+      border-color: darken($secondary, 15%)darken($secondary, 15%) darken($secondary, 35%)
+      border-color: rgba(0,0,0,.25) rgba(0,0,0,.25) rgba(0,0,0,.4)
+
+// Default button background generator
+if not $button-background-generator is defined
+  $button-background-generator($start, $end, $height=50px)
+    // gradient-bar will set the background to a pleasing blend of these, to support IE<=9
+    gradient-bar($start, $end, $height)
+    $button-border-color-generator($start, $end)
+    //reset-filter()
+
+    // in these cases the gradient won't cover the background, so we override
+    .btn-group.open &.dropdown-toggle,
+    &:hover,
+    &:active,
+    &.active,
+    &.disabled,
+    &[disabled],
+      background-color: $end
+
+    // IE 7 + 8 can't handle box-shadow to show active, so we darken a bit ourselves
+    &:active,
+    &.active
+      background-color: darken($end, 10%) \\9
 
 // Buttons
 .btn
