@@ -1,6 +1,6 @@
 {
   "name": "landscape",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "A Stylus-powered frontend toolkit based on Bootstrap.",
   "keywords": ["css", "stylus", "toolkit", "bootstrap"],
   "author": "Marcus Ekwall <marcus.ekwall@gmail.com>",
